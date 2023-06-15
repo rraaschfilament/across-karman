@@ -1,0 +1,76 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  background: transparent url('./assets/background.png') 0% 0% no-repeat padding-box;
+  opacity: 1;
+  position: relative;
+}
+
+.earth {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+}
+
+.leo_orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 411px;
+  height: 411px;
+  background: transparent url('./assets/LEOSolid.svg') 0% 0% no-repeat padding-box;
+  transform: translate(-50%, -50%);
+}
+
+.leo_title {
+  position: absolute;
+  left: 5%;
+  top: 7%;
+
+}
+
+.meo_title {
+  position: absolute;
+  left: 4.7%;
+  top: 15%;
+}
+
+.heo_title {
+  position: absolute;
+  left: 5%;
+  top: 23%;
+}
+
+.gso_title {
+  position: absolute;
+  left: 5%;
+  top: 31%;
+}
+
+.geo_title {
+  position: absolute;
+  left: 5%;
+  top: 39%;
+}
+
+.player {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 645px;
+  height: 645px;
+  transform: translate(-50%, -50%);
+}
+
+@media screen {
+  
+}
+
