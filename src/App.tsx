@@ -16,12 +16,25 @@ export const App = () => {
 
   return (
     <div className="container" >
+      <div className="title_container">
       <img src={earth} className="earth" alt="earth" />
-      <img src={leoTitle} className="leo_title" alt="leo_title" onClick={handleClick} />
-      <img src={meoTitle} className="meo_title" alt="meo_title" onClick={handleClick} />
-      <img src={heoTitle} className="heo_title" alt="heo_title" onClick={handleClick} />
-      <img src={gsoTitle} className="gso_title" alt="gso_title" onClick={handleClick} />
-      <img src={geoTitle} className="geo_title" alt="geo_title" onClick={handleClick} />
+      <g className='title_group' data-name="leo_title_group">
+        <text className='title_text'><tspan x="0" y="0">LEO</tspan></text>
+      </g>
+      <g className='title_group' data-name="leo_title_group">
+        <text className='title_text'><tspan x="0" y="0">MEO</tspan></text>
+      </g>
+      <g className='title_group' data-name="leo_title_group">
+        <text className='title_text'><tspan x="0" y="0">HEO</tspan></text>
+      </g>
+      <g className='title_group' data-name="leo_title_group">
+        <text className='title_text'><tspan x="0" y="0">GSO</tspan></text>
+      </g>
+      <g className='title_group' data-name="leo_title_group">
+        <text className='title_text'><tspan x="0" y="0">GEO</tspan></text>
+      </g>
+      </div>
+
 
         <Player src={orbitsMoving} className="player" autoplay />
 
