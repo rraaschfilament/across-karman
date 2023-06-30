@@ -1,67 +1,676 @@
+@import url("https://p.typekit.net/p.css?s=1&k=waq7naz&ht=tk&f=10326.15815.26056.26060.26062.26063.31028.31030.31031&a=682332&app=typekit&e=css"); 
+/* UNCHANGING STYLES */
+
 html, body, #root {
   height: 100%;
   width: 100%;
   margin: 0;
   display: flex;
+
 }
 
-.container {
+.background_container {
   height: 100%;
   width: 100%;
-  background: transparent url('./assets/background.png') 0% 0% no-repeat padding-box;
+  background: transparent url('./assets/background.png') 0% 0% no-repeat;
   background-size: cover;
   opacity: 1;
   display: flex;
   flex-direction: column;
+
 }
 
 .earth {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 320px;
-  height: 320px;
-  transform: translate(-0%, -50%);
-}
-
-.orbit_title_container {
-  padding-top: 5%;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.orbit_title_group {
-  opacity: 0.75;
-  width: 15%;
-  height: 7%;
-  border-left: #fff 3px solid;
-  margin-left: 6%;
-  margin-top: 1%;
-}
-
-.orbit_title_text {
-  font-family: AlternateGotNo1D, Alternate Gothic No1 D, sans-serif;
-  font-size: 30px;
-  color:#fff;
-  padding-left: 10%;
-  position: relative;
-  top: 15%;
-  left: 7%;
 }
 
 .player {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 645px;
-  height: 645px;
-  transform: translate(-25%, -50%);
+}
+
+.leo_player {
+  position: absolute;
+
+}
+
+.orbit_title_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.orbit_nav_button {
+  opacity: 1;
+  margin-top: 2%;
+
+}
+
+.orbit_nav_button_active {
+  position: absolute;
+  opacity: 1;
+  width: 45%;
+  height: 20%;
+
+  margin-left: 6%;
+  margin-top: 1%;
+  font-size: 33px;
+}
+
+@font-face {
+  font-family: "alternate-gothic-no-1-d";
+  src: url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "acumin-pro";
+  src: url("https://use.typekit.net/af/027dd4/00000000000000003b9acafa/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"),url("https://use.typekit.net/af/027dd4/00000000000000003b9acafa/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"),url("https://use.typekit.net/af/027dd4/00000000000000003b9acafa/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
+  font-display: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+}
+
+.leo_outline {
+  position: absolute;
+
+}
+
+.leo_label {
+  position: absolute;
+  z-index: 1;
+}
+
+.leo_fill {
+  position: absolute;
+
+}
+
+.leo_dotted {
+  position: absolute;
+
+}
+
+.leo_line_container {
+  position: absolute;
+
+}
+
+.line,
+.connecting_line {
+  position: absolute;
+  height: 2px;
+  width: 0;
+  transition: width 2s; /* Adjust the transition duration to match the animation duration */
+  transform-origin: left;
+}
+
+.drawing .line {
+  background-color: #d46410;
+  width: 100%;
+}
+
+.drawing .connecting_line {
+  background-color: #d46410;
+  height: 100%;
+  width: 2px;
+  transition: height 2s; /* Adjust the transition duration to match the animation duration */
+  transform-origin: top;
+  top: 0;
+  left: 0;
+}
+
+.drawing .connecting_line_dot {
+  position: absolute;
+  top: -5px;
+  left: 99%;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #d9620d;
+  opacity: 0; /* Initially hidden */
+  animation-name: fade-in;
+  animation-duration: 0.2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards; /* Retain the final state after animation */
+}
+
+.meo_fill {
+  position: absolute;
+
+}
+
+.meo_dotted {
+  position: absolute;
+
+}
+
+.meo_line_container {
+  position: absolute;
+}
+
+.heo_fill {
+  position: absolute;
+
+}
+
+.heo_dotted {
+  position: absolute;
+
+}
+
+.heo_line_container {
+  position: absolute;
+}
+
+.gso_fill {
+  position: absolute;
+
+}
+
+.gso_dotted {
+  position: absolute;
+
+}
+
+.gso_line_container {
+  position: absolute;
+}
+
+.geo_fill {
+  position: absolute;
+
+}
+
+.geo_dotted {
+  position: absolute;
+
+}
+
+.geo_line_container {
+  position: absolute;
+}
+
+.gto_fill {
+  position: absolute;
+
+}
+
+.gto_dotted {
+  position: absolute;
+
+}
+
+.gto_line_container {
+  position: absolute;
+}
+
+.orbit_title_popup {
+  border-top: #d46410 2px solid;
+  background: rgb(29,59,76);
+  opacity: 100%;
+  position: absolute;
+  width: 27%;
+  height: 45%;
+}
+
+.orbit_title_info_header {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  letter-spacing: 1.51px;
+  font-size: 50px;
+  color: #fff;
+  position: relative;
+  height: 10%;
+  padding-left: 7%;
+  padding-top: 5%;
+  justify-content: left;
+  opacity: 100%;
+}
+
+.orbit_title_info_body {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0px;
+  line-height: 1.5;
+  color:#fff;
+  position: relative;
+  top: 5%;
+  left: 7%;
+  right: 10%;
+  display: block;
+  padding-right: 20%;
+  font-weight: normal;
+}
+
+.orbit_popup_button {
+  position: absolute;
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: 35px;
+  top: 455px;
+  left: 30px; /* Change to percentage */
+  width: 154px;
+  height: 57px;
+  cursor: pointer;
+  background: #085988;
+  color: #fff;
+  opacity: 100%;
+  z-index: 1;
+}
+
+.orbit_background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  scale: .10;
+  top: -10px;
+  left: 60px;
+  transform: scale(12);
+  transition: transform 1s ease;
+}
+
+.earth_orbits_container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+}
+
+.orbit_closeup_container {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  background-color: #f3f2f1;
+  opacity: 0%;
+  animation-name: fly-in-right;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards; /* Retain the final state after animation */
+}
+
+.orbit_closeup_text {
+  position: relative;
+  padding-top: 2%;
+  padding-left: 5%;
+}
+
+.orbit_closeup_header {
+  font-family: "acumin-pro", Bold, sans-serif;
+  font-size: 68px;
+  letter-spacing: 1.58px;
+  color: #363135;
+  position: relative;
+  justify-content: left;
+  opacity: 1;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.orbit_closeup_subheader {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: 45px;
+  letter-spacing: 1.33px;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  color: #363135;
+  position: relative;
+  justify-content: left;
+  opacity: 1;
+}
+
+.orbit_closeup_body {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 22px;
+  letter-spacing: 0px;
+  line-height: 2;
+  color: #363135;
+  position: relative;
+  justify-content: left;
+  opacity: 1;
+  padding-left: 3%;
+  padding-right: 5%;
+  padding-bottom: 5%;
+}
+
+@keyframes fly-in-right {
+  0% {
+    opacity: 0%;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 90%;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fade-out-scale {
+  0% {
+    opacity: 1;
+    transform: scale(13);
+
+  }
+  50% {
+    opacity: 1;
+    transform: scale(13);
+
+  }
+  100% {
+    opacity: 0;
+    transform: scale(13);
+
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* EXTRA LARGE */
+@media (min-width: 1921px) and (min-height: 1081px){
+
+  .earth {
+    position:absolute;
+    height: 350px;
+    width: 350px;
+    left: 930px;
+    top: 280px;
+  
+  }
+  
+  .player {
+    position: absolute;
+    height: 900px;
+    width: 900px;
+    top: 0px;
+    left: 650px;
+  }
+
+
+}
+
+/* STANDARD 100% */
+@media (max-width: 1920px) and (max-height: 1080px){
+
+  .earth{
+    left: 770px;
+    top: 225px;
+  }
+
+  .leo_outline {
+    width: 550px;
+    height: 550px;
+    top: 170px;
+    left: 770px;
+  }
+
+  .leo_fill {
+    top: 165px;
+    left: 725px;
+  }
+
+  .leo_player {
+    top: 115px;
+    left: 675px;
+  }
+
+  .leo_label {
+    left: 770px;
+    top: 250px;
+    width: 59px;
+    height: 35px;
+  }
+
+  .leo_dotted {
+    top: 165px;
+    left: 725px;
+  }
+
+  .leo_line_container {
+    width: 512px; /* Adjust the width of the line container as needed */
+    height: 140px; /* Adjust the height of the line container as needed */
+    top: 250px;
+    left: 160px;
+  }
+
+  .meo_fill {
+    top: 90px;
+    left: 650px;
+  }
+
+  .meo_dotted {
+    top: 90px;
+    left: 650px;
+  }
+
+  .meo_line_container {
+    width: 430px; /* Adjust the width of the line container as needed */
+    height: 140px; /* Adjust the height of the line container as needed */
+    top: 250px;
+    left: 160px;
+  }
+
+  .heo_fill {
+    top: 40px;
+    left: 827px;
+  }
+
+  .heo_dotted {
+    top: 40px;
+    left: 827px;
+  }
+
+  .heo_line_container {
+    width: 858px; /* Adjust the width of the line container as needed */
+    height: 280px; /* Adjust the height of the line container as needed */
+    top: 110px;
+    left: 160px;
+  }
+
+  .gso_fill {
+    top: 15px;
+    left: 575px;
+  }
+
+  .gso_dotted {
+    top: 15px;
+    left: 575px;
+  }
+
+  .gso_line_container {
+    width: 350px; /* Adjust the width of the line container as needed */
+    height: 140px; /* Adjust the height of the line container as needed */
+    top: 250px;
+    left: 160px;
+  }
+
+  .geo_fill {
+    top: 400px;
+    left: 580px;
+  }
+
+  .geo_dotted {
+    top: 400px;
+    left: 580px;
+  }
+
+  .geo_line_container {
+    width: 420px; /* Adjust the width of the line container as needed */
+    height: 30px; /* Adjust the height of the line container as needed */
+    top: 360px;
+    left: 160px;
+  }
+
+  .gto_fill {
+    top: 410px;
+    left: 765px;
+  }
+
+  .gto_dotted {
+    top: 410px;
+    left: 765px;
+  }
+
+  .gto_line_container {
+    width: 522px; /* Adjust the width of the line container as needed */
+    height: 10px; /* Adjust the height of the line container as needed */
+    top: 380px;
+    left: 160px;
+  }
+
+  .player {
+    top: -10px;
+    left: 550px;
+  }
+
+  .orbit_title_container {
+    top: 50px;
+    left: 90px;
+    width: 192px;
+    height: 300px;
+  }
+
+  .orbit_title_popup {
+    top: 45%;  
+    left: 5%;
+  }
+
+  .orbit_closeup_container {
+    width: 600px;
+  }
+
+  /* .orbit_closeup_text {
+    top: 5%;
+    left: 6%;
+  } */
+
+}
+
+/* STANDARD 90% SMOOSH EARTH */
+@media (max-height: 850px){
+
+  .earth{
+    position:absolute;
+    height: 370px;
+    width: 370px;
+    left: 910px;
+    top: 300px;
+  }
+
+  .leo_outline {
+    width: 470px;
+    height: 470px;
+    top: 250px;
+    left: 860px;
+  }
+
+  .leo_fill {
+    width: 470px;
+    height: 470px;
+    top: 250px;
+    left: 860px;
+  }
+
+  .meo_fill {
+    width: 590px;
+    height: 590px;
+    top: 190px;
+    left: 800px;
+  }
+
+  .heo_fill {
+    width: 490px;
+    height: 480px;
+    top: 160px;
+    left: 910px;
+  }
+
+  .gso_fill {
+    width: 720px;
+    height: 720px;
+    top: 125px;
+    left: 735px;
+  }
+
+  .geo_fill {
+    top: 435px;
+    left: 630px;
+  }
+
+  .leo_player {
+    width: 750px;
+    height: 750px;
+    top: 110px;
+    left: 720px;
+
+  }
+
+  .leo_label {
+    left: 900px;
+    top: 300px;
+  }
+
+  .player {
+    height: 850px;
+    width: 850px;
+    top: 60px;
+    left: 670px;
+  
+  }
+
+  .orbit_title_container {
+    top: 40px;
+    left: 70px;
+    width: 192px;
+    height: 500px;
+  }
+
+  .orbit_title_popup {
+    top: 410px;  
+    left: 5%;
+  }
+
+}
+
+
+@media (max-width: 1880px) and (max-height: 771px){
+
+  .earth {
+    position:absolute;
+    height: 350px;
+    width: 350px;
+    left: 930px;
+    top: 280px;
+  
+  }
+  
+  .player {
+    position: absolute;
+    height: 900px;
+    width: 900px;
+    top: 0px;
+    left: 650px;
+  }
 }
 
 @media (max-width: 500px) {
-  .container {
+  .background_container {
     flex-direction: row; /* Horizontal alignment for mobile view */
   }
 
@@ -85,15 +694,32 @@ html, body, #root {
     left: 10%; /* Adjust the left position */
   }
 
+  .orbit_title_popup {
+    top: 56%; /* Adjust the top position */
+
+  }
+
+  .leo_fill {
+    width: 290px; /* Reduce the width */
+    height: 290px; /* Reduce the height */
+    transform: translate(-49%, -100%);
+  }
+
   .player {
     width: 450px; /* Reduce the width */
     height: 450px; /* Reduce the height */
-    transform: translate(-50%, -80%);
+    transform: translate(-50%, -82%);
+  }
+
+  .leo_player {
+    width: 450px; /* Reduce the width */
+    height: 450px; /* Reduce the height */
+    transform: translate(-50%, -82%);
   }
 
   .earth {
-    width: 200px; /* Reduce the width */
-    height: 200px; /* Reduce the height */
-    transform: translate(-50%, -115%);
+    width: 210px; /* Reduce the width */
+    height: 210px; /* Reduce the height */
+    transform: translate(-50%, -120%);
   }
 }

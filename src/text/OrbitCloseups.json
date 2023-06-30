@@ -1,0 +1,20 @@
+{
+    "leo_header": "LEO",
+    "leo_subheader": "TYPES OF SATELLITES IN LOW EARTH ORBIT",
+    "leo_body": "Low altitudes in combination with short orbital periods make LEO satellites ideally situated for remote sensing missions, including Earth observation and reconnaissance. Individual LEO satellites are less useful for telecommunications because they move quickly across the sky and require extensive tracking from ground stations. However, large combinations or constellations of satellites are able to provide high-bandwidth low-latency communications coverage. In order to increase coverage, sometimes constellations like this, consisting of several of the same or similar satellites, are launched together to create a ‘net’ around Earth. This lets them cover large areas of Earth simultaneously by working together.",
+    "meo_header": "MEO",
+    "meo_subheader": "TYPES OF SATELLITES IN MEDIUM EARTH ORBIT",
+    "meo_body": "Although over 90 percent of all satellites are situated in LEO and GEO, the less-crowded orbital regime is an ideal environment for a smaller subset of satellite systems, namely navigation satellites. Along with navigation satellites, businesses and government organizations use MEO to enhance communication to more remote parts of the world. Being at higher altitudes, satellites in MEO cover more of Earth’s surface per satellite than in LEO, and have lower transmission times and signal delay than those in GEO.",
+    "heo_header": "HEO",
+    "heo_subheader": "TYPES OF SATELLITES IN HIGHLY ELLIPTICAL ORBIT",
+    "heo_body": "Compared to GEO, HEOs are not limited to equatorial orbits and hence are able to cover landmasses of the Northern Hemisphere and also the Polar regions for both Fixed (FSS) and Mobile Satellite Service (MSS). Countries which need coverage over high latitude, Polar, or near-Polar areas make significant use of HEOs. Satellites in this orbit are used for communications, satellite radio, remote sensing, and other applications.",
+    "gso_header": "GSO",
+    "gso_subheader": "TYPES OF SATELLITES IN GEOSYNCHRONOUS ORBIT",
+    "gso_body": "Geosynchronous orbits allow satellites to maintain a set position over the globe, making them particularly useful for weather monitoring and allowing scientists to continuously observe a specific area to see how weather trends emerge and develop.",
+    "geo_header": "GEO",
+    "geo_subheader": "TYPES OF SATELLITES IN GEOSTATIONARY ORBIT",
+    "geo_body": "Satellites that most often reside in GEO are those that need to stay constantly above one particular place over Earth, such as telecommunication satellites, or those that benefit from monitoring the same area over time such as weather satellites. In the case of telecommunications satellites, antennas on Earth can be fixed to always stay pointed towards them without moving to allow for steady coverage. Weather satellites are particularly well-placed in this orbit because they can continually monitor and observe specific areas to see emerging weather trends.",
+    "gto_header": "GTO",
+    "gto_subheader": "TYPES OF SATELLITES IN GEOSTATIONARY TRANSFER ORBIT",
+    "gto_body": "?"
+}
