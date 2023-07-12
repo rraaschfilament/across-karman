@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import orbitsMoving from './lotties/all_orbits_moving.json';
@@ -15,18 +15,9 @@ export const App: React.FC = () => {
   const [activeId, setActiveId] = useState<string>('');
   const [hoveringId, setHoveringId] = useState<string>('');
   const [flyToId, setflyToId] = useState<string>('');
-  const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
-  const [currentStaticImg, setCurrentStaticImg] = useState<string>('');
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
-  const initialAppState = {
-    activeId: '',
-    hoveringId: '',
-    flyToId: '',
-    flyTransitionEnded: false,
-    currentStaticImg: ''
-  };
- 
+
   const handleSetActive = (id: string) => {
     setActiveId(id);
   };
@@ -37,39 +28,8 @@ export const App: React.FC = () => {
 
   const handleFly = (id: string) => {
     setflyToId(id);
+
   };
-
-  useEffect(() => {
-    const handleflyTransitionEnd = () => {
-      setflyTransitionEnded(true);
-    };
-
-    const elementName = 'earth_orbits_container';
-    const element = document.getElementById(elementName);
-    if (element) {
-      element.addEventListener('transitionend', handleflyTransitionEnd);
-    }
-    return () => {
-      if (element) {
-        element.removeEventListener('transitionend', handleflyTransitionEnd);
-      }
-    };
-  }, []);  
-
-  const handleSetStaticImg = (imgId : string) => {
-    console.log(imgId);
-    setCurrentStaticImg(imgId);
-  };
-
-  const handleReturntoMain = () => {
-    setActiveId('');
-    setCurrentStaticImg('');
-    setHoveringId('');
-    setflyToId('');
-    setflyTransitionEnded(false);
-  }
-
-
 
   return (
 
@@ -78,14 +38,8 @@ export const App: React.FC = () => {
         {!flyToId && <div className="orbit_title_container">
           {orbitIds.map((id) => {
             return <OrbitTitleGroup id={id} setActive={handleSetActive} activeId={activeId} setHover={handleSetHover} />
-              }
+          }
           )}
-
-          {orbitIds.map((id) => {
-                    return <PopUpLine id={id} activeId={activeId} />
-                  }
-                  )
-                  }
 
         </div>}
 
@@ -93,8 +47,15 @@ export const App: React.FC = () => {
           {!flyToId && activeId && <PopUpText id={activeId} setFly={handleFly} />}
 
       </div>
-      <div id="earth_orbits_container" className="earth_orbits_container" >
-
+      <div id="earth_orbits_container" className="earth_orbits_container">
+<div className="line_to_orbit_container">
+  
+</div>
+        {orbitIds.map((id) => {
+          return <PopUpLine id={id} activeId={activeId} />
+        }
+        )
+        }
 
         {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
         {<img src={earth} className="earth" alt="earth" />}
@@ -102,7 +63,7 @@ export const App: React.FC = () => {
         {/* May need something different here.  Could have a different active and hovering tab */}
         {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
 
-        {hoveringId && <SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
+        {hoveringId == "leo" && <SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
 
         {activeId && <SingleOrbitImage id={activeId} imageDesc='_fill' />}
 
@@ -112,9 +73,8 @@ export const App: React.FC = () => {
         )}
       </div>
       {flyToId && activeId && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
-      {flyToId && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
-      {!currentStaticImg && flyTransitionEnded && <SingleOrbitAnimation id={flyToId} player={Player} desc="_orbit_details" />}
-      {currentStaticImg && <SingleOrbitImage id={flyToId} imageDesc={"_sat_" + currentStaticImg}/>}
+      {flyToId && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} /></div>}
+      {flyToId && <SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_details" />}
 
     </div>
   );

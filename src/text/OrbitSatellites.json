@@ -1,0 +1,35 @@
+{
+    "leo": {
+        "1": {
+            "name": "International Space Station (ISS)",
+            "description": "The International Space Station is the largest modular orbital laboratory and space base in LEO under the partnership of five space agencies: the United States' NASA, Russia's Roscosmos, Japan's JAXA, Europe's ESA, and Canada's CSA.",
+            "purpose": "The ISS was created to advance international collaboration in learning about space. It is home to crews of astronauts and cosmonauts, as well as a variety of science and technology experiments in the world’s only microgravity laboratory.",
+            "why" : "The ISS is in LEO out of necessity. Each section of the ISS is incredibly heavy, so it would be impossible to position each module any higher. Additionally, the farther away from Earth the more dangerous conditions and travel are for crew members, including high costs each trip (a minimum of four hours), to the ISS is expensive."
+        },
+        "2": {
+            "name": "Iridium Satellite Constellation",
+            "description": "Iridium is a 66-satellite full-coverage constellation orbiting at speeds of 17,000 mph.",
+            "purpose": "Working together, the satellites that make up the Iridium constellation can provide uninterrupted communications anywhere in the world.",
+            "why": "As one satellite passes away from an area, data-links hand off information to the next satellite coming within range. By doing this, voice and data can be transmitted in locations outside the reach of other communication systems. This feature, along with their relative proximity to Earth, translates to lower latency which in turn allows these communication platforms to support services that require faster throughput than what GEO and MEO assets can provide."
+        },
+        "3": {
+            "name": "Starlink",
+            "description": "Starlink is a satellite internet constellation operated by American aerospace company SpaceX, providing satellite Internet access coverage to over 54 countries.",
+            "purpose": "With approximately 3,900 functioning Starlink satellites in space, Starlink aims to deliver high-speed, low-latency internet to users all over the world.",
+            "why": "Starlink satellites operate on the lower end of LEO, approximately 342 miles (550 kilometers) above Earth, and therefore are able to offer service at significantly lower levels of latency."
+        }
+
+    },
+    "meo" : {
+        "1": {
+            "name" : "MEOISS",
+            "description": "Leo is a fire sign and the fifth sign of the zodiac.",
+            "purpose": "Leo is the sign of the self, a born leader, and a charismatic."
+        },
+        "2": {
+            "name": "MEOStarlink",
+            "description": "Leo is a fire sign and the fifth sign of the zodiac.",
+            "purpose": "Leo is the sign of the self, a born leader, and a charismatic."
+        }
+    }
+}

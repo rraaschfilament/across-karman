@@ -42,7 +42,7 @@ const PopUpText: React.FC<PopUpTextProps> = ({id, setFly}) => {
         <div className='orbit_title_popup'>
 
       <div className="orbit_title_info_header">{headerText}</div>
-      <div className="orbit_title_info_body"><b>Distance: </b>{bodyDistanceText}<br/><b>About: </b>{bodyAboutText}<br/><b>Risks: </b></div>
+      <div className="orbit_title_info_body"><strong>Distance: </strong>{bodyDistanceText}<br/><strong>About: </strong>{bodyAboutText}<br/><strong>Risks: </strong></div>
       <button id={id} className='orbit_popup_button' onClick={flyToOrbit}>{buttonText}</button>
       </div>
     )
