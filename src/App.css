@@ -30,6 +30,14 @@ html, body, #root {
   transform: translate(-50%, -50%);
 }
 
+.earth_orbits_container {
+  position: relative;
+  left: 25%;
+  width: 85%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .player {
   position: absolute;
   z-index: 1;
@@ -40,28 +48,44 @@ html, body, #root {
   transform: translate(-50%, -50%);
 }
 
+/* .lf-player-container {
+  position: absolute;
+  height: 100%;
+} */
+
 .leo_orbit_moving {
   position: absolute;
-  height: 72%;
+  width: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  /* height: 72%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .meo_orbit_moving {
   position: absolute;
+  width: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 62%;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 89%; */
 }
 
 .heo_orbit_moving {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 76%;
+  left: 39%;
   transform: translate(-30%, -65%);
-  height: 70%;
+  height: 160%;
+  width: 60%;
 }
 
 .nav_container {
@@ -102,12 +126,17 @@ html, body, #root {
 
 @font-face {
   font-family: "alternate-gothic-no-1-d";
+  src: url("./alternate-gothic-no-1-d.otf") format("opentype");
+}
+
+/* @font-face {
+  font-family: "alternate-gothic-no-1-d";
   src: url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
   font-display: auto;
   font-style: normal;
   font-weight: 100;
   font-stretch: normal;
-}
+} */
 
 /* @font-face {
     font-family: "acumin-pro";
@@ -376,16 +405,16 @@ html, body, #root {
 
 .orbit_title_info_header {
   font-family: "alternate-gothic-no-1-d", sans-serif;
+  -webkit-font-smoothing: antialiased;
   letter-spacing: 1.51px;
-  font-size: 50px;
+  font-size: 45px;
   color: #fff;
   position: relative;
   height: 10%;
   padding-left: 7%;
   padding-top: 5%;
   justify-content: left;
-  opacity: 100%;
-  font-weight: 100;
+
 }
 
 .orbit_title_info_body {
@@ -404,6 +433,7 @@ html, body, #root {
 .orbit_popup_button {
   position: absolute;
   font-family: "alternate-gothic-no-1-d", sans-serif;
+  -webkit-font-smoothing: antialiased;
   font-size: 35px;
   top: 88%;
   left: 5%;
@@ -416,6 +446,7 @@ html, body, #root {
   z-index: 1;
 }
 
+/* Orbit Closeup */
 .orbit_background {
   position: absolute;
   width: 100%;
@@ -428,46 +459,159 @@ html, body, #root {
   transition: transform 1s ease;
 }
 
-.earth_orbits_container {
-  position: relative;
-  left: 25%;
-  width: 85%;
-  height: 100%;
-  overflow: hidden;
-}
-
 .orbit_closeup_container {
   position: absolute;
   height: 100%;
+  width: 30%;
   right: 0;
   background-color: #f3f2f1;
-  opacity: 0%;
+  opacity: 1 !important;
   animation-name: fly-in-right;
   animation-duration: 1s;
   animation-delay: 1s;
-  animation-fill-mode: forwards; /* Retain the final state after animation */
+  animation-fill-mode: forwards; 
   z-index: 1;
+}
+
+.orbit_closeup_back_button {
+  position: relative;
+  float: right;
+  padding-right: 5%;
+}
+
+.orbit_closeup_satellite_icons {
+  position: absolute;
+  top: 15%;
+  left: -5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.selectedSat {
+  padding-top: 30%;;
+}
+
+.unselectedSat {
+  padding-top: 30%;
+}
+
+
+.orbit_closeup_text {
+  position: relative;
+  padding-top: 7%;
+  padding-left: 7%;
+  text-align: left;
+  height: 100%;
+}
+
+.orbit_closeup_header {
+  font-family: "acumin-pro", Bold, sans-serif;
+  font-size: 68px;
+  font-weight: 700;
+  letter-spacing: 1.58px;
+  color: #363135;
+  position: relative;
+  justify-content: left;
+  opacity: 1;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-bottom: 3%;
+}
+
+.orbit_closeup_subheader {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 41px;
+  letter-spacing: 1.33px;
+  padding-top: 2%;
+  padding-left: 3%;
+  padding-right: 5%;
+  color: #363135;
+  position: relative;
+  text-align: left;
+  opacity: 1;
+}
+
+.orbit_closeup_section_headings {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 21px;
+  letter-spacing: 1.33px;
+  padding-top: 3%;
+  padding-left: 3%;
+  padding-right: 5%;
+  color: #363135;
+  position: relative;
+  text-align: left;
+  opacity: 1;
+}
+
+.orbit_title_info_body {
+  font-family: "acumin-pro", sans-serif;
+  line-height: 2;
+  color:#fff;
+  position: relative;
+  top: 2.4%;
+  left: 7%;
+  right: 10%;
+  display: block;
+  padding-right: 10%;
+  font-weight: 300;
+}
+
+.orbit_closeup_body {
+  font-family: "acumin-pro", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0px;
+  line-height: 2;
+  color: #363135;
+  position: relative;
+  justify-content: left;
+  opacity: 1;
+  padding-left: 3%;
+  padding-right: 5%;
+
 }
 
 .orbit_closeup_button_group {
   position: absolute;
-  display:flex;
+  bottom: 0;
+  left: 0; 
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  opacity: 1 !important;
+  z-index: 2;
+  cursor: pointer;
+  top: 85%;
 }
 
-.orbit_closeup_button {
-  margin-left: 5%;
+.orbit_closeup_button_outlined {
+  margin-right: 10%;
   font-family: "alternate-gothic-no-1-d", sans-serif;
-  font-size: 35px;
-  top: 88%;
-  left: 5%;
+  -webkit-font-smoothing: antialiased;
+  font-size: 45px;
+  width: 175px;
+  height: 65px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #7b726f;
+}
+
+.orbit_closeup_button_plain {
+  margin-top: 0.5%;
+  margin-left: 10%;
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: 45px;
   width: 154px;
   height: 57px;
-  cursor: pointer;
-  background: #085988;
-  color: #fff;
-  opacity: 100%;
-  z-index: 1;
+  background: 0% 0% no-repeat padding-box;
+  border: none;
 }
+
 
 /*this is the closeup player*/
 .leo_orbit_details {
@@ -545,54 +689,6 @@ html, body, #root {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 
-}
-
-
-.orbit_closeup_text {
-  position: relative;
-  padding-top: 2%;
-  padding-left: 5%;
-}
-
-.orbit_closeup_header {
-  font-family: "acumin-pro", Bold, sans-serif;
-  font-size: 68px;
-  letter-spacing: 1.58px;
-  color: #363135;
-  position: relative;
-  justify-content: left;
-  opacity: 1;
-  padding-top: 3%;
-  padding-left: 3%;
-  padding-bottom: 3%;
-}
-
-.orbit_closeup_subheader {
-  font-family: "alternate-gothic-no-1-d", sans-serif;
-  font-size: 45px;
-  letter-spacing: 1.33px;
-  padding-top: 3%;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-  color: #363135;
-  position: relative;
-  justify-content: left;
-  opacity: 1;
-}
-
-.orbit_closeup_body {
-  font-family: "acumin-pro", sans-serif;
-  font-size: 22px;
-  letter-spacing: 0px;
-  line-height: 2;
-  color: #363135;
-  position: relative;
-  justify-content: left;
-  opacity: 1;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 5%;
 }
 
 @keyframes fly-in-right {
@@ -1035,7 +1131,7 @@ html, body, #root {
   
   } */
 
-  .orbit_title_container {
+  /* .orbit_title_container {
     top: 40px;
     left: 70px;
     width: 192px;
@@ -1068,7 +1164,7 @@ html, body, #root {
   .orbit_popup_button {
     font-size: 35px;
     top: 340px;
-    left: 30px; /* Change to percentage */
+    left: 30px; 
     width: 154px;
     height: 57px;
   }
@@ -1102,7 +1198,7 @@ html, body, #root {
   padding-left: 3%;
   padding-right: 5%;
   padding-bottom: 5%;
-}
+} */
 
 }
 

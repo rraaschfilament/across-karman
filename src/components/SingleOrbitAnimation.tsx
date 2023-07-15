@@ -12,9 +12,7 @@ const SingleOrbitImage: React.FC<SingleOrbitAnimationProps> = ({id, player, desc
     const Player = player
 
     return (
-        <div>
             <Player src={animation} className={id + desc} autoplay/>
-        </div>
     )
 }
 

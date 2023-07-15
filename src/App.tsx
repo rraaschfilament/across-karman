@@ -6,6 +6,7 @@ import earth from './assets/earth.png';
 import OrbitTitleGroup from './components/OrbitTitleGroup';
 import SingleOrbitImage from './components/SingleOrbitImage';
 import SingleOrbitAnimation from './components/SingleOrbitAnimation';
+import TestStaticImgCloseup from './components/TestStaticImgCloseup';
 import PopUpLine from './components/PopUpLine';
 import PopUpText from './components/PopUpText';
 import OrbitCloseupText from './components/OrbitCloseupText';
@@ -19,13 +20,6 @@ export const App: React.FC = () => {
   const [currentStaticImg, setCurrentStaticImg] = useState<string>('');
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
-  const initialAppState = {
-    activeId: '',
-    hoveringId: '',
-    flyToId: '',
-    flyTransitionEnded: false,
-    currentStaticImg: ''
-  };
  
   const handleSetActive = (id: string) => {
     setActiveId(id);
@@ -114,7 +108,8 @@ export const App: React.FC = () => {
       {flyToId && activeId && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
       {flyToId && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
       {!currentStaticImg && flyTransitionEnded && <SingleOrbitAnimation id={flyToId} player={Player} desc="_orbit_details" />}
-      {currentStaticImg && <SingleOrbitImage id={flyToId} imageDesc={"_sat_" + currentStaticImg}/>}
+      {/* {currentStaticImg && <SingleOrbitImage id={flyToId} imageDesc={"_sat_" + currentStaticImg}/>} */}
+      {currentStaticImg && <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg}/>}
 
     </div>
   );

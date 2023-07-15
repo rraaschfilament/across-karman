@@ -7,7 +7,7 @@ interface PopUpTextProps {
 }
 
 interface PopUpTextContent {
-    [key: string]: string;
+    [id: string]: string;
 }
 
 const PopUpText: React.FC<PopUpTextProps> = ({id, setFly}) => {
@@ -17,7 +17,6 @@ const PopUpText: React.FC<PopUpTextProps> = ({id, setFly}) => {
     const buttonText = (popupText as PopUpTextContent)[id + "_button"];
 
     const flyToOrbit = () => {
-        console.log('fly to orbit');
         setFly(id);
     
         const elementName = 'earth_orbits_container';
@@ -43,7 +42,7 @@ const PopUpText: React.FC<PopUpTextProps> = ({id, setFly}) => {
 
       <div className="orbit_title_info_header">{headerText}</div>
       <div className="orbit_title_info_body"><strong>Distance: </strong>{bodyDistanceText}<br/><strong>About: </strong>{bodyAboutText}<br/><strong>Risks: </strong></div>
-      <button id={id} className='orbit_popup_button' onClick={flyToOrbit}>{buttonText}</button>
+      {id !== "gto" && <button id={id} className='orbit_popup_button' onClick={flyToOrbit}>{buttonText}</button>}
       </div>
     )
 }

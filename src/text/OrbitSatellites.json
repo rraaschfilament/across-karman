@@ -1,35 +1,81 @@
 {
     "leo": {
         "1": {
-            "name": "International Space Station (ISS)",
-            "description": "The International Space Station is the largest modular orbital laboratory and space base in LEO under the partnership of five space agencies: the United States' NASA, Russia's Roscosmos, Japan's JAXA, Europe's ESA, and Canada's CSA.",
-            "purpose": "The ISS was created to advance international collaboration in learning about space. It is home to crews of astronauts and cosmonauts, as well as a variety of science and technology experiments in the world’s only microgravity laboratory.",
-            "why" : "The ISS is in LEO out of necessity. Each section of the ISS is incredibly heavy, so it would be impossible to position each module any higher. Additionally, the farther away from Earth the more dangerous conditions and travel are for crew members, including high costs each trip (a minimum of four hours), to the ISS is expensive."
+            "name": "INTERNATIONAL SPACE STATION (ISS)",
+            "description": "The International Space Station is the largest modular orbital laboratory and space base in LEO under the partnership of five space agencies: the United States' NASA, Russia's Roscosmos, Japan's JAXA, Europe's ESA, and Canada's CSA.<br/> ",
+            "purpose":
+            "The ISS was created to advance international collaboration in learning about space. It is home to crews of astronauts and cosmonauts, as well as a variety of science and technology experiments in the world’s only microgravity laboratory.<br/> ",
+            "why":
+            "The ISS is in LEO out of necessity. Each section of the ISS is incredibly heavy, so it would be impossible to position each module any higher. Additionally, the farther away from Earth the more dangerous conditions and travel are for crew members, including high costs each trip (a minimum of four hours), to the ISS is expensive."
         },
         "2": {
-            "name": "Iridium Satellite Constellation",
+            "name": "IRIDIUM SATELLITE CONSTELLATION",
             "description": "Iridium is a 66-satellite full-coverage constellation orbiting at speeds of 17,000 mph.",
             "purpose": "Working together, the satellites that make up the Iridium constellation can provide uninterrupted communications anywhere in the world.",
             "why": "As one satellite passes away from an area, data-links hand off information to the next satellite coming within range. By doing this, voice and data can be transmitted in locations outside the reach of other communication systems. This feature, along with their relative proximity to Earth, translates to lower latency which in turn allows these communication platforms to support services that require faster throughput than what GEO and MEO assets can provide."
         },
         "3": {
-            "name": "Starlink",
+            "name": "STARLINK",
             "description": "Starlink is a satellite internet constellation operated by American aerospace company SpaceX, providing satellite Internet access coverage to over 54 countries.",
             "purpose": "With approximately 3,900 functioning Starlink satellites in space, Starlink aims to deliver high-speed, low-latency internet to users all over the world.",
             "why": "Starlink satellites operate on the lower end of LEO, approximately 342 miles (550 kilometers) above Earth, and therefore are able to offer service at significantly lower levels of latency."
+        },
+        "4": {
+            "name": "HUBBLE SPACE TELESCOPE",
+            "description": "A large, space-based observatory jointly created and operated by NASA and the European Space Agency (ESA).",
+            "purpose": "Hubble was designed as a general purpose observatory meant to explore space in visible, ultraviolet and infrared wavelengths, and it has revolutionized astronomy since 1990.",
+            "why": "In LEO, Hubble is unobstructed by Earth's atmosphere, which can distort light and block certain wavelengths."
         }
 
     },
     "meo" : {
         "1": {
-            "name" : "MEOISS",
-            "description": "Leo is a fire sign and the fifth sign of the zodiac.",
-            "purpose": "Leo is the sign of the self, a born leader, and a charismatic."
+            "name" : "THE GLOBAL POSITIONING SYSTEM (GPS) ",
+            "description": "GPS is the US government-owned and US Air Force-run satellite-based navigation system that currently consists of 31 satellites, with each satellite in circular MEO with an altitude of about 20,000 km.",
+            "purpose": "Originally intended for military use and later made available for civilian use in the 1980’s, GPS provides users with positioning, navigation, and timing (PNT) services to determine one’s 3D position (latitude, longitude and altitude).",
+            "why": "In MEO, the GPS constellation is oriented such that at any given moment, every point on Earth has access to four GPS satellites. MEO is far enough that it has greater coverage than a LEO satellite can cover, which becomes essential when navigating more remote locations and minimizing “dead zones'.' Further, the greater distance from Earth than LEO makes the signal less likely to be blocked by smaller things such as mountains or forests, and through weather conditions."
         },
         "2": {
-            "name": "MEOStarlink",
-            "description": "Leo is a fire sign and the fifth sign of the zodiac.",
-            "purpose": "Leo is the sign of the self, a born leader, and a charismatic."
+            "name": "GALILEO",
+            "description": "Created and operated by the European Space Agency (ESA), Galileo is Europe’s Global Navigation Satellite System (GNSS), comprising 30 satellites placed in MEO orbit, with 10 satellites placed in each of 3 orbital planes distributed evenly around the equator. ",
+            "purpose": "One of the aims of Galileo is to provide an independent high-precision positioning system so that European political and military authorities do not have to rely on the US GPS or the Russian GLONASS systems, which could be disabled or degraded by their respective operators at any time.",
+            "why": "At such an altitude, there is over a 90% chance that anyone anywhere in the world can always be in sight of at least four of the satellites and determine their position."
+        }
+    },
+    "heo" : {
+        "1": {
+            "name" : "MOLNIYA SATELLITES",
+            "description": "Molniya satellites were former military and communication satellites operated by the Soviet Union, giving their name to what is now known as the Molniya orbit.",
+            "purpose": "Molniya satellites were developed to experiment with new orbital patterns, as GEO did not allow for coverage of the Polar region. For the majority of their periods, Molniya satellites are primarily observing the northern hemisphere of Earth. Since both the US and Russia are in the northern hemisphere, Molniya orbits were ideal for reconnaissance satellites in the Cold War Era. The Meridian satellite constellation is the successor to the Molniya satellites.",
+            "why": "The orbital pattern of Molniya satellites lent itself to a longer exposure over the northern hemisphere, at a much lower energy cost. It was specifically designed for coverage of higher latitudes."
+        },
+        "2": {
+            "name": "TRANSITING EXPOPLANET SURVEY SATELLITE (TESS)",
+            "description": "Transiting Exoplanet Survey Satellite (TESS) is a two-year NASA scientific satellite mission surveying for extrasolar planets in both celestial hemispheres, led by MIT.",
+            "purpose": "TESS detects small planets in the solar neighborhood by monitoring the brightnesses of more than 500,000 stars and searches for temporary drops in brightness caused by planetary transits, so that detailed characterizations of the planets and their atmospheres can be performed.",
+            "why": "The TESS HEO is in a 2:1 resonant orbit with the moon, meaning its orbital period is half of that of the moon.  In HEO, TESS is afforded continuous viewing of the anti-solar sky for over 27 days per month, and is a very stable environment for exoplanet observations, allowing for sensitivities of less than 60 ppm for the brightest stars."
+        }
+    },
+    "gso" : {
+        "1": {
+            "name" : "NOAA GOES-R SERIES",
+            "description": "NOAA’s latest generation of Geostationary Operational Environmental Satellites (GOES), known as the GOES-R Series, is a four-satellite program including GOES-R, GOES-S, GOES-T and GOES-U and the nation’s most advanced fleet of geostationary weather satellites.",
+            "purpose": "The GOES-R Series provides advanced imagery and atmospheric measurements of Earth’s weather, oceans and environment, real-time mapping of total lightning activity, and improved monitoring of solar activity and space weather.",
+            "why": "GOES-R Series satellites circle Earth in geosynchronous orbit, which means they orbit Earth’s equatorial plane at a speed matching Earth’s rotation. This allows them to stay in a fixed position in the sky, remaining stationary with respect to a point on the ground, and continually view the Western Hemisphere from approximately 22,300 miles above Earth."
+        }
+    },
+    "geo" : {
+        "1": {
+            "name" : "INTELSAT 1",
+            "description": "Intelsat I was the first commercial communications satellite to be placed in geosynchronous orbit, and the first satellite to provide direct and near instantaneous contact between Europe and North America.",
+            "purpose": "Intelsat 1 handled television, telephone, and facsimile transmissions; it helped provide the first live TV coverage of a Gemini 6 spacecraft splashdown, broadcasted the Apollo 11 moon landing to millions of TV viewers around the world, doubled the number of telephone lines between the continents, and provided other critical telecommunications and broadcasting services.",
+            "why": "In order to hold its static position relative to Earth’s axis, Intelsat I had to be placed directly above the equator. Its fixed position in GEO enabled ground tracking to be accomplished without the need for complex tracking antennas."
+        },
+        "2": {
+            "name": "DISH NETWORK DIRECT BROADCASTING SATELLITES (DBS)",
+            "description": "DISH uses a network of 11 satellites in geostationary orbit – including EchoStar-19, Echostar-23, EchoStar-15, Anik F3, Nimiq, and soon-to-come Echostar-25 – each of which are only expected to be useful for 15 years.",
+            "purpose": "TThese satellites deliver direct broadcasting programming to approximately 7.1 million customers across the U.S., namely to rural areas, where satellite TV is the dominant television service.",
+            "why": "DISH Network satellites are placed into specific “orbital slots” in GEO, staying in a fixed position in relation to the earth to support direct, uninterrupted broadcasting. Ground stations must be able to \"see\" their satellite all time and hence must remain stationary in the same positions relative to the Earth's surface."
         }
     }
 }

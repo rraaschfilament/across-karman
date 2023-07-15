@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
+import close from '../assets/close.png';
+import selectedSat from '../assets/closeup_satellite_selected.png';
+import unselectedSat from '../assets/closeup_satellite_unselected.png';
 import orbitCloseupText from '../text/OrbitCloseups.json';
 import orbitSatellites from '../text/OrbitSatellites.json';
-import SingleOrbitImage from '../components/SingleOrbitImage';
 
 interface OrbitCloseupTextProps {
     id: string;
@@ -10,8 +12,8 @@ interface OrbitCloseupTextProps {
     unsetFlyTo: () => void;
 }
 
-interface OrbitCloseupTextContent {
-    [key: string]: string;
+interface OrbitCloseupTextContent  {
+    [id: string]: string;
 }
 
 interface OrbitCloseupImgContent {
@@ -20,26 +22,54 @@ interface OrbitCloseupImgContent {
             name: string;
             description: string;
             purpose: string;
+            why: string;
         }
     }
 }
 
+interface DynamicHTMLRendererProps {
+    htmlContent: string | TrustedHTML;
+  }
+
+const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({ htmlContent}) => {
+    return <div dangerouslySetInnerHTML={{ __html: htmlContent}} />;
+  };
+
+
 const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, currentStaticImg, unsetFlyTo}) => {
-        const headerIndex = id + "_header";
-        const subHeaderIndex = id + "_subheader";
-        const bodyIndex = id + "_body";
-    
-        const headerText = (orbitCloseupText as OrbitCloseupTextContent)[headerIndex];
-        const subHeaderText = currentStaticImg ? (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["name"] : (orbitCloseupText as OrbitCloseupTextContent)[subHeaderIndex];
-        const bodyText = currentStaticImg ? (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["description"] : (orbitCloseupText as OrbitCloseupTextContent)[bodyIndex];
+    const [numSatellites, setnumSatellites] = React.useState(Array);
+
+    const previousBtnText = "< PREVIOUS";  
+    const headerIndex = id + "_header";
+    const subHeaderIndex = id + "_subheader";
+    const bodyIndex = id + "_body";
+
+    const headerText = (orbitCloseupText as OrbitCloseupTextContent)[headerIndex];
+    const subHeaderText = currentStaticImg ? (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["name"] : (orbitCloseupText as OrbitCloseupTextContent)[subHeaderIndex];
+
+    const satelliteDes: React.ReactNode = (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["description"];
+    const satellitePurp: React.ReactNode = (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["purpose"];
+    const satelliteWhy: React.ReactNode = (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[currentStaticImg]?.["why"];
+
+    const bodyText: React.ReactNode = (orbitCloseupText as OrbitCloseupTextContent)[bodyIndex];
+
+    useEffect(() => {
+        if (id){
+            const numSatellites = Array.from(
+                { length: Object.keys((orbitSatellites as unknown as OrbitCloseupImgContent)[id]).length },
+                (_, index) => index + 1
+              );
+            setnumSatellites(numSatellites);
+        }
+    }, [id]);
 
 
     const showNext = () => {
-        console.log('show next');
 
         if (!currentStaticImg){
             setStaticImg('1');
         } else {
+
             const number = parseInt(currentStaticImg) + 1;
             const validSatelliteIndex = (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[number.toString()];
 
@@ -54,7 +84,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
 
                 setStaticImg(number.toString());
             } else {
-                console.log('no more satellites');
                 setStaticImg('');
             }
         }
@@ -102,16 +131,34 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
 
 
     return (
+        
         <div className="orbit_closeup_text">
+            <div className="orbit_closeup_satellite_icons">
+            {numSatellites.map((_satellite: any, index: any) => (
+                console.log("in map:" +currentStaticImg),
+            <img
+                id={index + 1 }
+                className={`${index + 1  == currentStaticImg ? 'selectedSat' : 'unselectedSat'}`}
+                src={index + 1  == currentStaticImg ? selectedSat : unselectedSat}
+            />
+            ))}
+            </div>
+            <img className="orbit_closeup_back_button" src={close} onClick={backtoMain} />
             <div className="orbit_closeup_header">{headerText}</div>
             <div className="orbit_closeup_subheader">{subHeaderText}</div>
-            <div className="orbit_closeup_body">{bodyText}</div>
+            {!currentStaticImg && <div className="orbit_closeup_body"><DynamicHTMLRenderer htmlContent={bodyText} /></div>}
+            {currentStaticImg && <div className="orbit_closeup_section_headings">DESCRIPTION</div>}
+            {currentStaticImg && <div className="orbit_closeup_body"><DynamicHTMLRenderer htmlContent={satelliteDes} /></div>}
+            {currentStaticImg && <div className="orbit_closeup_section_headings">PURPOSE</div>}
+            {currentStaticImg && <div className="orbit_closeup_body"><DynamicHTMLRenderer htmlContent={satellitePurp} /></div>}
+            {currentStaticImg && <div className="orbit_closeup_section_headings">WHY</div>}
+            {currentStaticImg && <div className="orbit_closeup_body"><DynamicHTMLRenderer htmlContent={satelliteWhy} /></div>}
             <div className="orbit_closeup_button_group">
 
-            {parseInt(currentStaticImg) > 1 && <button id={id} className='orbit_closeup_button' onClick={showPrevious}>Previous</button>}
-            {!currentStaticImg && <button id={id} className='orbit_closeup_button' onClick={backtoMain}>Orbits</button>}
+
+            {currentStaticImg && <button id={id} className='orbit_closeup_button_plain' onClick={showPrevious}>{previousBtnText}</button>}
             <br/>
-            <button id={id} className='orbit_closeup_button' onClick={showNext}>Next</button>
+            {parseInt(currentStaticImg) === numSatellites.length ? <button id={id} className='orbit_closeup_button_outlined' onClick={backtoMain}>ORBITS</button> : <button id={id} className='orbit_closeup_button_outlined' onClick={showNext}>NEXT</button>}
             </div>
         </div>
     )
