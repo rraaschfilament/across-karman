@@ -39,7 +39,10 @@ const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({ htmlContent})
 const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, currentStaticImg, unsetFlyTo}) => {
     const [numSatellites, setnumSatellites] = React.useState(Array);
 
-    const previousBtnText = "< PREVIOUS";  
+    const previousBtnText = "< PREVIOUS";
+    const previousBtnId = id + "_previous_button"; 
+    const nextBtnId = id + "_next_button"; 
+    const orbitBtnId = id + "_orbit_button";
     const headerIndex = id + "_header";
     const subHeaderIndex = id + "_subheader";
     const bodyIndex = id + "_body";
@@ -65,6 +68,10 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
 
 
     const showNext = () => {
+        const btnelement = document.getElementById(nextBtnId);
+        if (btnelement) {
+            btnelement?.classList.add('clicked');
+        }
 
         if (!currentStaticImg){
             setStaticImg('1');
@@ -91,7 +98,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
     }
 
     const showPrevious = () => {
-        console.log('show previous');
 
         if (!currentStaticImg){
             setStaticImg('1');
@@ -103,7 +109,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
 
                 setStaticImg(number.toString());
             } else {
-                console.log('no more satellites');
                 setStaticImg('');
             }
         }
@@ -111,6 +116,11 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
 
 
     const backtoMain = () => {
+        const btnelement = document.getElementById(orbitBtnId);
+        if (btnelement) {
+            btnelement?.classList.add('clicked');
+        }
+
         unsetFlyTo();
         const elementName = 'earth_orbits_container';
         const element = document.getElementById(elementName);
@@ -128,7 +138,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
           }
           }, 1);
     }
-
 
     return (
         
@@ -156,9 +165,9 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
             <div className="orbit_closeup_button_group">
 
 
-            {currentStaticImg && <button id={id} className='orbit_closeup_button_plain' onClick={showPrevious}>{previousBtnText}</button>}
+            {currentStaticImg && <button id={previousBtnId} className='orbit_closeup_button_plain' onClick={showPrevious}>{previousBtnText}</button>}
             <br/>
-            {parseInt(currentStaticImg) === numSatellites.length ? <button id={id} className='orbit_closeup_button_outlined' onClick={backtoMain}>ORBITS</button> : <button id={id} className='orbit_closeup_button_outlined' onClick={showNext}>NEXT</button>}
+            {parseInt(currentStaticImg) === numSatellites.length ? <button id={nextBtnId} className='orbit_closeup_button_outlined' onClick={backtoMain}>ORBITS</button> : <button id={orbitBtnId} className='orbit_closeup_button_outlined' onClick={showNext}>NEXT</button>}
             </div>
         </div>
     )

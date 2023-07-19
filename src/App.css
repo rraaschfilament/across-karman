@@ -4,7 +4,7 @@
 html, body, #root {
   height: 100%;
   width: 100%;
-  margin: 0;
+  margin: 0px;
   display: flex;
 
 }
@@ -31,11 +31,12 @@ html, body, #root {
 }
 
 .earth_orbits_container {
+  transform: scale(1);
   position: relative;
   left: 25%;
   width: 85%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .player {
@@ -56,36 +57,46 @@ html, body, #root {
 .leo_orbit_moving {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 99%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* height: 72%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
 }
 
 .meo_orbit_moving {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 102%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 89%; */
 }
 
 .heo_orbit_moving {
   position: absolute;
-  top: 76%;
-  left: 39%;
+  top: 68%;
+  left: 31%;
   transform: translate(-30%, -65%);
-  height: 160%;
-  width: 60%;
+  height: 108%;
+  width: 100%;
+}
+
+.gso_orbit_moving {
+  position: absolute;
+  width: 100%;
+  height: 105%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.geo_orbit_moving {
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .nav_container {
@@ -102,7 +113,7 @@ html, body, #root {
   z-index: 1;
   top: 5%;
   left: 8%;
-  width: 100%;
+  width: 92%;
   height: 35%;
 }
 
@@ -129,24 +140,6 @@ html, body, #root {
   src: url("./alternate-gothic-no-1-d.otf") format("opentype");
 }
 
-/* @font-face {
-  font-family: "alternate-gothic-no-1-d";
-  src: url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/9fa845/000000000000000000010d5b/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-  font-display: auto;
-  font-style: normal;
-  font-weight: 100;
-  font-stretch: normal;
-} */
-
-/* @font-face {
-    font-family: "acumin-pro";
-    src: url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/46da36/00000000000000003b9acaf6/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-    font-display: auto;
-    font-style: normal;
-    font-weight: 300;
-    font-stretch: normal;
-} */
-
 .leo_outline {
   position: absolute;
 
@@ -163,21 +156,21 @@ html, body, #root {
   position: absolute;
   z-index: 1;
   top: 20%;
-  left: 28%;
+  left: 32%;
 }
 
 .heo_label {
   position: absolute;
   z-index: 1;
-  top: 10%;
-  left: 65%;
+  top: 20%;
+  left: 70%;
 }
 
 .gso_label {
   position: absolute;
   z-index: 1;
   top: 20%;
-  left: 20%;
+  left: 25%;
 }
 
 .geo_label {
@@ -299,55 +292,48 @@ html, body, #root {
 /* These lines containers are sized at 1920x1080, will need to figure out something better */
 .leo_line_container {
   position: absolute;
-  top: 92%;
-  left: 300px;
-  /* left: 38%; */
-  width: 648px;
-  height: 30%;
+  top: 115%;
+  left: 50%;
+  height: 8%;
 
 }
 
 .meo_line_container {
   position: absolute;
-  top: 93%;
+  top: 115%;
   left: 50%;
-  width: 70%;
-  height: 30%;
+  height: 8%;
 
 }
 
 .heo_line_container {
   position: absolute;
-  top: 53%;
+  top:60%;
   left: 50%;
-  width: 161%;
-  height: 70%;
+  height: 63%;
 
 }
 
 .gso_line_container {
   position: absolute;
-  top: 93%;
-  left: 49%;
-  width: 52%;
-  height: 30%;
+  top: 115%;
+  left: 50%;
+  height: 8%;
 
 }
 
 .geo_line_container {
   position: absolute;
-  top: 115%;
+  top: 121%;
   left: 50%;
-  width: 90%;
-  height: 8%;
+  height: 2%;
 
 }
 
 .gto_line_container {
   position: absolute;
   top: 122%;
-  left: 50%;
-  width: 95%;
+  left: 60%;
   height: 1%;
 
 }
@@ -395,39 +381,44 @@ html, body, #root {
   border-top: #d46410 2px solid;
   background: rgb(29,59,76);
   opacity: 100%;
-  position: absolute;
-  width: 100%;
+  position: relative;
+  width: 92%;
   height: 50%;
   top: 48%;
   left: 5%;
-  /* overflow: scroll; */
+  overflow: scroll;
+  display: inline-flexbox;
 }
 
 .orbit_title_info_header {
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   letter-spacing: 1.51px;
-  font-size: 45px;
+  font-size: 33px;
   color: #fff;
   position: relative;
   height: 10%;
   padding-left: 7%;
-  padding-top: 5%;
+  padding-top: 3%;
   justify-content: left;
+  overflow: scroll;
+  flex: 1;
 
 }
 
 .orbit_title_info_body {
   font-family: "acumin-pro", sans-serif;
+  font-size: 15px;
   line-height: 2;
   color:#fff;
   position: relative;
-  top: 2.4%;
   left: 7%;
   right: 10%;
   display: block;
   padding-right: 10%;
+  padding-bottom: 2%;
   font-weight: 300;
+  flex: 2;
 }
 
 .orbit_popup_button {
@@ -435,7 +426,7 @@ html, body, #root {
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 35px;
-  top: 88%;
+  float: bottom;
   left: 5%;
   width: 154px;
   height: 57px;
@@ -444,6 +435,11 @@ html, body, #root {
   color: #fff;
   opacity: 100%;
   z-index: 1;
+  flex: 3;
+}
+
+.risk_icon {
+  margin-right: 5%;
 }
 
 /* Orbit Closeup */
@@ -477,6 +473,7 @@ html, body, #root {
   position: relative;
   float: right;
   padding-right: 5%;
+  z-index: 1;
 }
 
 .orbit_closeup_satellite_icons {
@@ -600,6 +597,11 @@ html, body, #root {
   border: 1px solid #7b726f;
 }
 
+.orbit_closeup_button_outlined:hover {
+  background-color: white;
+  color:#085988;
+}
+
 .orbit_closeup_button_plain {
   margin-top: 0.5%;
   margin-left: 10%;
@@ -610,6 +612,20 @@ html, body, #root {
   height: 57px;
   background: 0% 0% no-repeat padding-box;
   border: none;
+}
+
+.orbit_closeup_button_plain:hover {
+  text-decoration: underline;
+}
+
+.orbit_closeup_button_plain:active {
+  text-decoration: underline;
+  color:#085988;
+}
+
+.orbit_closeup_button_outlined:active {
+  color:#085988;
+  border: 2px solid #085988;
 }
 
 
@@ -757,505 +773,42 @@ html, body, #root {
 
 }
 
-/* STANDARD 100% */
-@media (max-width: 1920px) and (max-height: 1080px){
-
-  /* .earth{
-    left: 970px;
-    top: 340px;
-  } */
-
-  /* .leo_outline {
-    width: 550px;
-    height: 550px;
-    top: 170px;
-    left: 770px;
-  }
-
-  .leo_fill {
-    top: 280px;
-    left: 920px;
-  }
-
-  .leo_orbit_moving {
-    top: 230px;
-    left: 870px;
-  }
-
-  .leo_label {
-    left: 970px;
-    top: 340px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .leo_dotted {
-    top: 280px;
-    left: 920px;
-  }
-
-  .leo_line_container {
-    width: 698px; 
-    height: 100px; 
-    top: 390px;
-    left: 160px;
-  } */
-
-  /* .meo_fill {
-    top: 200px;
-    left: 845px;
-  } */
-
-  /* .meo_label {
-    left: 970px;
-    top: 240px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .meo_dotted {
-    top: 200px;
-    left: 845px;
-  }
-
-  .meo_line_container {
-    width: 660px; 
-    height: 195px; 
-    top: 295px;
-    left: 160px;
-  }
-
-  .heo_fill {
-    top: 165px;
-    left: 1027px;
-  }
-
-  .heo_label {
-    left: 1270px;
-    top: 270px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .heo_dotted {
-    top: 165px;
-    left: 1027px;
-  }
-*/
-/*
-  .heo_line_container {
-    width: 1165px; 
-    height: 335px; 
-    top: 155px;
-    left: 160px;
-  } 
-
-  .gso_fill {
-    top: 140px;
-    left: 775px;
-  }
-
-  .gso_label {
-    left: 870px;
-    top: 240px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .gso_dotted {
-    top: 125px;
-    left: 770px;
-  }
-
-  .gso_line_container {
-    width: 585px; 
-    height: 195px; 
-    top: 298px;
-    left: 160px;
-  }
-
-  .geo_fill {
-    top: 500px;
-    left: 770px;
-  }
-
-  .geo_label {
-    left: 900px;
-    top: 490px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .geo_dotted {
-    top: 500px;
-    left: 770px;
-  }
-
-  .geo_line_container {
-    width: 620px; 
-    height: 30px; 
-    top: 460px;
-    left: 160px;
-  }
-
-  .gto_fill {
-    top: 510px;
-    left: 965px;
-  }
-
-  .gto_label {
-    left: 1470px;
-    top: 540px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .gto_dotted {
-    top: 510px;
-    left: 965px;
-  }
-
-  .gto_line_container {
-    width: 722px; 
-    height: 10px; 
-    top: 480px;
-    left: 160px;
-  } */
-
-  /* .player {
-    top: 115px;
-    left: 727px;
-  } */
-
-  /* .orbit_title_container {
-    top: 7%;
-    left: 4%;
-    width: 100%;
-    height: 40%;
-  }
-
-  .orbit_title_popup {
-    top: 50%;  
-    left: 5%;
-    width: 100%;
-  } */
-}
-
-  @media (min-height: 1080px){
-
-  .orbit_title_info_body {
-    font-size: 18px;
-  }
-
-  .orbit_closeup_container {
-    width: 600px;
-  }
-
-  /* .orbit_closeup_text {
-    top: 5%;
-    left: 6%;
-  } */
-
-}
-
-/* STANDARD 90% SMOOSH EARTH */
-@media (max-width: 1280px) and (max-height: 800px){
-
-  /* .earth{
-    position:absolute;
-    height: 370px;
-    width: 370px;
-    left: 690px;
-    top: 225px;
-  } */
-
-  /* .leo_outline {
-    width: 470px;
-    height: 470px;
-    top: 250px;
-    left: 860px;
-  }
-
-  .leo_fill {
-    width: 470px;
-    height: 470px;
-    top: 170px;
-    left: 640px;
-  }
-
-  .leo_orbit_moving {
-    width: 470px;
-    height: 470px;
-    top: 170px;
-    left: 340px;
-  }
-
-  .leo_label {
-    left: 970px;
-    top: 340px;
-    width: 59px;
-    height: 35px;
-  }
-
-  .leo_dotted {
-    width: 470px;
-    height: 470px;
-    top: 170px;
-    left: 640px;
-  }
-
-  .leo_line_container {
-    width: 435px;
-    height: 100px; 
-    top: 260px;
-    left: 160px;
-  } */
-
-  /* .meo_fill {
-    width: 590px;
-    height: 590px;
-    top: 110px;
-    left: 580px;
-  }
-
-  .meo_dotted {
-    width: 590px;
-    height: 590px;
-    top: 110px;
-    left: 580px;
-  } */
-
-  /* .meo_line_container {
-    width: 430px; 
-    height: 195px; 
-    top: 165px;
-    left: 160px;
-  }
-
-  .heo_fill {
-    width: 490px;
-    height: 480px;
-    top: 90px;
-    left: 740px;
-  }
-
-  .heo_dotted {
-    width: 490px;
-    height: 480px;
-    top: 90px;
-    left: 740px;
-  }
-
-  .heo_line_container {
-    width: 770px; 
-    height: 205px; 
-    top: 155px;
-    left: 160px;
-  }
-
-  .gso_fill {
-    width: 720px;
-    height: 720px;
-    top: 46px;
-    left: 515px;
-  }
-
-  .gso_dotted {
-    width: 720px;
-    height: 720px;
-    top: 40px;
-    left: 510px;
-  }
-
-  .gso_line_container {
-    width: 288px; 
-    height: 62px; 
-    top: 298px;
-    left: 160px;
-  }
-
-  .geo_fill {
-    width: 730px;
-    top: 380px;
-    left: 510px;
-  }
-
-  .geo_dotted {
-    width: 730px;
-    top: 380px;
-    left: 510px;
-  }
-
-  .geo_line_container {
-    width: 420px;
-    height: 20px; 
-    top: 340px;
-    left: 160px;
-  }
-
-  .gto_fill {
-    top: 370px;
-    left: 665px;
-  }
-
-  .gto_dotted {
-    top: 370px;
-    left: 665px;
-  }
-
-  .gto_line_container {
-    width: 443px; 
-    height: 10px; 
-    top: 350px;
-    left: 160px;
-  }
-
-  .leo_player {
-    width: 750px;
-    height: 750px;
-    top: 110px;
-    left: 720px;
-
-  }
-
-  .leo_label {
-    left: 900px;
-    top: 300px;
-  } */
-
-  /* .player {
-    height: 850px;
-    width: 850px;
-    top: -15px;
-    left: 450px;
-  
-  } */
-
-  /* .orbit_title_container {
-    top: 40px;
-    left: 70px;
-    width: 192px;
-    height: 200px;
-  }
-
-  .orbit_title_popup {
-    top: 400px;  
-    left: 5%;
-  }
-
-  .orbit_title_info_header {
-    letter-spacing: 1.51px;
-    font-size: 33px;
-    height: 10%;
-    padding-left: 7%;
-    padding-top: 5%;
-  }
-  
-  .orbit_title_info_body {
-    font-size: 13px;
-    letter-spacing: 0px;
-    line-height: 1.5;
-    top: 5%;
-    left: 7%;
-    right: 10%;
-    padding-right: 20%;
-  }
-
-  .orbit_popup_button {
-    font-size: 35px;
-    top: 340px;
-    left: 30px; 
-    width: 154px;
-    height: 57px;
-  }
-
-  .orbit_closeup_container {
-    width: 400px;
-  }
-
-
-.orbit_closeup_header {
-  font-size: 58px;
-  letter-spacing: 1.58px;
-  padding-top: 3%;
-  padding-left: 3%;
-  padding-bottom: 3%;
-}
-
-.orbit_closeup_subheader {
-  font-size: 35px;
-  letter-spacing: 1.33px;
-  padding-top: 3%;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-}
-
-.orbit_closeup_body {
-  font-size: 15px;
-  letter-spacing: 0px;
-  line-height: 2;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-} */
-
-}
-
-
-@media (max-width: 1880px) and (max-height: 771px){
-
-  /* .earth {
-    position:absolute;
-    height: 350px;
-    width: 350px;
-    left: 930px;
-    top: 280px;
-  
-  }
-  
-  .player {
-    position: absolute;
-    height: 900px;
-    width: 900px;
-    top: 0px;
-    left: 650px;
-  } */
-}
-
 @media (max-width: 500px) {
   .background_container {
-    flex-direction: row; /* Horizontal alignment for mobile view */
+    position: relative;
   }
 
   .nav_container {
     width: 100%;
+    display: inline-flex;
   }
 
   .earth_orbits_container {
-    left: 0%;
-    top: 10%;
+    transform: scale(0.8);
+    left: -9%;
+    top: 5%;
     width: 100%;
     height: 60%;
   }
 
   .orbit_title_container {
+    display: inline-flex;
     flex-direction: row; /* Horizontal alignment for mobile view */
     top: 0px;
     left: -5px;
-    width: 100%;
+    max-width: 500px;
     height: 70px;
+    width: 82%;
   }
 
   .orbit_title_group {
-    flex-basis: 50%; /* Make each element take 50% of the container width */
+    flex-basis: 10%;
   }
 
   .orbit_nav_button {
     position: relative;
     opacity: 1;
     margin-top: 2%;
-    display: flex;
     padding: 1%;
 }
 
@@ -1486,7 +1039,7 @@ html, body, #root {
   
   .orbit_title_info_body {
     font-family: "acumin-pro", sans-serif;
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 0px;
     line-height: 1.5;
     color:#fff;

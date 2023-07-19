@@ -1,5 +1,6 @@
 
 import popupText from '../text/OrbitPopups.json';
+import RiskIcons from './RiskIcons';
 
 interface PopUpTextProps {
     id: string;
@@ -41,7 +42,7 @@ const PopUpText: React.FC<PopUpTextProps> = ({id, setFly}) => {
         <div className='orbit_title_popup'>
 
       <div className="orbit_title_info_header">{headerText}</div>
-      <div className="orbit_title_info_body"><strong>Distance: </strong>{bodyDistanceText}<br/><strong>About: </strong>{bodyAboutText}<br/><strong>Risks: </strong></div>
+      <div className="orbit_title_info_body"><strong>Distance: </strong>{bodyDistanceText}<br/><strong>About: </strong>{bodyAboutText}<br/><strong>Risks</strong><RiskIcons id={id}/></div>
       {id !== "gto" && <button id={id} className='orbit_popup_button' onClick={flyToOrbit}>{buttonText}</button>}
       </div>
     )

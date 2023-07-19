@@ -1,4 +1,4 @@
-import useImage from '../hooks/useImage'
+import useImage from '../hooks/useImage';
 import React from 'react';
 
 interface TestStaticImgCloseupProps {
@@ -9,7 +9,7 @@ interface TestStaticImgCloseupProps {
 const TestStaticImgCloseup: React.FC<TestStaticImgCloseupProps> = ({id, imageNum}) => {
     const [satelliteNumber, setSatelliteNumber] = React.useState(Number);
     const imageName = id + '_sat_' + imageNum;
-    const {image} = useImage(imageName)
+    const {image} = useImage(imageName);
 
     if(imageNum !== satelliteNumber.toString()){
         setSatelliteNumber(parseInt(imageNum));

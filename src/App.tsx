@@ -18,6 +18,8 @@ export const App: React.FC = () => {
   const [flyToId, setflyToId] = useState<string>('');
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>('');
+  const [windowWidth, setWindowWidth] = useState<number>(document.documentElement.clientWidth);
+  const [earthOrbitScale, setEarthOrbitScale] = useState<string>('scale(1)');
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
  
@@ -34,6 +36,42 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(document.documentElement.clientWidth);
+      adjustElementScale(document.documentElement.clientWidth);
+    };
+
+    
+    function adjustElementScale(windowWidth: number) {
+      const earth_orbits_container = document.getElementById('earth_orbits_container');
+    
+      if (earth_orbits_container) {
+        if (windowWidth < 1920 && windowWidth > 500) {
+          const loss = 1920 - windowWidth;
+          const percentLoss = Math.round(loss / 19.2);
+          const scaleNum = 1 - (percentLoss / 100);
+          console.log("scale: " + scaleNum);
+          const scale = "scale(" + scaleNum + ")";
+    
+          // Check if the element already has a transform style
+          const existingTransform = earth_orbits_container.style.transform;
+          if (existingTransform && existingTransform.includes('scale(')) {
+            const updatedTransform = existingTransform.replace(/scale\([^)]*\)\s*/g, '');
+            earth_orbits_container.style.transform = updatedTransform + ' ' + scale;
+          } else {
+            earth_orbits_container.style.transform = scale;
+          }
+        } else if (windowWidth <= 500) {
+          const existingTransform = earth_orbits_container.style.transform;
+          if (existingTransform && existingTransform.includes('scale(')) {
+            const updatedTransform = existingTransform.replace(/scale\([^)]*\)\s*/g, '');
+            earth_orbits_container.style.transform = updatedTransform;
+        }
+      }
+    }
+
+    adjustElementScale(windowWidth);
+
     const handleflyTransitionEnd = () => {
       setflyTransitionEnded(true);
     };
@@ -43,15 +81,17 @@ export const App: React.FC = () => {
     if (element) {
       element.addEventListener('transitionend', handleflyTransitionEnd);
     }
+    window.addEventListener('resize', handleResize);
     return () => {
       if (element) {
         element.removeEventListener('transitionend', handleflyTransitionEnd);
       }
+      window.removeEventListener('resize', handleResize);
     };
+  }
   }, []);  
 
   const handleSetStaticImg = (imgId : string) => {
-    console.log(imgId);
     setCurrentStaticImg(imgId);
   };
 
@@ -68,47 +108,49 @@ export const App: React.FC = () => {
   return (
 
     <div className="background_container" >
-      <div className="nav_container">
-        {!flyToId && <div className="orbit_title_container">
-          {orbitIds.map((id) => {
-            return <OrbitTitleGroup id={id} setActive={handleSetActive} activeId={activeId} setHover={handleSetHover} />
-              }
-          )}
 
-          {orbitIds.map((id) => {
-                    return <PopUpLine id={id} activeId={activeId} />
-                  }
-                  )
-                  }
+        <div className="nav_container">
+          {!flyToId && <div className="orbit_title_container">
+            
+            {orbitIds.map((id) => {
+              return <OrbitTitleGroup id={id} setActive={handleSetActive} activeId={activeId} setHover={handleSetHover} />
+                }
+            )}
 
-        </div>}
+            {orbitIds.map((id) => {
+                      return <PopUpLine id={id} activeId={activeId} />
+                    }
+                    )
+                    }
+
+          </div>}
 
 
           {!flyToId && activeId && <PopUpText id={activeId} setFly={handleFly} />}
 
-      </div>
-      <div id="earth_orbits_container" className="earth_orbits_container" >
+        </div>
+        <div id="earth_orbits_container" className="earth_orbits_container" >
 
+          {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
+          {<img src={earth} className="earth" alt="earth" />}
 
-        {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
-        {<img src={earth} className="earth" alt="earth" />}
+          {/* May need something different here.  Could have a different active and hovering tab */}
+          {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
 
-        {/* May need something different here.  Could have a different active and hovering tab */}
-        {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
+          {hoveringId && hoveringId != "gto" &&<SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
 
-        {hoveringId && <SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
+          {activeId && <SingleOrbitImage id={activeId} imageDesc='_fill' />}
 
-        {activeId && <SingleOrbitImage id={activeId} imageDesc='_fill' />}
+          {activeId && orbitIds.filter(id => id !== activeId).map((id) => {
+            return <SingleOrbitImage id={id} imageDesc='_dotted' />
+          }
+          )}
+        </div>
 
-        {activeId && orbitIds.filter(id => id !== activeId).map((id) => {
-          return <SingleOrbitImage id={id} imageDesc='_dotted' />
-        }
-        )}
-      </div>
       {flyToId && activeId && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
       {flyToId && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
       {!currentStaticImg && flyTransitionEnded && <SingleOrbitAnimation id={flyToId} player={Player} desc="_orbit_details" />}
-      {/* {currentStaticImg && <SingleOrbitImage id={flyToId} imageDesc={"_sat_" + currentStaticImg}/>} */}
+    
       {currentStaticImg && <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg}/>}
 
     </div>
