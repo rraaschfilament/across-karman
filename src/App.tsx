@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import orbitsMoving from './lotties/all_orbits_moving.json';
@@ -18,10 +18,10 @@ export const App: React.FC = () => {
   const [flyToId, setflyToId] = useState<string>('');
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>('');
-  const [windowWidth, setWindowWidth] = useState<number>(document.documentElement.clientWidth);
-  const [earthOrbitScale, setEarthOrbitScale] = useState<string>('scale(1)');
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
+
+  const earthOrbitsContainerRef = useRef<HTMLDivElement>(null);
  
   const handleSetActive = (id: string) => {
     setActiveId(id);
@@ -36,8 +36,15 @@ export const App: React.FC = () => {
   };
 
   useEffect(() => {
+    if (flyToId) {
+
+      // Reset the flyTransitionEnded state after the animation is done
+      //setflyTransitionEnded(false);
+    }
+  }, [flyToId, flyTransitionEnded]);
+
+  useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(document.documentElement.clientWidth);
       adjustElementScale(document.documentElement.clientWidth);
     };
 
@@ -72,24 +79,41 @@ export const App: React.FC = () => {
 
     adjustElementScale(windowWidth);
 
-    const handleflyTransitionEnd = () => {
-      setflyTransitionEnded(true);
-    };
+    // const handleflyTransitionEnd = () => {
+    //   setflyTransitionEnded(true);
+    // };
 
-    const elementName = 'earth_orbits_container';
-    const element = document.getElementById(elementName);
-    if (element) {
-      element.addEventListener('transitionend', handleflyTransitionEnd);
-    }
-    window.addEventListener('resize', handleResize);
-    return () => {
-      if (element) {
-        element.removeEventListener('transitionend', handleflyTransitionEnd);
-      }
-      window.removeEventListener('resize', handleResize);
-    };
-  }
+  //   const elementName = 'earth_orbits_container';
+  //   const element = document.getElementById(elementName);
+  //   if (element) {
+  //     element.addEventListener('transitionend', handleflyTransitionEnd);
+  //   }
+  //   window.addEventListener('resize', handleResize);
+  //   return () => {
+  //     if (element) {
+  //       element.removeEventListener('transitionend', handleflyTransitionEnd);
+  //     }
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+   }
   }, []);  
+
+  const handleflyTransitionEnd = (event: { target: { id: string; }; }) => {
+    if(event.target.id === 'earth_orbits_container') {
+
+    const element = document.getElementById('earth_orbits_container');
+    if (element) {
+      if(element.classList.contains('earth_fly_out')) { 
+        //this is handling the fly out
+        element.classList.remove('earth_fly_out');
+      } else {
+        //this is handling the fly in
+        setflyTransitionEnded(true);
+      }
+    }
+  }
+
+  };
 
   const handleSetStaticImg = (imgId : string) => {
     setCurrentStaticImg(imgId);
@@ -103,7 +127,8 @@ export const App: React.FC = () => {
     setflyTransitionEnded(false);
   }
 
-
+console.log("flyTransitionEnded: " +flyTransitionEnded)
+console.log("flyToId: " + flyToId)
 
   return (
 
@@ -129,7 +154,7 @@ export const App: React.FC = () => {
           {!flyToId && activeId && <PopUpText id={activeId} setFly={handleFly} />}
 
         </div>
-        <div id="earth_orbits_container" className="earth_orbits_container" >
+        <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
 
           {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
           {<img src={earth} className="earth" alt="earth" />}
@@ -147,8 +172,8 @@ export const App: React.FC = () => {
           )}
         </div>
 
-      {flyToId && activeId && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
-      {flyToId && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
+      {flyToId && flyTransitionEnded && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
+      {flyToId && flyTransitionEnded && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
       {!currentStaticImg && flyTransitionEnded && <SingleOrbitAnimation id={flyToId} player={Player} desc="_orbit_details" />}
     
       {currentStaticImg && <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg}/>}

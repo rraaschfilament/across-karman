@@ -126,6 +126,7 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
         const element = document.getElementById(elementName);
     
         if (element) {
+          element.classList.add('earth_fly_out');
           element.style.transform = 'scale(1)';
           element.style.transition = 'transform 2s ease';
           element.style.transformOrigin = '50% 16%';
