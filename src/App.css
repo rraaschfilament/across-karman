@@ -6,7 +6,7 @@ html, body, #root {
   width: 100%;
   margin: 0px;
   display: flex;
-
+  overflow: hidden;
 }
 
 .background_container {
