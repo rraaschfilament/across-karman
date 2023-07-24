@@ -71,7 +71,7 @@ export const App: React.FC = () => {
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes('scale(')) {
           const updatedTransform = existingTransform.replace(/scale\([^)]*\)\s*/g, '');
-          earth_orbits_container.style.transform = updatedTransform;
+          earth_orbits_container.style.transform = updatedTransform + 'translate(-50%, -20%);';
       }
     }
   }
@@ -129,9 +129,6 @@ useEffect(() => {
     adjustElementScale(document.documentElement.clientWidth);
   }
 
-console.log("flyTransitionEnded: " +flyTransitionEnded)
-console.log("flyToId: " + flyToId)
-
   return (
 
     <div className="background_container" >
@@ -158,8 +155,8 @@ console.log("flyToId: " + flyToId)
         </div>
         <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
 
-          {/* {!activeId && <Player src={orbitsMoving} className="player" autoplay />} */}
-          <Player src={orbitsMoving} className="player" autoplay />
+          {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
+
           {<img src={earth} className="earth" alt="earth" />}
 
           {/* May need something different here.  Could have a different active and hovering tab */}
@@ -178,7 +175,7 @@ console.log("flyToId: " + flyToId)
         </div>
 
       {flyToId && flyTransitionEnded && <img src={orbitBackground} id="orbit_background" className="orbit_background" alt="orbit_background" />}
-      {flyToId && flyTransitionEnded && <div className="orbit_closeup_container"><OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/></div>}
+      {flyToId && flyTransitionEnded && <OrbitCloseupText id={flyToId} setStaticImg={handleSetStaticImg} currentStaticImg={currentStaticImg} unsetFlyTo={handleReturntoMain}/>}
       {!currentStaticImg && flyTransitionEnded && <SingleOrbitAnimation id={flyToId} player={Player} desc="_orbit_details" />}
     
       {currentStaticImg && <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg}/>}

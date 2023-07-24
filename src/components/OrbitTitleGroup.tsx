@@ -24,8 +24,9 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeI
   };
 
   const imageName = id === activeId ? id + '_nav_button_active' : id + '_nav_button';
-  const {image} = useImage(imageName);
- const btnId = id+'_nav_button'
+
+  const {image} = document.documentElement.clientWidth <= 500 ? useImage(imageName + '_mobile') : useImage(imageName);
+  const btnId = id+'_nav_button'
   
   return (
     <div id={btnId} className='orbit_nav_button' onClick={handleClick}>

@@ -401,8 +401,8 @@ html, body, #root {
   width: 92%;
   height: 95%;
   left: 5%;
-  overflow: scroll;
-  display: inline-flexbox;
+  display: flex;
+  flex-direction: column;
 }
 
 .orbit_title_info_header {
@@ -417,7 +417,7 @@ html, body, #root {
   padding-top: 3%;
   justify-content: left;
   overflow: scroll;
-  flex: 1;
+  flex: 0.3;
 
 }
 
@@ -432,9 +432,16 @@ html, body, #root {
   display: block;
   padding-bottom: 2%;
   font-weight: 300;
-  flex: 2;
+  flex: 3;
+  overflow: scroll;
 
+}
 
+.orbit_title_info_footer {
+  position: relative;
+  height: 5%;
+  flex: 0.5;
+  bottom: 0%;
 }
 
 .orbit_popup_button {
@@ -473,28 +480,43 @@ html, body, #root {
 .orbit_closeup_container {
   position: absolute;
   height: 100%;
-  width: 30%;
+  width: 35%;
   right: 0;
   background-color: #f3f2f1;
   opacity: 1 !important;
   animation-name: fly-in-right;
   animation-duration: 1s;
-  /* animation-delay: 1s; */
   animation-fill-mode: forwards; 
   z-index: 1;
 }
 
-.orbit_closeup_back_button {
+.orbit_closeup_text {
   position: relative;
+  text-align: left;
+  top: 0%;
+  height: 87%;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  margin-left: 7%;
+  margin-top: 5%;
+}
+
+.orbit_closeup_back_button {
+  width: 5%;
+  height: 3%;
   float: right;
   padding-right: 5%;
+  padding-top: 5%;
   z-index: 1;
+  flex: 0.10;
 }
 
 .orbit_closeup_satellite_icons {
   position: absolute;
+  width: 10%;
   top: 15%;
-  left: -5%;
+  left: -6%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -509,18 +531,9 @@ html, body, #root {
   padding-top: 30%;
 }
 
-
-.orbit_closeup_text {
-  position: relative;
-  padding-top: 7%;
-  padding-left: 7%;
-  text-align: left;
-  height: 100%;
-}
-
 .orbit_closeup_header {
   font-family: "acumin-pro", Bold, sans-serif;
-  font-size: 68px;
+  font-size: 48px;
   font-weight: 700;
   letter-spacing: 1.58px;
   color: #363135;
@@ -530,12 +543,13 @@ html, body, #root {
   padding-top: 3%;
   padding-left: 3%;
   padding-bottom: 3%;
+  flex: 0.3;
 }
 
 .orbit_closeup_subheader {
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
-  font-size: 41px;
+  font-size: 33px;
   letter-spacing: 1.33px;
   padding-top: 2%;
   padding-left: 3%;
@@ -544,6 +558,7 @@ html, body, #root {
   position: relative;
   text-align: left;
   opacity: 1;
+  flex: 0.2;
 }
 
 .orbit_closeup_section_headings {
@@ -560,22 +575,9 @@ html, body, #root {
   opacity: 1;
 }
 
-.orbit_title_info_body {
-  font-family: "acumin-pro", sans-serif;
-  line-height: 2;
-  color:#fff;
-  position: relative;
-  top: 2.4%;
-  left: 7%;
-  right: 10%;
-  display: block;
-  padding-right: 10%;
-  font-weight: 300;
-}
-
 .orbit_closeup_body {
   font-family: "acumin-pro", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 300;
   letter-spacing: 0px;
   line-height: 2;
@@ -585,24 +587,25 @@ html, body, #root {
   opacity: 1;
   padding-left: 3%;
   padding-right: 5%;
-
+  flex: 3;
 }
 
 .orbit_closeup_button_group {
   position: absolute;
-  bottom: 0;
-  left: 0; 
+  bottom: 3%;
+  right: 0%; 
   width: 100%; 
   display: flex;
   justify-content: space-between;
   opacity: 1 !important;
   z-index: 2;
   cursor: pointer;
-  top: 85%;
+  /* top: 85%; */
+  flex: 1;
 }
 
 .orbit_closeup_button_outlined {
-  margin-right: 10%;
+  margin-right: 5%;
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 45px;
@@ -619,7 +622,7 @@ html, body, #root {
 
 .orbit_closeup_button_plain {
   margin-top: 0.5%;
-  margin-left: 10%;
+  margin-left: 5%;
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 45px;
@@ -669,57 +672,12 @@ html, body, #root {
   animation-fill-mode: forwards;
 }
 
-/* .orbit_closeup_satellite {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-
-
-} */
 .static_satellite_closeup {
   animation-name: fly-in-right;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-
-}
-/* 
-.leo_sat_2 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
-}
-.leo_sat_3 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
-} */
-
-.meo_sat_1 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
-}
-
-.meo_sat_2 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
-}
-
-.heo_sat_1 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-
-}
-
-.heo_sat_2 {
-  animation-name: fly-in-right;
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
+  position: relative;
+  left: 9%;
 
 }
 
@@ -788,22 +746,24 @@ html, body, #root {
 
 
 }
-@media (max-width: 1775px) {
-  .orbit_title_popup_container {
-    top: 45%;
-    height: 55%;
-    z-index: 2  ;
-  }
+@media (max-width: 1770px) {
+
+
 }
 
 @media (max-width: 1600px) {
-  .orbit_title_popup_container {
+  /* .orbit_title_popup_container {
     top: 45%;
     height: 55%;
     width: 110%;
     z-index: 2  ;
-  }
+  } */
 }
+
+/*****************************************************************************************************************************************************/
+/*****************************************************************************************************************************************************/
+/*****************************************************************************************************************************************************/
+
 
 @media (max-width: 500px) {
   .background_container {
@@ -811,29 +771,27 @@ html, body, #root {
   }
 
   .nav_container {
+    top: 1%;
     width: 100%;
     display: inline-flex;
   }
 
   .earth_orbits_container {
-    transform: scale(0.8);
-    left: -9%;
-    top: 5%;
+    top: 10%;
+    left: 0%;
     width: 100%;
     height: 60%;
-  }
-
-  .earth_fly_out {
   }
 
   .orbit_title_container {
     display: inline-flex;
     flex-direction: row; /* Horizontal alignment for mobile view */
-    top: 0px;
-    left: -5px;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -0%);
     max-width: 500px;
     height: 70px;
-    width: 82%;
+    width: 90%;
   }
 
   .orbit_title_group {
@@ -848,267 +806,148 @@ html, body, #root {
 }
 
 .orbit_nav_button_image {
-    width: 100%;
     object-fit: contain;
 }
 
   .orbit_title_text {
-    font-size: 20px; /* Reduce the font size */
-    padding-left: 5%; /* Reduce the left padding */
-    top: 20%; /* Adjust the top position */
-    left: 10%; /* Adjust the left position */
+    font-size: 20px; 
+    padding-left: 5%; 
+    top: 20%; 
+    left: 10%; 
+  }
+
+  .orbit_title_popup_container {
+    height: 45%;
+    top: 52%;
   }
 
   .orbit_title_popup {
-    top: 56%; /* Adjust the top position */
-    right: 5%;
-    width: 90%;
-    height: 40%;
-    bottom: 5%;
-  }
-
-  /* .player {
-    width: 100%; 
-    height: 450px; 
+    /* right: 5%;
+    width: 100%;
+    height: 85%;
     top: 10%;
-    left: 0%;
+    display: flex;
+    flex-direction: column; */
   }
 
-  .earth {
-    width: 180px;
-    height: 180px;
-    left: 28%;
-    top: 26%;
-  } */
-/* 
-  .leo_fill {
-    width: 220px; 
-    height: 220px; 
-    left: 23%;
-    top: 23%;
-  }
+  .player {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
-  .leo_orbit_moving {
-    width: 255px; 
-    height: 255px; 
-    left: 18%;
-    top: 21%;
-  }
 
-  .leo_outline {
-    width: 470px;
-    height: 470px;
-    top: 250px;
-    left: 860px;
-  }
+.earth {
+  position: absolute;
+  z-index: -1;
+  height: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .leo_label {
-    left: 25%;
-    top: 25%;
-    width: 40px;
-    height: 25px;
-  }
+.leo_fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 56%;
+  flex: 1;
+}
 
-  .leo_dotted {
-    width: 470px;
-    height: 470px;
-    top: 170px;
-    left: 640px;
-  }
+.meo_fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 72%;
+}
 
-  .leo_line_container {
-    width: 36px; 
-    height: 200px; 
-    top: 273px;
-    left: 15%;
-  } */
+.heo_fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-32%, -68%);
+  height: 53%;
+}
 
-  /* .meo_fill {
-    width: 275px;
-    height: 275px;
-    top: 20%;
-    left: 15%;
-  }
+.gso_fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 88%;
+}
 
-  .meo_label {
-    left: 12%;
-    top: 25%;
-    width: 40px;
-    height: 25px;
-  }
+.leo_dotted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 57%;
+}
 
-  .meo_dotted {
-    width: 280px;
-    height: 280px;
-    top: 19%;
-    left: 15%;
-  }
+.meo_dotted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 72%;
+}
 
-  .meo_line_container {
-    width: 20px; 
-    height: 195px; 
-    top: 280px;
-    left: 10%;
-  }
+.heo_dotted {
+  position: absolute;
+  top: 69%;
+  left: 30%;
+  transform: translate(-30%, -68%);
+  height: 85%;
+  /* width: 99%; */
+}
 
-  .heo_fill {
-    width: 210px;
-    height: 240px;
-    top: 18%;
-    left: 35%;
-  }
-
-  .heo_dotted {
-    width: 210px;
-    height: 240px;
-    top: 18%;
-    left: 35%;
-  }
-
-  .heo_line_container {
-    width: 213px; 
-    height: 275px; 
-    top: 200px;
-    left: 10%;
-  }
-
-  .heo_label {
-    left: 70%;
-    top: 18%;
-    width: 40px;
-    height: 25px;
-  }
-
-  .gso_fill {
-    width: 375px;
-    height: 375px;
-    top: 14%;
-    left: 3%;
-  }
-
-  .gso_dotted {
-    width: 375px;
-    height: 375px;
-    top: 14%;
-    left: 3%;
-  }
-
-  .gso_label {
-    left: 15%;
-    top: 18%;
-    width: 40px;
-    height: 25px;
-  }
-
-  .gso_line_container {
-    width: 14px; 
-    height: 62px; 
-    top: 410px;
-    left: 8%;
-  }
-
-  .geo_fill {
-    width: 375px;
-    top: 35%;
-    left: 3%;
-  }
-
-  .geo_dotted {
-    width: 375px;
-    top: 35%;
-    left: 3%;
-  }
-
-  .geo_line_container {
-    width: 0px; 
-    height: 152px; 
-    top: 321px;
-    left: 8%;
-  }
-
-  .geo_label {
-    left: 12%;
-    top: 34%;
-    width: 40px;
-    height: 25px;
-  }
-
-  .gto_fill {
-    width: 275px;
-    top: 35%;
-    left: 26%;
-  }
-
-  .gto_dotted {
-    width: 275px;
-    top: 35%;
-    left: 26%;
-  }
-
-  .gto_label {
-    left: 78%;
-    top: 33%;
-    width: 40px;
-    height: 25px;
-  }
-
-  .gto_line_container {
-    width: 40px; 
-    height: 165px; 
-    top: 310px;
-    left: 15%;
-  } */
+.gso_dotted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 88%;
+}
 
   .orbit_title_info_header {
-    font-family: "alternate-gothic-no-1-d", sans-serif;
-    letter-spacing: 1.51px;
-    font-size: 25px;
-    color: #fff;
-    position: relative;
-    height: 10%;
-    padding-left: 7%;
-    padding-top: 5%;
-    justify-content: left;
-    opacity: 100%;
+    flex: 0.4;
   }
   
   .orbit_title_info_body {
-    font-family: "acumin-pro", sans-serif;
-    font-size: 11px;
-    letter-spacing: 0px;
-    line-height: 1.5;
-    color:#fff;
-    position: relative;
-    top: 1%;
-    left: 7%;
-    right: 10%;
-    display: block;
-    padding-right: 20%;
-    font-weight: normal;
+
   }
   
   .orbit_popup_button {
-    position: absolute;
-    font-family: "alternate-gothic-no-1-d", sans-serif;
-    font-size: 30px;
-    top: 90%;
-    left: 30px; /* Change to percentage */
-    width: 154px;
-    height: 57px;
-    cursor: pointer;
-    background: #085988;
-    color: #fff;
-    opacity: 100%;
-    z-index: 1;
+    /* bottom: 5% */
   }
 
   .orbit_closeup_container {
     width: 100%;
-    height: 40%;
-    top: 60%;
+    height: 50%;
+    top: 50%;
     overflow: scroll;
   }
 
+  .orbit_closeup_satellite_icons {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    top: -10%;
+    left: 50%;
+  }
+
+  .orbit_closeup_back_button {
+    visibility: hidden;
+  }
+
+  .orbit_closeup_text {
+    height: 79%;
+  }
 
 .orbit_closeup_header {
   font-size: 40px;
