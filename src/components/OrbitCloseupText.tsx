@@ -81,14 +81,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
             const validSatelliteIndex = (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[number.toString()];
 
             if (validSatelliteIndex){
-
-                const elementName = id + "_sat_" + validSatelliteIndex;
-                const element = document.getElementById(elementName);
-            
-                if (element) {
-                    element.style.animation = 'fly-in-right 1s ease forwards';
-                }
-
                 setStaticImg(number.toString());
             } else {
                 setStaticImg('');
@@ -145,7 +137,7 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({id, setStaticImg, cu
         <div className="orbit_closeup_text">
             <div className="orbit_closeup_satellite_icons">
             {numSatellites.map((_satellite: any, index: any) => (
-                console.log("in map:" +currentStaticImg),
+                
             <img
                 id={index + 1 }
                 className={`${index + 1  == currentStaticImg ? 'selectedSat' : 'unselectedSat'}`}

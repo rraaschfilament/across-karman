@@ -17,7 +17,7 @@ const TestStaticImgCloseup: React.FC<TestStaticImgCloseupProps> = ({id, imageNum
     
     return (
         <div>
-            <img src={image} id={imageName} className={imageName} alt={imageName}/>
+            <img src={image} id={imageName} alt={imageName}/>
         </div>
     )
 }

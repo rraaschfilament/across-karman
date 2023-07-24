@@ -295,6 +295,7 @@ html, body, #root {
   top: 115%;
   left: 50%;
   height: 8%;
+  /* width: 662px; */
 
 }
 
@@ -666,12 +667,13 @@ html, body, #root {
 
 
 } */
-.leo_sat_1 {
+.static_satellite_closeup {
   animation-name: fly-in-right;
   animation-duration: 1s;
   animation-fill-mode: forwards;
 
 }
+/* 
 .leo_sat_2 {
   animation-name: fly-in-right;
   animation-duration: 1s;
@@ -683,7 +685,7 @@ html, body, #root {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 
-}
+} */
 
 .meo_sat_1 {
   animation-name: fly-in-right;
@@ -777,6 +779,22 @@ html, body, #root {
   }
 
 
+}
+@media (max-width: 1775px) {
+  .orbit_title_popup_container {
+    top: 45%;
+    height: 55%;
+    z-index: 2  ;
+  }
+}
+
+@media (max-width: 1600px) {
+  .orbit_title_popup_container {
+    top: 45%;
+    height: 55%;
+    width: 110%;
+    z-index: 2  ;
+  }
 }
 
 @media (max-width: 500px) {

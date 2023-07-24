@@ -16,30 +16,31 @@ const PopUpLine: React.FC<PopUpLineProps> = ({ id, activeId }) => {
     const orbitLineContainer = id + '_line_container';
     const orbitLine = id + '_line';
 
-    useEffect(() => {
-        const updateWidth = () => {
-            //I think this is wrong, not getting the correct element width
-            const element = classRef.current;
-            const elementWidth = element?.getAttribute('style');
-            console.log("Element width: " +elementWidth);
+    // useEffect(() => {
+    //     const updateWidth = () => {
+    //         //I think this is wrong, not getting the correct element width
+    //         const element = classRef.current;
+    //         const elementWidth = element?.getAttribute('style');
+    //         console.log("Element width: " +elementWidth);
 
-        }
+    //     }
 
-        const handleResize = () => {
-            updateWidth();
-        }
+    //     const handleResize = () => {
+    //         updateWidth();
+    //     }
 
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        }
-    }, []);
+    //     window.addEventListener('resize', handleResize);
+    //     return () => {
+    //         window.removeEventListener('resize', handleResize);
+    //     }
+    // }, []);
 
-    let elementWidth = (lineWidths as LineWidths)[activeId];
+     let elementWidth = (lineWidths as LineWidths)[activeId];
+     
+    let returnedWidth = useWindow(elementWidth);
 
-    const returnedWidth = useWindow(elementWidth);
-
-    const componentStyle = returnedWidth ? { width: `${returnedWidth.newWidth}px` }: {};
+    const componentStyle = returnedWidth ? { width: `${returnedWidth.newWidth}px` }: {width: elementWidth};
+    
 
     return (
           <span ref={classRef} className={`${orbitLineContainer} ${id === activeId ? 'drawing' : ''}`} style={componentStyle}>
