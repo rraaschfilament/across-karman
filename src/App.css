@@ -23,7 +23,7 @@ html, body, #root {
 
 .earth {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   height: 50%;
   top: 50%;
   left: 50%;
@@ -39,11 +39,19 @@ html, body, #root {
   /* overflow: hidden; */
 }
 
-.player {
+/* .player {
   position: absolute;
   z-index: 1;
-  width: 100%;
+  width: 230%;
   height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+.player {
+  position: absolute;
+  width: 105%;
+  height: 105%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -57,7 +65,7 @@ html, body, #root {
 .leo_orbit_moving {
   position: absolute;
   width: 100%;
-  height: 99%;
+  height: 105%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -66,7 +74,7 @@ html, body, #root {
 .meo_orbit_moving {
   position: absolute;
   width: 100%;
-  height: 102%;
+  height: 105%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -74,11 +82,11 @@ html, body, #root {
 
 .heo_orbit_moving {
   position: absolute;
-  top: 68%;
-  left: 31%;
-  transform: translate(-30%, -65%);
-  height: 108%;
-  width: 100%;
+  top: 69%;
+  left: 30%;
+  transform: translate(-30%, -68%);
+  height: 105%;
+  width: 99%;
 }
 
 .gso_orbit_moving {
@@ -92,8 +100,8 @@ html, body, #root {
 
 .geo_orbit_moving {
   position: absolute;
-  width: 110%;
-  height: 100%;
+  width: 100%;
+  height: 104.5%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -163,7 +171,7 @@ html, body, #root {
   position: absolute;
   z-index: 1;
   top: 20%;
-  left: 70%;
+  left: 69%;
 }
 
 .gso_label {
@@ -192,7 +200,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 60%;
+  height: 65%;
   flex: 1;
 } 
 
@@ -201,15 +209,15 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 80%;
+  height: 81%;
 }
 
 .heo_fill {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-30%, -65%);
-  height: 70%;
+  transform: translate(-32%, -68%);
+  height: 68%;
 }
 
 .gso_fill {
@@ -241,7 +249,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 60%;
+  height: 65%;
 }
 
 .meo_dotted {
@@ -249,15 +257,15 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 80%;
+  height: 81%;
 }
 
 .heo_dotted {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 48%;
+  left: 49%;
   transform: translate(-30%, -65%);
-  height: 70%;
+  height: 69%;
 }
 
 .gso_dotted {

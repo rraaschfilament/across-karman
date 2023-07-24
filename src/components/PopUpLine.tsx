@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import useWindow from '../hooks/useWindow';
 import lineWidths from '../text/LineWidths.json';
 interface PopUpLineProps {
@@ -15,25 +15,6 @@ const PopUpLine: React.FC<PopUpLineProps> = ({ id, activeId }) => {
     
     const orbitLineContainer = id + '_line_container';
     const orbitLine = id + '_line';
-
-    // useEffect(() => {
-    //     const updateWidth = () => {
-    //         //I think this is wrong, not getting the correct element width
-    //         const element = classRef.current;
-    //         const elementWidth = element?.getAttribute('style');
-    //         console.log("Element width: " +elementWidth);
-
-    //     }
-
-    //     const handleResize = () => {
-    //         updateWidth();
-    //     }
-
-    //     window.addEventListener('resize', handleResize);
-    //     return () => {
-    //         window.removeEventListener('resize', handleResize);
-    //     }
-    // }, []);
 
      let elementWidth = (lineWidths as LineWidths)[activeId];
      

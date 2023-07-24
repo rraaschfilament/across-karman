@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import orbitsMoving from './lotties/all_orbits_moving.json';
@@ -102,9 +102,7 @@ useEffect(() => {
     }
   }, [currentStaticImg, flyToId]); 
 
-  const handleflyTransitionEnd = (event: { target: { id: string; }; }) => {
-    if(event.target.id === 'earth_orbits_container') {
-
+  const handleflyTransitionEnd = () => {
     const element = document.getElementById('earth_orbits_container');
     if (element) {
       if(element.classList.contains('earth_fly_out')) { 
@@ -115,7 +113,6 @@ useEffect(() => {
         setflyTransitionEnded(true);
       }
     }
-  }
 
   };
 
@@ -161,11 +158,14 @@ console.log("flyToId: " + flyToId)
         </div>
         <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
 
-          {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
+          {/* {!activeId && <Player src={orbitsMoving} className="player" autoplay />} */}
+          <Player src={orbitsMoving} className="player" autoplay />
           {<img src={earth} className="earth" alt="earth" />}
 
           {/* May need something different here.  Could have a different active and hovering tab */}
           {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
+
+          {/* {<SingleOrbitAnimation id={hoveringId} player={Player} desc="geo_orbit_moving" />} */}
 
           {hoveringId && hoveringId != "gto" &&<SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
 
