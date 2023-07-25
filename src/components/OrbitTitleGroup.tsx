@@ -6,9 +6,10 @@ interface OrbitTitleGroupProps {
   setActive: (id: string) => void;
   activeId: string;
   setHover: (id: string) => void;
+  hoverId?: string;
 }
 
-const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeId, setHover}) => {
+const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeId, setHover, hoverId}) => {
 
   const handleClick = () => {
     setActive(id);
@@ -23,7 +24,7 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeI
     setHover('');
   };
 
-  const imageName = id === activeId ? id + '_nav_button_active' : id + '_nav_button';
+  const imageName = id === activeId || id === hoverId ? id + '_nav_button_active' : id + '_nav_button';
 
   const {image} = document.documentElement.clientWidth <= 500 ? useImage(imageName + '_mobile') : useImage(imageName);
   const btnId = id+'_nav_button'
