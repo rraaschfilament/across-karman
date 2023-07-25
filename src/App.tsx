@@ -68,10 +68,15 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform = scale;
         }
       } else if (windowWidth <= 500) {
+        const loss = 500 - windowWidth;
+        const percentLoss = Math.round(loss / 5);
+        const scaleNum = 1 - (percentLoss / 100);
+        const scale = "scale(" + scaleNum + ")";
+
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes('scale(')) {
           const updatedTransform = existingTransform.replace(/scale\([^)]*\)\s*/g, '');
-          earth_orbits_container.style.transform = updatedTransform + 'translate(-50%, -20%);';
+          earth_orbits_container.style.transform = updatedTransform + ' ' + scale;
       }
     }
   }
@@ -161,8 +166,6 @@ useEffect(() => {
 
           {/* May need something different here.  Could have a different active and hovering tab */}
           {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
-
-          {/* {<SingleOrbitAnimation id={hoveringId} player={Player} desc="geo_orbit_moving" />} */}
 
           {hoveringId && hoveringId != "gto" &&<SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
 

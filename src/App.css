@@ -774,28 +774,28 @@ html, body, #root {
     top: 1%;
     width: 100%;
     display: inline-flex;
+    align-self: center;
   }
 
   .earth_orbits_container {
-    top: 10%;
+    position: absolute;
+    bottom: 15%;
     left: 0%;
     width: 100%;
-    height: 60%;
+    height: 100%;
+    align-self: center;
   }
 
   .orbit_title_container {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
     display: inline-flex;
     flex-direction: row; /* Horizontal alignment for mobile view */
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -0%);
-    max-width: 500px;
+    justify-content: space-evenly;
     height: 70px;
-    width: 90%;
-  }
-
-  .orbit_title_group {
-    flex-basis: 10%;
+    align-items: center;
   }
 
   .orbit_nav_button {
@@ -818,17 +818,36 @@ html, body, #root {
 
   .orbit_title_popup_container {
     height: 45%;
-    top: 52%;
+    width: 100%;
+    top: 55%;
   }
 
   .orbit_title_popup {
-    /* right: 5%;
     width: 100%;
-    height: 85%;
-    top: 10%;
-    display: flex;
-    flex-direction: column; */
+    left: 0%;
   }
+
+  .drawing .line {
+    background-color: #d46410;
+    width: 0%;
+  }
+
+  .drawing .connecting_line_dot {
+    position: absolute;
+    top: -5px;
+    left: 0%;
+    height: 12px;
+    width: 12px;
+
+  }
+
+  .leo_line_container {
+    position: absolute;
+    top: 515%;
+    left: 20%;
+    height: 200%;
+    width: 0%;
+}
 
   .player {
     position: absolute;
@@ -842,8 +861,17 @@ html, body, #root {
 
 .earth {
   position: absolute;
+  height: 27%;
   z-index: -1;
-  height: 45%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.leo_orbit_moving {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -854,7 +882,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 56%;
+  height: 33%;
   flex: 1;
 }
 
@@ -863,7 +891,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 72%;
+  height: 43%;
 }
 
 .heo_fill {
@@ -871,7 +899,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-32%, -68%);
-  height: 53%;
+  height: 36%;
 }
 
 .gso_fill {
@@ -879,7 +907,23 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 88%;
+  height: 52%;
+}
+
+.geo_fill {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5%;
+}
+
+.gto_fill {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  height: 3.6%;
 }
 
 .leo_dotted {
@@ -887,7 +931,8 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 57%;
+  height: 33%;
+  flex: 1;
 }
 
 .meo_dotted {
@@ -895,16 +940,15 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 72%;
+  height: 43%;
 }
 
 .heo_dotted {
   position: absolute;
-  top: 69%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
   transform: translate(-30%, -68%);
-  height: 85%;
-  /* width: 99%; */
+  height: 36%;
 }
 
 .gso_dotted {
@@ -912,7 +956,31 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 88%;
+  height: 52%;
+}
+
+.geo_dotted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 5%;
+}
+
+.gto_dotted {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  height: 3.6%;
+}
+
+.leo_label {
+  position: absolute;
+  height: 25px;
+  z-index: 1;
+  top: 35%;
+  left: 30%;
 }
 
   .orbit_title_info_header {
@@ -920,7 +988,7 @@ html, body, #root {
   }
   
   .orbit_title_info_body {
-
+    font-size: 12px;
   }
   
   .orbit_popup_button {
@@ -931,7 +999,6 @@ html, body, #root {
     width: 100%;
     height: 50%;
     top: 50%;
-    overflow: scroll;
   }
 
   .orbit_closeup_satellite_icons {
@@ -973,5 +1040,16 @@ html, body, #root {
   padding-left: 3%;
   padding-right: 5%;
   padding-bottom: 5%;
+}
+
+.static_satellite_closeup {
+  height: 50%;
+  left: 9%;
+}
+
+.leo_orbit_details, .meo_orbit_details, .heo_orbit_details, .gso_orbit_details, .geo_orbit_details{
+  position: absolute;
+  top: 0%;
+  height: 50%;
 }
 }
