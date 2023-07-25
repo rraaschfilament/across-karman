@@ -886,6 +886,15 @@ html, body, #root {
   flex: 1;
 }
 
+.leo_fill_mobile {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 33%;
+  flex: 1;
+} 
+
 .meo_fill {
   position: absolute;
   top: 50%;
@@ -989,6 +998,7 @@ html, body, #root {
   
   .orbit_title_info_body {
     font-size: 12px;
+    width: 90%;
   }
   
   .orbit_popup_button {
