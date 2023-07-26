@@ -141,8 +141,8 @@ useEffect(() => {
         <div className="nav_container">
           {!flyToId && <div className="orbit_title_container">
             
-            {orbitIds.map((id) => {
-              return <OrbitTitleGroup id={id} setActive={handleSetActive} activeId={activeId} setHover={handleSetHover} hoverId={hoveringId} />
+            {orbitIds.map((id, index) => {
+              return <OrbitTitleGroup id={id} setActive={handleSetActive} activeId={activeId} setHover={handleSetHover} hoverId={hoveringId} tabIndex={index}/>
                 }
             )}
 

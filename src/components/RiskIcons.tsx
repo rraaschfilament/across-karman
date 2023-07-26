@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Tooltip as Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 interface RiskIconsProps {
     id: string;
 }
@@ -20,6 +22,16 @@ const RiskIcons: React.FC<RiskIconsProps> = ({id}) => {
 
     const imageDescs = orbitRiskIcons[id] || [];
     const [images, setImages] = useState<string[]>([]);
+
+    const formatTooltipContent = (text: string): string => {
+      if(text === undefined){
+        return "";
+      }
+      return text
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    };
   
     useEffect(() => {
       const fetchImages = async () => {
@@ -37,11 +49,11 @@ const RiskIcons: React.FC<RiskIconsProps> = ({id}) => {
     }, [id, imageDescs]);
   
     const renderedImages = images.map((image, index) => (
-      <img
-        key={`${id}-${index}`}
-        src={image}
-        className={'risk_icon'}
-      />
+
+        <a data-tooltip-id={imageDescs[index]} data-tooltip-content={formatTooltipContent(imageDescs[index])}>
+        < img src={image} className={"risk_icon"} />
+        <Tooltip id={imageDescs[index]} />
+</a>
     ));
   
     return <div>{renderedImages}</div>;

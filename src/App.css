@@ -127,20 +127,23 @@ html, body, #root {
 
 .orbit_nav_button {
   position: relative;
-  opacity: 1;
+  opacity: 0.75;
   margin-top: 1%;
   display: flex;
 }
 
-.orbit_nav_button_active {
-  position: absolute;
-  opacity: 1;
-  width: 45%;
-  height: 20%;
-
-  margin-left: 6%;
+.orbit_nav_button:hover {
+  position: relative;
+  opacity: 0.75;
   margin-top: 1%;
-  font-size: 33px;
+  display: flex;
+}
+
+.orbit_nav_button:focus {
+  position: relative;
+  opacity: 1;
+  margin-top: 1%;
+  display: flex;
 }
 
 @font-face {
@@ -416,7 +419,6 @@ html, body, #root {
   padding-left: 7%;
   padding-top: 3%;
   justify-content: left;
-  overflow: scroll;
   flex: 0.3;
 
 }
@@ -433,7 +435,7 @@ html, body, #root {
   padding-bottom: 2%;
   font-weight: 300;
   flex: 3;
-  overflow: scroll;
+  overflow: auto;
 
 }
 

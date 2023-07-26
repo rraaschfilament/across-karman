@@ -7,9 +7,10 @@ interface OrbitTitleGroupProps {
   activeId: string;
   setHover: (id: string) => void;
   hoverId?: string;
+  tabIndex?: number;
 }
 
-const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeId, setHover, hoverId}) => {
+const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeId, setHover, hoverId, tabIndex}) => {
 
   const handleClick = () => {
     setActive(id);
@@ -30,7 +31,7 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({id, setActive, activeI
   const btnId = id+'_nav_button'
   
   return (
-    <div id={btnId} className='orbit_nav_button' onClick={handleClick}>
+    <div id={btnId} className='orbit_nav_button' onClick={handleClick} tabIndex={tabIndex}>
       <img src={image} className='orbit_nav_button_image' alt={imageName} onMouseEnter={handleHover} onMouseLeave={handleUnHover}/>
 
   </div>
