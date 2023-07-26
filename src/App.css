@@ -116,6 +116,16 @@ html, body, #root {
   transform: translate(-50%, -50%);
 }
 
+.player_dimmed {
+  position: absolute;
+  width: 105%;
+  height: 105%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+}
+
 .leo_orbit_moving {
   position: absolute;
   width: 100%;
@@ -123,6 +133,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .meo_orbit_moving {
@@ -132,6 +143,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .heo_orbit_moving {
@@ -141,6 +153,7 @@ html, body, #root {
   transform: translate(-30%, -68%);
   height: 105%;
   width: 99%;
+  z-index: 1;
 }
 
 .gso_orbit_moving {
@@ -150,6 +163,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .geo_orbit_moving {
@@ -159,6 +173,7 @@ html, body, #root {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .nav_container {
@@ -344,6 +359,54 @@ html, body, #root {
 }
 
 .gto_dotted {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-36%, -50%);
+  height: 7.4%;
+}
+
+.leo_solid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 65%;
+}
+
+.meo_solid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 81%;
+}
+
+.heo_solid {
+  position: absolute;
+  top: 48%;
+  left: 49%;
+  transform: translate(-30%, -65%);
+  height: 69%;
+}
+
+.gso_solid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100%;
+}
+
+.geo_solid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 9.6%;
+}
+
+.gto_solid {
   position: absolute;
   top: 50%;
   left: 50%;

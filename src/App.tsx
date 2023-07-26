@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './App.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import orbitsMoving from './lotties/all_orbits_moving.json';
@@ -22,6 +22,8 @@ export const App: React.FC = () => {
   const [isSplashScreen, setIsSplashScreen] = useState(true);
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
+
+  const lottiePlayerRef = useRef<Player | null>(null);
  
   const handleSetSplashScreen = () => {
     setIsSplashScreen(false);
@@ -118,6 +120,17 @@ useEffect(() => {
     }
   }, [currentStaticImg, flyToId]); 
 
+  useEffect(() => {
+    if (lottiePlayerRef.current) {
+      // Pause the animation if hoveringId is present, play otherwise
+      if (hoveringId) {
+        lottiePlayerRef.current.pause();
+      } else {
+        lottiePlayerRef.current.play();
+      }
+    }
+  }, [hoveringId]);
+
   const handleflyTransitionEnd = () => {
     const element = document.getElementById('earth_orbits_container');
     if (element) {
@@ -173,18 +186,22 @@ useEffect(() => {
         </div>}
         <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
 
-          {!activeId && <Player src={orbitsMoving} className="player" autoplay />}
+          {!activeId && <Player ref={lottiePlayerRef} src={orbitsMoving} className={hoveringId ? "player_dimmed" : "player"} autoplay={!hoveringId}/>}
 
           {<img src={earth} className="earth" alt="earth" />}
 
-          {/* May need something different here.  Could have a different active and hovering tab */}
-          {hoveringId && <SingleOrbitImage id={hoveringId} imageDesc='_label' />}
+          {activeId && <SingleOrbitImage id={activeId} imageDesc='_label' />}
+          
+          {/* on hovering over a tab, with no other current active orbit tab */}
+          {!activeId && hoveringId && hoveringId != "gto" && <SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
 
-          {hoveringId && hoveringId != "gto" &&<SingleOrbitAnimation id={hoveringId} player={Player} desc="_orbit_moving" />}
+          {/* on hovering over a tab, with a different orbit tab currently active/selected */}
+          {activeId && hoveringId && activeId !== hoveringId && hoveringId != "gto" && <SingleOrbitImage id={hoveringId} imageDesc='_solid' />}
 
           {activeId && <SingleOrbitImage id={activeId} imageDesc='_fill' />}
+          {activeId && <SingleOrbitAnimation id={activeId} player={Player} desc="_orbit_moving" />}
 
-          {activeId && orbitIds.filter(id => id !== activeId).map((id) => {
+          {activeId && orbitIds.filter(id => id !== activeId && id !== hoveringId).map((id) => {
             return <SingleOrbitImage id={id} imageDesc='_dotted' />
           }
           )}
