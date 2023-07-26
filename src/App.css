@@ -577,8 +577,18 @@ html, body, #root {
   cursor: pointer;
   background: #085988;
   color: #fff;
+  border: none;
   opacity: 100%;
   z-index: 1;
+}
+
+.orbit_popup_button:hover {
+  background: #0E6EA6;
+}
+
+.orbit_popup_button:active {
+  background: #0E6EA6 0% 0% no-repeat padding-box;
+  border: 4px solid #195788;
 }
 
 .risk_icon {
