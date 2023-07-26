@@ -10,6 +10,7 @@ import TestStaticImgCloseup from './components/TestStaticImgCloseup';
 import PopUpLine from './components/PopUpLine';
 import PopUpText from './components/PopUpText';
 import OrbitCloseupText from './components/OrbitCloseupText';
+import SplashScreen from './components/SplashScreen';
 import orbitBackground from './assets/orbit_background.png';
 
 export const App: React.FC = () => {
@@ -18,9 +19,19 @@ export const App: React.FC = () => {
   const [flyToId, setflyToId] = useState<string>('');
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>('');
+  const [isSplashScreen, setIsSplashScreen] = useState(true);
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
  
+  const handleSetSplashScreen = () => {
+    setIsSplashScreen(false);
+
+    const splashScreen = document.getElementById("splash_screen_background");
+    if (splashScreen) {
+      splashScreen.style.animation = 'fade-out 2s ease forwards';
+    }
+  };
+
   const handleSetActive = (id: string) => {
     setActiveId(id);
   };
@@ -138,7 +149,9 @@ useEffect(() => {
 
     <div className="background_container" >
 
-        <div className="nav_container">
+      <div id="splash_screen_background" className="splash_screen_background"><SplashScreen setSplashScreen={handleSetSplashScreen}/></div>
+
+      {!isSplashScreen &&<div className="nav_container">
           {!flyToId && <div className="orbit_title_container">
             
             {orbitIds.map((id, index) => {
@@ -157,7 +170,7 @@ useEffect(() => {
 
           {!flyToId && activeId && <PopUpText id={activeId} setFly={handleFly} />}
 
-        </div>
+        </div>}
         <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
 
           {!activeId && <Player src={orbitsMoving} className="player" autoplay />}

@@ -21,6 +21,74 @@ html, body, #root {
 
 }
 
+.splash_screen_background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(113deg, #0024394D 0%, #3631354D 100%) 0% 0% no-repeat padding-box;
+  opacity: 1;
+  z-index: 1;
+}
+
+.splash_screen_text {
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 28%;
+  left: 10%;
+  color: white;
+  text-align: left;
+  z-index: 2;
+
+}
+
+.splash_screen_title {
+  -webkit-font-smoothing: antialiased;
+  font-family: "acumin-pro", sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  letter-spacing: 1.92px;
+  margin-bottom: 10px;
+}
+
+.splash_screen_subtitle {
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-weight: 300;
+  font-size: 33px;
+  letter-spacing: 1.51px;
+  margin-bottom: 30px;
+}
+
+.splash_screen_body {
+  font: normal normal normal 16px/24px "acumin-pro", sans-serif;
+  width: 35%;
+  line-height: 1.8;
+  margin-bottom: 12px;
+
+}
+
+.splash_screen_button {
+  position: absolute;
+  top: 100%;
+  width: 20%;
+  height: 57px;
+  background-color: #F3F2F1;
+  font-family: "alternate-gothic-no-1-d", sans-serif;
+  font-size: 33px;
+  letter-spacing: 1.92px;
+  color: #002439;
+  cursor: pointer;
+}
+
+.splash_screen_button:hover {
+  background-color: white;
+  color:#085988;
+}
+
+.splash_screen_button:focus{
+  color:#085988;
+  border: 2px solid #085988;
+}
+
 .earth {
   position: absolute;
   z-index: -1;
@@ -39,15 +107,6 @@ html, body, #root {
   /* overflow: hidden; */
 }
 
-/* .player {
-  position: absolute;
-  z-index: 1;
-  width: 230%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
 .player {
   position: absolute;
   width: 105%;
@@ -56,11 +115,6 @@ html, body, #root {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* .lf-player-container {
-  position: absolute;
-  height: 100%;
-} */
 
 .leo_orbit_moving {
   position: absolute;
@@ -111,6 +165,8 @@ html, body, #root {
   position: absolute;
   height: 100%;
   width: 35%;
+  animation-name: fade-in;
+  animation-duration: 2s;
 }
 
 .orbit_title_container {
@@ -386,7 +442,7 @@ html, body, #root {
   animation-name: fade-in;
   animation-duration: 0.2s;
   animation-delay: 2s;
-  animation-fill-mode: forwards; /* Retain the final state after animation */
+  animation-fill-mode: forwards; 
 }
 
 .orbit_title_popup_container{
