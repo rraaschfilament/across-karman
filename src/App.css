@@ -290,7 +290,7 @@ html, body, #root {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-32%, -68%);
+  transform: translate(-34%, -68%);
   height: 68%;
 }
 
@@ -624,8 +624,8 @@ html, body, #root {
 }
 
 .orbit_closeup_back_button {
-  width: 5%;
-  height: 3%;
+  width: 21px;
+  height: 21px;
   float: right;
   padding-right: 5%;
   padding-top: 5%;
@@ -635,7 +635,7 @@ html, body, #root {
 
 .orbit_closeup_satellite_icons {
   position: absolute;
-  width: 10%;
+  width: 50px;
   top: 15%;
   left: -6%;
   display: flex;
@@ -645,11 +645,13 @@ html, body, #root {
 }
 
 .selectedSat {
-  padding-top: 30%;;
+  padding-top: 30%;
+  height: 50px;
 }
 
 .unselectedSat {
   padding-top: 30%;
+  height: 50px;
 }
 
 .orbit_closeup_header {

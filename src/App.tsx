@@ -199,7 +199,9 @@ useEffect(() => {
           {activeId && hoveringId && activeId !== hoveringId && hoveringId != "gto" && <SingleOrbitImage id={hoveringId} imageDesc='_solid' />}
 
           {activeId && <SingleOrbitImage id={activeId} imageDesc='_fill' />}
-          {activeId && <SingleOrbitAnimation id={activeId} player={Player} desc="_orbit_moving" />}
+
+          {/* this is getting hacky, need a better way to have it not break on gto */}
+          {activeId && activeId !== "gto" &&<SingleOrbitAnimation id={activeId} player={Player} desc="_orbit_moving" />}
 
           {activeId && orbitIds.filter(id => id !== activeId && id !== hoveringId).map((id) => {
             return <SingleOrbitImage id={id} imageDesc='_dotted' />
