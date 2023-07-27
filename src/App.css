@@ -935,6 +935,24 @@ body,
     position: static;
   }
 
+  .orbit_nav_button {
+    /* outline: 2px dotted red; */
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+  }
+
+
+  .orbit_nav_button_image {
+    position: relative;
+    object-fit: contain;
+    width: 100%;
+    height: 51px;
+    object-fit: contain;
+  }
+
   .splash_screen_background {
     display: flex;
     flex-direction: column;
@@ -1037,7 +1055,7 @@ body,
   .gto img,
   .geo img,
   .heo img {
-    transform: translate(-50%, -50%);
+    transform: translate(-49.9%, -49.9%);
   }
 
 
@@ -1058,19 +1076,6 @@ body,
     height: 70px;
     align-items: center;
     align-self: center;
-  }
-
-  .orbit_nav_button {
-    position: relative;
-    opacity: 1;
-  }
-
-
-  .orbit_nav_button_image {
-    position: relative;
-    object-fit: contain;
-    width: 40px;
-    object-fit: contain;
   }
 
   .orbit_title_text {
@@ -1201,7 +1206,7 @@ body,
   }
 
   .geo_orbit_moving {
-    top: 49%
+    top: 49.9%
   }
 
   .gto_orbit_moving {
