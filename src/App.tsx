@@ -48,7 +48,7 @@ export const App: React.FC = () => {
 
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    removeLine();
+    resetOrbitSelection();
   };
 
   function adjustElementScale(windowWidth: number) {
@@ -95,7 +95,7 @@ export const App: React.FC = () => {
   }
 }
 
-function removeLine() {
+function resetOrbitSelection() {
   setActiveId('');
   setHoveringId('');
 }
@@ -160,11 +160,12 @@ useEffect(() => {
 
   return (
 
-    <div className="background_container" >
+    <div className="background_container">
 
-      <div id="splash_screen_background" className="splash_screen_background"><SplashScreen setSplashScreen={handleSetSplashScreen}/></div>
+      {isSplashScreen && <div id="splash_screen_background" className="splash_screen_background"><SplashScreen setSplashScreen={handleSetSplashScreen}/></div>}
 
       {!isSplashScreen &&<div className="nav_container">
+
           {!flyToId && <div className="orbit_title_container">
             
             {orbitIds.map((id, index) => {
@@ -184,9 +185,9 @@ useEffect(() => {
           {!flyToId && activeId && <PopUpText id={activeId} setFly={handleFly} />}
 
         </div>}
-        <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} >
+        <div id="earth_orbits_container" className={'earth_orbits_container'} onTransitionEnd={handleflyTransitionEnd} onClick={resetOrbitSelection}>
 
-          {!activeId && <Player ref={lottiePlayerRef} src={orbitsMoving} className={hoveringId ? "player_dimmed" : "player"} autoplay={!hoveringId}/>}
+          {!activeId && <Player ref={lottiePlayerRef} src={orbitsMoving} className={hoveringId ? "player_dimmed" : "player"} autoplay={!hoveringId} />}
 
           {<img src={earth} className="earth" alt="earth" />}
 
