@@ -6,7 +6,6 @@ import earth from "./assets/earth.png";
 import OrbitTitleGroup from "./components/OrbitTitleGroup";
 import SingleOrbitImage from "./components/SingleOrbitImage";
 import SingleOrbitAnimation from "./components/SingleOrbitAnimation";
-import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
 import TestStaticImgCloseup from "./components/TestStaticImgCloseup";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
@@ -131,7 +130,6 @@ export const App: React.FC = () => {
     }
   }, [currentStaticImg, flyToId]);
 
-  //This was for when an orbit is hovered, and no other orbit is selected, but I had to change it from using the full player to show the non-hovered (dimmed) orbits, to individual orbit animations, so I'll have to go back and remove this at some point
   useEffect(() => {
     if (lottiePlayerRef.current) {
       // Pause the animation if hoveringId is present, play otherwise
@@ -143,7 +141,6 @@ export const App: React.FC = () => {
     }
   }, [hoveringId]);
 
-  //not sure if this is needed anymore
   const handleflyTransitionEnd = () => {
     const element = document.getElementById("earth_orbits_container");
     if (element) {
@@ -172,9 +169,9 @@ export const App: React.FC = () => {
 
   return (
     <div className="background_container">
-      {isSplashScreen && <div id="splash_screen_background" className="splash_screen_background">
+      <div id="splash_screen_background" className="splash_screen_background">
         <SplashScreen setSplashScreen={handleSetSplashScreen} />
-      </div>}
+      </div>
 
       {!isSplashScreen && (
         <div className="nav_container">
@@ -212,12 +209,12 @@ export const App: React.FC = () => {
         onTransitionEnd={handleflyTransitionEnd}
         onClick={resetOrbitSelection}
       >
-        {!activeId && !hoveringId && (
+        {!activeId && (
           <Player
             ref={lottiePlayerRef}
             src={orbitsMoving}
-            className="player"
-            autoplay
+            className={hoveringId ? "player_dimmed" : "player"}
+            autoplay={!hoveringId}
           />
         )}
 
@@ -226,31 +223,19 @@ export const App: React.FC = () => {
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_label" />}
 
         {/* on hovering over a tab, with no other current active orbit tab */}
-        {!activeId && hoveringId && 
-         orbitIds.map((id) => {
-          if(hoveringId !== "gto"){
-            return (
-              <SingleOrbitAnimation
-              id={id}
-              player={Player}
-              desc="_orbit_moving"
-              shouldPlay={id === hoveringId}
-            />
-            );  
-          } else {
-            return (
-              <SingleOrbitImage id={"gto"} imageDesc="_solid"/>
-            );  
-          }
-
-        })
-  
-         }
+        {!activeId && hoveringId && hoveringId != "gto" && (
+          <SingleOrbitAnimation
+            id={hoveringId}
+            player={Player}
+            desc="_orbit_moving"
+          />
+        )}
 
         {/* on hovering over a tab, with a different orbit tab currently active/selected */}
         {activeId &&
           hoveringId &&
-          activeId !== hoveringId && (
+          activeId !== hoveringId &&
+          hoveringId != "gto" && (
             <SingleOrbitImage id={hoveringId} imageDesc="_solid" />
           )}
 
@@ -262,7 +247,6 @@ export const App: React.FC = () => {
             id={activeId}
             player={Player}
             desc="_orbit_moving"
-            shouldPlay={true}
           />
         )}
 
@@ -291,7 +275,7 @@ export const App: React.FC = () => {
         />
       )}
       {!currentStaticImg && flyTransitionEnded && (
-        <SingleOrbitAnimationDetails
+        <SingleOrbitAnimation
           id={flyToId}
           player={Player}
           desc="_orbit_details"

@@ -118,7 +118,7 @@ body,
   transform: translate(-50%, -50%);
 }
 
-.player_dimmed {
+/* .player_dimmed {
   position: absolute;
   width: 105%;
   height: 105%;
@@ -126,7 +126,7 @@ body,
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.25;
-}
+} */
 
 .leo_orbit_moving {
   position: absolute;
@@ -181,7 +181,7 @@ body,
 .nav_container {
   position: absolute;
   height: 100%;
-  width: 35%;
+  width: 35vw;
   animation-name: fade-in;
   animation-duration: 2s;
 }
@@ -427,8 +427,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
-  /* width: 662px; */
+  height: 13%;
 
 }
 
@@ -436,7 +435,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
@@ -444,7 +443,7 @@ body,
   position: absolute;
   top: 60%;
   left: 50%;
-  height: 63%;
+  height: 68%;
 
 }
 
@@ -452,13 +451,13 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
 .geo_line_container {
   position: absolute;
-  top: 121%;
+  top: 125%;
   left: 50%;
   height: 2%;
 
@@ -466,7 +465,7 @@ body,
 
 .gto_line_container {
   position: absolute;
-  top: 122%;
+  top: 126%;
   left: 60%;
   height: 1%;
 
@@ -516,7 +515,7 @@ body,
 
 .orbit_title_popup_container {
   position: relative;
-  width: 92%;
+  width: 35vw;
   height: 52%;
   top: 48%;
 }
@@ -526,8 +525,9 @@ body,
   background: rgb(29, 59, 76);
   opacity: 100%;
   position: relative;
-  width: 92%;
-  height: 95%;
+  width: 37vw;
+  height: 92%;
+  top: 3%;
   left: 5%;
   display: flex;
   flex-direction: column;
