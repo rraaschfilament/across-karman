@@ -48,7 +48,7 @@ export const App: React.FC = () => {
 
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    removeLine();
+    resetOrbitSelection();
   };
 
   function adjustElementScale(windowWidth: number) {
@@ -106,7 +106,7 @@ export const App: React.FC = () => {
     }
   }
 
-  function removeLine() {
+  function resetOrbitSelection() {
     setActiveId("");
     setHoveringId("");
   }
@@ -207,6 +207,7 @@ export const App: React.FC = () => {
         id="earth_orbits_container"
         className={"earth_orbits_container"}
         onTransitionEnd={handleflyTransitionEnd}
+        onClick={resetOrbitSelection}
       >
         {!activeId && (
           <Player

@@ -203,6 +203,7 @@ body,
   opacity: 0.75;
   margin-top: 1%;
   display: flex;
+  cursor: pointer;
 }
 
 .orbit_nav_button:hover {
@@ -598,6 +599,7 @@ body,
 
 .risk_icon {
   margin-right: 5%;
+  z-index: 2;
 }
 
 /* Orbit Closeup */
@@ -646,6 +648,7 @@ body,
   padding-top: 5%;
   z-index: 1;
   flex: 0.10;
+  cursor: pointer;
 }
 
 .orbit_closeup_satellite_icons {
@@ -680,7 +683,7 @@ body,
   opacity: 1;
   padding-top: 3%;
   padding-left: 3%;
-  padding-bottom: 3%;
+  padding-bottom: 15px;
   flex: 0.3;
 }
 
@@ -689,7 +692,7 @@ body,
   -webkit-font-smoothing: antialiased;
   font-size: 33px;
   letter-spacing: 1.33px;
-  padding-top: 2%;
+  padding-bottom: 24px;;
   padding-left: 3%;
   padding-right: 5%;
   color: #363135;
@@ -704,9 +707,9 @@ body,
   -webkit-font-smoothing: antialiased;
   font-size: 21px;
   letter-spacing: 1.33px;
-  padding-top: 3%;
   padding-left: 3%;
   padding-right: 5%;
+  padding-bottom: 12px;
   color: #363135;
   position: relative;
   text-align: left;
@@ -716,7 +719,7 @@ body,
 .orbit_closeup_body {
   font-family: "acumin-pro", sans-serif;
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0px;
   line-height: 2;
   color: #363135;
@@ -725,6 +728,7 @@ body,
   opacity: 1;
   padding-left: 3%;
   padding-right: 5%;
+  padding-bottom: 18px;
   flex: 3;
 }
 
@@ -737,9 +741,8 @@ body,
   justify-content: space-between;
   opacity: 1 !important;
   z-index: 2;
-  cursor: pointer;
-  /* top: 85%; */
   flex: 1;
+  color: #002439;
 }
 
 .orbit_closeup_button_outlined {
@@ -751,6 +754,7 @@ body,
   height: 65px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #7b726f;
+  cursor: pointer;
 }
 
 .orbit_closeup_button_outlined:hover {
@@ -768,6 +772,7 @@ body,
   height: 57px;
   background: 0% 0% no-repeat padding-box;
   border: none;
+  cursor: pointer;
 }
 
 .orbit_closeup_button_plain:hover {
