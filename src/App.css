@@ -1236,6 +1236,10 @@ body,
     height: fit-content;
     left: 0;
   }
+  
+  .orbit_closeup_satellite_icons img{
+    margin-left: 16px;
+  }
 
   .orbit_closeup_back_button {
     visibility: hidden;
