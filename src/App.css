@@ -928,8 +928,8 @@ body,
   .orbit_closeup_back_button_mobile {
     visibility: visible;
     position: relative;
-    top: -98%;
-    left: 9%;
+    top: -48.5vh;
+    right: -7vw;
     float: right;
   }
 
