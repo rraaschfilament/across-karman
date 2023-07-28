@@ -1,7 +1,9 @@
-@import url("https://p.typekit.net/p.css?s=1&k=waq7naz&ht=tk&f=10326.15815.26056.26060.26062.26063.31028.31030.31031&a=682332&app=typekit&e=css"); 
+@import url("https://p.typekit.net/p.css?s=1&k=waq7naz&ht=tk&f=10326.15815.26056.26060.26062.26063.31028.31030.31031&a=682332&app=typekit&e=css");
 /* UNCHANGING STYLES */
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
   width: 100%;
   margin: 0px;
@@ -81,11 +83,11 @@ html, body, #root {
 
 .splash_screen_button:hover {
   background-color: white;
-  color:#085988;
+  color: #085988;
 }
 
-.splash_screen_button:focus{
-  color:#085988;
+.splash_screen_button:focus {
+  color: #085988;
   border: 2px solid #085988;
 }
 
@@ -277,7 +279,7 @@ html, body, #root {
   transform: translate(-50%, -50%);
   height: 65%;
   flex: 1;
-} 
+}
 
 .meo_fill {
   position: absolute;
@@ -440,7 +442,7 @@ html, body, #root {
 
 .heo_line_container {
   position: absolute;
-  top:60%;
+  top: 60%;
   left: 50%;
   height: 63%;
 
@@ -475,7 +477,8 @@ html, body, #root {
   position: absolute;
   height: 2px;
   width: 0;
-  transition: width 2s; /* Adjust the transition duration to match the animation duration */
+  transition: width 2s;
+  /* Adjust the transition duration to match the animation duration */
   transform-origin: left;
 }
 
@@ -488,7 +491,8 @@ html, body, #root {
   background-color: #d46410;
   height: 100%;
   width: 2px;
-  transition: height 2s; /* Adjust the transition duration to match the animation duration */
+  transition: height 2s;
+  /* Adjust the transition duration to match the animation duration */
   transform-origin: top;
   top: 0;
   left: 0;
@@ -502,14 +506,15 @@ html, body, #root {
   width: 12px;
   border-radius: 50%;
   background-color: #d9620d;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
+  /* Initially hidden */
   animation-name: fade-in;
   animation-duration: 0.2s;
   animation-delay: 2s;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
 }
 
-.orbit_title_popup_container{
+.orbit_title_popup_container {
   position: relative;
   width: 92%;
   height: 52%;
@@ -518,7 +523,7 @@ html, body, #root {
 
 .orbit_title_popup {
   border-top: #d46410 2px solid;
-  background: rgb(29,59,76);
+  background: rgb(29, 59, 76);
   opacity: 100%;
   position: relative;
   width: 92%;
@@ -547,7 +552,7 @@ html, body, #root {
   font-family: "acumin-pro", sans-serif;
   font-size: 15px;
   line-height: 2;
-  color:#fff;
+  color: #fff;
   position: relative;
   left: 7%;
   width: 83%;
@@ -619,7 +624,7 @@ html, body, #root {
   opacity: 1 !important;
   animation-name: fly-in-right;
   animation-duration: 1s;
-  animation-fill-mode: forwards; 
+  animation-fill-mode: forwards;
   z-index: 1;
 }
 
@@ -730,8 +735,8 @@ html, body, #root {
 .orbit_closeup_button_group {
   position: absolute;
   bottom: 3%;
-  right: 0%; 
-  width: 100%; 
+  right: 0%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   opacity: 1 !important;
@@ -754,7 +759,7 @@ html, body, #root {
 
 .orbit_closeup_button_outlined:hover {
   background-color: white;
-  color:#085988;
+  color: #085988;
 }
 
 .orbit_closeup_button_plain {
@@ -776,11 +781,11 @@ html, body, #root {
 
 .orbit_closeup_button_plain:active {
   text-decoration: underline;
-  color:#085988;
+  color: #085988;
 }
 
 .orbit_closeup_button_outlined:active {
-  color:#085988;
+  color: #085988;
   border: 2px solid #085988;
 }
 
@@ -824,6 +829,7 @@ html, body, #root {
     opacity: 0%;
     transform: translateX(100%);
   }
+
   100% {
     opacity: 90%;
     transform: translateX(0);
@@ -831,8 +837,13 @@ html, body, #root {
 }
 
 @keyframes fade-in {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-out-scale {
@@ -841,11 +852,13 @@ html, body, #root {
     transform: scale(13);
 
   }
+
   50% {
     opacity: 1;
     transform: scale(13);
 
   }
+
   100% {
     opacity: 0;
     transform: scale(13);
@@ -857,23 +870,24 @@ html, body, #root {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
 
 /* EXTRA LARGE */
-@media (min-width: 1921px) and (min-height: 1081px){
+@media (min-width: 1921px) and (min-height: 1081px) {
 
   .earth {
-    position:absolute;
+    position: absolute;
     height: 350px;
     width: 350px;
     left: 930px;
     top: 280px;
-  
+
   }
-  
+
   .player {
     position: absolute;
     height: 900px;
@@ -884,10 +898,8 @@ html, body, #root {
 
 
 }
-@media (max-width: 1770px) {
 
-
-}
+@media (max-width: 1770px) {}
 
 @media (max-width: 1600px) {
   /* .orbit_title_popup_container {
@@ -904,244 +916,309 @@ html, body, #root {
 
 
 @media (max-width: 500px) {
+  :root {
+    --mobile-orbit-size: 350px;
+    --mobile-view-width: 90vw;
+  }
+
   .background_container {
-    position: relative;
+    /* outline: 12px dotted pink; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 
   .nav_container {
-    top: 1%;
-    width: 100%;
-    display: inline-flex;
-    align-self: center;
-  }
-
-  .earth_orbits_container {
-    position: absolute;
-    bottom: 15%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    align-self: center;
-  }
-
-  .orbit_title_container {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    display: inline-flex;
-    flex-direction: row; /* Horizontal alignment for mobile view */
-    justify-content: space-evenly;
-    height: 70px;
+    /* outline: 2px dotted yellow; */
+    width: var(--mobile-view-width);
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    position: static;
   }
 
   .orbit_nav_button {
+    /* outline: 2px dotted red; */
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     opacity: 1;
-    margin-top: 2%;
-    padding: 1%;
-}
+  }
 
-.orbit_nav_button_image {
+
+  .orbit_nav_button_image {
+    position: relative;
     object-fit: contain;
-}
+    width: 100%;
+    height: 51px;
+    object-fit: contain;
+  }
+
+  .splash_screen_background {
+    display: flex;
+    flex-direction: column;
+    /* outline: 2px dotted violet; */
+    width: 95%;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .splash_screen_text {
+    position: static;
+    padding: 40px;
+
+    text-align: center;
+  }
+
+  .splash_screen_title {
+    font-size: 45px
+  }
+
+  .splash_screen_button {
+    top: 90%;
+    width: 80%;
+    border-style: none;
+    position: static;
+  }
+
+  .splash_screen_body {
+    width: 100%;
+  }
+
+  .popup_line_container,
+  .earth_orbits_container {
+    position: fixed;
+    aspect-ratio: 1;
+    top: 72px;
+    left: 50%;
+    translate: -50%;
+    height: var(--mobile-orbit-size);
+    min-width: var(--mobile-orbit-size);
+    max-width: var(--mobile-orbit-size);
+
+  }
+
+  ._dotted img,
+  ._fill img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  ._fill img {
+    position: absolute;
+    z-index: -2;
+  }
+
+  .heo_solid {
+    top: 36%;
+    left: 59%;
+  }
+
+  ._label img {
+    height: 25px;
+    position: absolute;
+    z-index: 2
+  }
+
+  .leo_label {
+    left: 67px;
+    top: 85px;
+
+  }
+
+  .meo_label {
+    left: 42px;
+    top: 85px;
+  }
+
+  .heo_label {
+    left: 211px;
+    top: 67px;
+
+  }
+
+  .gso_label {
+    left: 20px;
+    top: 50px;
+  }
+
+  .geo_label {
+    left: 46px;
+    top: 156px;
+  }
+
+  .gto_label {
+    left: 288px;
+    top: 154px;
+  }
+
+  .gto img,
+  .geo img,
+  .heo img {
+    transform: translate(-49.9%, -49.9%);
+  }
+
+
+  .earth {
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    width: 53%;
+    height: auto;
+  }
+
+  /* Horizontal alignment for mobile view */
+  .orbit_title_container {
+    position: static;
+    width: var(--mobile-view-width);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    align-self: center;
+  }
 
   .orbit_title_text {
-    font-size: 20px; 
-    padding-left: 5%; 
-    top: 20%; 
-    left: 10%; 
+    font-size: 20px;
+    padding-left: 5%;
+    top: 20%;
+    left: 10%;
   }
 
   .orbit_title_popup_container {
-    height: 45%;
-    width: 100%;
-    top: 55%;
+    /* outline: 6px dotted turquoise; */
+    position: absolute;
+    height: 55%;
+    top: 47%;
+    z-index: 1;
+    flex: 5;
+    display: flex;
+    justify-content: center;
   }
 
   .orbit_title_popup {
-    width: 100%;
+    /* outline: 2px dotted orange; */
+    padding-top: 10px;
+    width: var(--mobile-view-width);
     left: 0%;
+    height: 90%;
+  }
+
+  .orbit_popup_button {
+    border-style: none;
+    font-size: 20px;
+    padding: 10px 25px;
+    bottom: 7%;
+    left: 10%;
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .orbit_title_info_header {
+    overflow: unset;
+    height: fit-content;
+    width: 90%;
+  }
+
+  .orbit_title_info_body {
+    font-size: 12px;
+    width: 85%;
+    flex: 2;
+  }
+
+
+  .drawing {
+    /* outline: 4px dotted red; */
+    rotate: 270deg;
+    width: 500px !important;
   }
 
   .drawing .line {
     background-color: #d46410;
-    width: 0%;
+  }
+
+  .drawing .connecting_line {
+    visibility: hidden;
   }
 
   .drawing .connecting_line_dot {
     position: absolute;
     top: -5px;
-    left: 0%;
+    left: 100%;
     height: 12px;
     width: 12px;
 
   }
 
   .leo_line_container {
-    position: absolute;
-    top: 515%;
-    left: 20%;
-    height: 200%;
-    width: 0%;
-}
+    top: 454px;
+    left: -167px
+  }
 
-  .player {
-    position: absolute;
+  .meo_line_container {
+    top: 463px;
+    left: -197px;
+  }
+
+
+  .heo_line_container {
+    top: 224px;
+    left: 160px;
+  }
+
+  .gso_line_container {
+    top: 450px;
+    left: 108px;
+  }
+
+
+
+  .geo_line_container {
+    top: 429px;
+    left: 83px;
+  }
+
+  .gto_line_container {
+    top: 431px;
+    left: 67px;
+  }
+
+
+
+
+
+  .lf-player-container {
+    /* outline: 9px dotted green; */
     width: 100%;
     height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-.earth {
-  position: absolute;
-  height: 27%;
-  z-index: -1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.leo_orbit_moving {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.leo_fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 33%;
-  flex: 1;
-}
-
-.leo_fill_mobile {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 33%;
-  flex: 1;
-} 
-
-.meo_fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 43%;
-}
-
-.heo_fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-32%, -68%);
-  height: 36%;
-}
-
-.gso_fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 52%;
-}
-
-.geo_fill {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 5%;
-}
-
-.gto_fill {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  height: 3.6%;
-}
-
-.leo_dotted {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 33%;
-  flex: 1;
-}
-
-.meo_dotted {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 43%;
-}
-
-.heo_dotted {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-30%, -68%);
-  height: 36%;
-}
-
-.gso_dotted {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 52%;
-}
-
-.geo_dotted {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 5%;
-}
-
-.gto_dotted {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  height: 3.6%;
-}
-
-.leo_label {
-  position: absolute;
-  height: 25px;
-  z-index: 1;
-  top: 35%;
-  left: 30%;
-}
-
-  .orbit_title_info_header {
-    flex: 0.4;
   }
-  
-  .orbit_title_info_body {
-    font-size: 12px;
-    width: 90%;
+
+  .lf-player-container div {
+    /* outline: 4px dotted purple; */
+    position: absolute;
+    height: 105%;
+    width: 105%;
+    z-index: 1;
   }
-  
-  .orbit_popup_button {
-    /* bottom: 5% */
+
+  .heo_orbit_moving {
+    left: 29%;
   }
+
+  .geo_orbit_moving {
+    top: 49.9%
+  }
+
+  .gto_orbit_moving {
+    top: 0;
+    left: 0;
+  }
+
 
   .orbit_closeup_container {
     width: 100%;
@@ -1150,10 +1227,14 @@ html, body, #root {
   }
 
   .orbit_closeup_satellite_icons {
+    float: right;
     flex-direction: row;
     flex-wrap: nowrap;
-    top: -10%;
-    left: 50%;
+    justify-content: flex-end;
+    width: 100%;
+    top: -151px;
+    height: fit-content;
+    left: 0;
   }
 
   .orbit_closeup_back_button {
@@ -1161,43 +1242,62 @@ html, body, #root {
   }
 
   .orbit_closeup_text {
-    height: 79%;
+    height: 75%;
   }
 
-.orbit_closeup_header {
-  font-size: 40px;
-  letter-spacing: 1.58px;
-  padding-top: 1%;
-  padding-left: 3%;
-  padding-bottom: 0%;
-}
+  .orbit_closeup_header {
+    font-size: 40px;
+    letter-spacing: 1.58px;
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-bottom: 0%;
+  }
 
-.orbit_closeup_subheader {
-  font-size: 25px;
-  letter-spacing: 1.33px;
-  padding-top: 1%;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 2%;
-}
+  .orbit_closeup_subheader {
+    font-size: 25px;
+    letter-spacing: 1.33px;
+    padding-top: 1%;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-bottom: 2%;
+  }
 
-.orbit_closeup_body {
-  font-size: 15px;
-  letter-spacing: 0px;
-  line-height: 2;
-  padding-left: 3%;
-  padding-right: 5%;
-  padding-bottom: 5%;
-}
+  .orbit_closeup_body {
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 2;
+    padding-left: 3%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+  }
 
-.static_satellite_closeup {
-  height: 50%;
-  left: 9%;
-}
+  .static_satellite_closeup {
+    height: 35%;
+    top: 3%;
+    left: 1%;
+  }
 
-.leo_orbit_details, .meo_orbit_details, .heo_orbit_details, .gso_orbit_details, .geo_orbit_details{
-  position: absolute;
-  top: 0%;
-  height: 50%;
-}
+  .orbit_background {
+    width: 150vw;
+    left: -60px;
+    top: 25px;
+    height: 45%;
+  }
+
+  .orbit_closeup_button_plain,
+  .orbit_closeup_button_outlined {
+    font-size: 39px;
+    height: fit-content;
+  }
+
+  .leo_orbit_details,
+  .meo_orbit_details,
+  .heo_orbit_details,
+  .gso_orbit_details,
+  .geo_orbit_details {
+    position: absolute;
+    top: -26%;
+    user-select: none;
+    z-index: 0 !important;
+  }
 }
