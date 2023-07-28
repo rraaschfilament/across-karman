@@ -1236,7 +1236,7 @@ body,
     height: fit-content;
     left: 0;
   }
-  
+
   .orbit_closeup_satellite_icons img{
     margin-left: 16px;
   }
@@ -1290,7 +1290,8 @@ body,
 
   .orbit_closeup_button_plain,
   .orbit_closeup_button_outlined {
-    font-size: 39px;
+    font-size: 24px;
+    padding: 12px 32px;
     height: fit-content;
   }
 
