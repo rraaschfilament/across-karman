@@ -692,7 +692,8 @@ body,
   -webkit-font-smoothing: antialiased;
   font-size: 33px;
   letter-spacing: 1.33px;
-  padding-bottom: 24px;;
+  padding-bottom: 24px;
+  ;
   padding-left: 3%;
   padding-right: 5%;
   color: #363135;
@@ -914,11 +915,22 @@ body,
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 
+.orbit_closeup_back_button_mobile {
+  visibility: hidden;
+}
 
 @media (max-width: 500px) {
   :root {
     --mobile-orbit-size: 350px;
     --mobile-view-width: 90vw;
+  }
+
+  .orbit_closeup_back_button_mobile {
+    visibility: visible;
+    position: relative;
+    top: -98%;
+    left: 9%;
+    float: right;
   }
 
   .background_container {
