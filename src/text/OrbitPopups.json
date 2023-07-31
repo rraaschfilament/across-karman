@@ -4,7 +4,7 @@
     "leo_body_about" : "A low Earth orbit (LEO) is, as the name suggests, an orbit that is relatively close to Earth’s surface. Most of the man-made objects orbiting Earth are in LEO. Satellites in LEO do not have to follow a particular path around Earth, which makes for more route possibilities. The greatest risks are that space debris and defunct satellites in LEO can take hundreds of years to de-orbit naturally, and increases in satellite launches with little concern for end of life (EOL) plans intensifies this issue.",
     "leo_button" : "VISIT LEO",
     "meo_header" : "MEDIUM EARTH ORBIT (MEO)",
-    "meo_body_distance" : "LEO and GEO 2000 km- 35,586 km",
+    "meo_body_distance" : "2000 km - 35,586 km (Between LEO and GEO)",
     "meo_body_about" : "MEO comprises a wide range of orbits anywhere between LEO and GEO. Like LEO, MEO does not need to take a specific path around Earth and it is used by a variety of satellites with many different applications. Many of the satellites residing in MEO have highly elliptical orbits. ",
     "meo_button" : "VISIT MEO",
     "heo_header" : "HIGHLY ELLIPTICAL ORBIT (HEO)",
