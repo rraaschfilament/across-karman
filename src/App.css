@@ -692,7 +692,7 @@ body,
   -webkit-font-smoothing: antialiased;
   font-size: 33px;
   letter-spacing: 1.33px;
-  padding-bottom: 24px;;
+  padding-bottom: 24px;
   padding-left: 3%;
   padding-right: 5%;
   color: #363135;
@@ -915,9 +915,10 @@ body,
 /*****************************************************************************************************************************************************/
 
 
+
 @media (max-width: 500px) {
   :root {
-    --mobile-orbit-size: 350px;
+    --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
   }
 
@@ -1099,6 +1100,9 @@ body,
     flex: 5;
     display: flex;
     justify-content: center;
+    /* background image will hide the connecting line underneath the popup container at smaller heights */
+    background-image: url('./assets/background.png');
+
   }
 
   .orbit_title_popup {
@@ -1299,5 +1303,88 @@ body,
     top: -26%;
     user-select: none;
     z-index: 0 !important;
+  }
+}
+
+
+@media (max-width: 450px) {
+  :root {
+    --mobile-orbit-size: 297px;
+  }
+
+  .leo_line_container {
+    top: 446px;
+  }
+
+  .meo_line_container {
+    left: -187px;
+  }
+
+
+  .heo_line_container {
+    left: 77px;
+    top: 262px;
+  }
+
+  .gso_line_container {
+    top: 432px;
+    left: 74px;
+    width: 400px !important;
+
+  }
+
+  .geo_line_container {
+    top: 406px;
+    left: 19px
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
+  .gto_line_container {
+    top: 406px;
+    left: 5px;
+  }
+
+}
+
+@media (max-width: 350px) {
+  :root {
+    --mobile-orbit-size: 260px;
+  }
+
+  .leo_line_container {
+    top: 435px;
+  }
+
+  .meo_line_container {
+    left: -166px;
+  }
+
+
+  .heo_line_container {
+    left: 35px;
+    top: 262px;
+  }
+
+  .gso_line_container {
+    top: 410px;
+    left: 37px;
+
+  }
+
+  .geo_line_container {
+    top: 406px;
+    left: 19px
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
+  .gto_line_container {
+    top: 406px;
+    left: 5px;
   }
 }
