@@ -239,7 +239,7 @@ export const App: React.FC = () => {
             );  
           } else {
             return (
-              <SingleOrbitImage id={"gto"} imageDesc="_solid"/>
+              <SingleOrbitImage id={"gto"} imageDesc="_solid_hover"/>
             );  
           }
 

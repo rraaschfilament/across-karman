@@ -62,7 +62,7 @@ body,
 
 .splash_screen_body {
   font: normal normal normal 16px/24px "acumin-pro", sans-serif;
-  width: 35%;
+  width: 38%;
   line-height: 1.8;
   margin-bottom: 12px;
 
@@ -71,7 +71,8 @@ body,
 .splash_screen_button {
   position: absolute;
   top: 100%;
-  width: 20%;
+  max-width: 80%;
+  white-space: nowrap;
   height: 57px;
   background-color: #F3F2F1;
   font-family: "alternate-gothic-no-1-d", sans-serif;
@@ -415,6 +416,15 @@ body,
   left: 50%;
   transform: translate(-36%, -50%);
   height: 7.4%;
+}
+
+.gto_solid_hover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-36%, -50%);
+  height: 7.4%;
+  opacity: 0.15;
 }
 
 .line_to_orbit_container {
@@ -901,13 +911,14 @@ body,
 
 @media (max-width: 1770px) {}
 
-@media (max-width: 1600px) {
-  /* .orbit_title_popup_container {
-    top: 45%;
-    height: 55%;
-    width: 110%;
-    z-index: 2  ;
-  } */
+@media (max-width: 750px) {
+    .splash_screen_body {
+      width: 90%;
+    }
+
+    .splash_screen_button {
+      /* width: 35vw; */
+    }
 }
 
 /*****************************************************************************************************************************************************/
