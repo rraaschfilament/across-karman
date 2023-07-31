@@ -677,7 +677,7 @@ body,
   /* width: 50px; */
   top: 15vh;
   right: 35vw;
-  transform: translate(50%); 
+  transform: translate(50%);
   /* left: -6vw; */
   display: flex;
   flex-direction: column;
@@ -932,21 +932,21 @@ body,
 @media (max-width: 1770px) {}
 
 @media (max-width: 750px) {
-    .splash_screen_body {
-      width: 90%;
-    }
+  .splash_screen_body {
+    width: 90%;
+  }
 
-    .orbit_closeup_text {
-      margin-left: 12%;
-    }
+  .orbit_closeup_text {
+    margin-left: 12%;
+  }
 
-    .orbit_closeup_button_outlined {
-      font-size: 30px;
-    }
+  .orbit_closeup_button_outlined {
+    font-size: 30px;
+  }
 
-    .orbit_closeup_button_plain {
-      font-size: 30px;
-    }
+  .orbit_closeup_button_plain {
+    font-size: 30px;
+  }
 }
 
 /*****************************************************************************************************************************************************/
@@ -962,6 +962,7 @@ body,
   :root {
     --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
+    --mobile-view-splash-body-width: 54vw;
   }
 
   .orbit_closeup_back_button_mobile {
@@ -983,12 +984,26 @@ body,
   .nav_container {
     /* outline: 2px dotted yellow; */
     width: var(--mobile-view-width);
+    animation-name: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 70px;
     position: static;
+    margin-top: 20px;
+  }
+
+  /* Horizontal alignment for mobile view */
+  .orbit_title_container {
+    position: static;
+    width: var(--mobile-view-width);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    align-self: center;
   }
 
   .orbit_nav_button {
@@ -1004,7 +1019,7 @@ body,
   .orbit_nav_button_image {
     position: relative;
     object-fit: contain;
-    width: 100%;
+    width: 60%;
     height: 51px;
     object-fit: contain;
   }
@@ -1016,35 +1031,50 @@ body,
     width: 95%;
     height: 100%;
     justify-content: center;
+    z-index: 2;
   }
 
   .splash_screen_text {
     position: static;
     padding: 40px;
-
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .splash_screen_title {
-    font-size: 45px
+    font-size: 12vw;
+  }
+
+  .splash_screen_subtitle {
+    font-size: 8vw;
+    margin-bottom: 40px;
   }
 
   .splash_screen_button {
     top: 90%;
-    width: 80%;
+    width: var(--mobile-view-splash-body-width);
     border-style: none;
     position: static;
+    max-width: unset;
   }
 
   .splash_screen_body {
-    width: 100%;
+    width: var(--mobile-view-splash-body-width);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 20px;
+    font-size: 16px;
   }
 
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
     aspect-ratio: 1;
-    top: 72px;
+    top: 90px;
     left: 50%;
     translate: -50%;
     height: var(--mobile-orbit-size);
@@ -1060,21 +1090,9 @@ body,
     height: auto;
   }
 
-  /* Horizontal alignment for mobile view */
-  .orbit_title_container {
-    position: static;
-    width: var(--mobile-view-width);
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 70px;
-    align-items: center;
-    align-self: center;
-  }
-
   .orbit_title_text {
     font-size: 20px;
-    padding-left: 5%;
+    padding-left: 15%;
     top: 20%;
     left: 10%;
   }
@@ -1288,7 +1306,7 @@ body,
     left: 0;
   }
 
-  .orbit_closeup_satellite_icons img{
+  .orbit_closeup_satellite_icons img {
     margin-left: 16px;
   }
 
@@ -1428,7 +1446,9 @@ body,
 @media (max-width: 360px) {
   :root {
     --mobile-orbit-size: 306px;
+    --mobile-view-splash-body-width: 70vw;
   }
+
 
   .leo_line_container {
     top: 448px;
