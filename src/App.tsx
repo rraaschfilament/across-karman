@@ -215,6 +215,7 @@ export const App: React.FC = () => {
             src={orbitsMoving}
             className={hoveringId ? "player_dimmed" : "player"}
             autoplay={!hoveringId}
+            loop
           />
         )}
 
