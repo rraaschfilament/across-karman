@@ -839,6 +839,7 @@ body,
 @keyframes fade-in {
   0% {
     opacity: 0;
+    visibility: visible;
   }
 
   100% {
@@ -872,6 +873,7 @@ body,
   }
 
   100% {
+    visibility: hidden;
     opacity: 0;
   }
 }
