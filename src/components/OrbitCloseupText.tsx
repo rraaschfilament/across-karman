@@ -134,7 +134,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({ id, setStaticImg, c
 
     return (
         <div className='orbit_closeup_container'>
-
             <div className="orbit_closeup_satellite_icons">
                 {numSatellites.map((_satellite: any, index: any) => (
 
@@ -145,6 +144,7 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({ id, setStaticImg, c
                     />
                 ))}
             </div>
+
             <img className="orbit_closeup_back_button" src={close} onClick={backtoMain} />
             <div className="orbit_closeup_text">
                 <div className="orbit_closeup_header">{headerText}</div>

@@ -26,6 +26,7 @@ export const App: React.FC = () => {
 
   const lottiePlayerRef = useRef<Player | null>(null);
 
+  //something not right here
   const handleSetSplashScreen = () => {
     setIsSplashScreen(false);
 
@@ -59,6 +60,7 @@ export const App: React.FC = () => {
 
     if (earth_orbits_container) {
       if (windowWidth === 1920) {
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -70,13 +72,20 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = "scale(1)";
         }
+
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
       } else if (windowWidth < 1920 && windowWidth > 500) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
         const scaleNum = 1 - percentLoss / 100;
         const scale = "scale(" + scaleNum + ")";
 
-        // Check if the element already has a transform style
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -88,12 +97,14 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = scale;
         }
+        
       } else if (windowWidth <= 500) {
         const loss = 500 - windowWidth;
         const percentLoss = Math.round(loss / 5);
         const scaleNum = 1 - percentLoss / 100;
         const scale = "scale(" + scaleNum + ")";
 
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -103,6 +114,8 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform =
             updatedTransform + " " + scale;
         }
+
+
       }
     }
   }
@@ -143,13 +156,13 @@ export const App: React.FC = () => {
     }
   }, [hoveringId]);
 
-  //not sure if this is needed anymore
   const handleflyTransitionEnd = () => {
     const element = document.getElementById("earth_orbits_container");
     if (element) {
       if (element.classList.contains("earth_fly_out")) {
         //this is handling the fly out
         element.classList.remove("earth_fly_out");
+        adjustElementScale(document.documentElement.clientWidth);
       } else {
         //this is handling the fly in
         setflyTransitionEnded(true);
@@ -161,6 +174,7 @@ export const App: React.FC = () => {
     setCurrentStaticImg(imgId);
   };
 
+  //check on this
   const handleReturntoMain = () => {
     setActiveId("");
     setCurrentStaticImg("");
@@ -171,7 +185,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="background_container">
+    <div className="background_container" >
       {isSplashScreen && <div id="splash_screen_background" className="splash_screen_background">
         <SplashScreen setSplashScreen={handleSetSplashScreen} />
       </div>}
@@ -239,7 +253,7 @@ export const App: React.FC = () => {
             );  
           } else {
             return (
-              <SingleOrbitImage id={"gto"} imageDesc="_solid_hover"/>
+              <SingleOrbitImage id={"gto"} imageDesc="_solid_lighter"/>
             );  
           }
 
@@ -257,14 +271,16 @@ export const App: React.FC = () => {
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_fill" />}
 
         {/* this is getting hacky, need a better way to have it not break on gto */}
-        {activeId && activeId !== "gto" && (
+        {activeId && (activeId === "gto" ? (
+          <SingleOrbitImage id={activeId} imageDesc="_solid_active"/>
+        ) : (
           <SingleOrbitAnimation
             id={activeId}
             player={Player}
             desc="_orbit_moving"
             shouldPlay={true}
           />
-        )}
+        ))}
 
         {activeId &&
           orbitIds
