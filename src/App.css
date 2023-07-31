@@ -635,7 +635,7 @@ body,
   height: 87%;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow: auto;
   margin-left: 7%;
   margin-top: 5%;
 }
@@ -693,7 +693,6 @@ body,
   font-size: 33px;
   letter-spacing: 1.33px;
   padding-bottom: 24px;
-  ;
   padding-left: 3%;
   padding-right: 5%;
   color: #363135;
@@ -840,6 +839,7 @@ body,
 @keyframes fade-in {
   0% {
     opacity: 0;
+    visibility: visible;
   }
 
   100% {
@@ -873,6 +873,7 @@ body,
   }
 
   100% {
+    visibility: hidden;
     opacity: 0;
   }
 }
@@ -919,9 +920,10 @@ body,
   visibility: hidden;
 }
 
+
 @media (max-width: 500px) {
   :root {
-    --mobile-orbit-size: 350px;
+    --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
   }
 
@@ -1014,68 +1016,6 @@ body,
 
   }
 
-  ._dotted img,
-  ._fill img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  ._fill img {
-    position: absolute;
-    z-index: -2;
-  }
-
-  .heo_solid {
-    top: 36%;
-    left: 59%;
-  }
-
-  ._label img {
-    height: 25px;
-    position: absolute;
-    z-index: 2
-  }
-
-  .leo_label {
-    left: 67px;
-    top: 85px;
-
-  }
-
-  .meo_label {
-    left: 42px;
-    top: 85px;
-  }
-
-  .heo_label {
-    left: 211px;
-    top: 67px;
-
-  }
-
-  .gso_label {
-    left: 20px;
-    top: 50px;
-  }
-
-  .geo_label {
-    left: 46px;
-    top: 156px;
-  }
-
-  .gto_label {
-    left: 288px;
-    top: 154px;
-  }
-
-  .gto img,
-  .geo img,
-  .heo img {
-    transform: translate(-49.9%, -49.9%);
-  }
-
-
   .earth {
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -1111,6 +1051,9 @@ body,
     flex: 5;
     display: flex;
     justify-content: center;
+    /* background image will hide the connecting line underneath the popup container at smaller heights */
+    background-image: url('./assets/background.png');
+
   }
 
   .orbit_title_popup {
@@ -1167,9 +1110,39 @@ body,
 
   }
 
+  ._label img {
+    height: 25px;
+    position: absolute;
+    z-index: 2
+  }
+
+  ._dotted img,
+  ._fill img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  ._fill img {
+    position: absolute;
+    z-index: -2;
+  }
+
+  .gto img,
+  .geo img,
+  .heo img {
+    transform: translate(-49.9%, -49.9%);
+  }
+
+
   .leo_line_container {
     top: 454px;
     left: -167px
+  }
+
+  .leo_label {
+    left: 67px;
+    top: 85px;
   }
 
   .meo_line_container {
@@ -1177,30 +1150,59 @@ body,
     left: -197px;
   }
 
+  .meo_label {
+    left: 42px;
+    top: 85px;
+  }
 
   .heo_line_container {
     top: 224px;
-    left: 160px;
+    left: 170px;
+  }
+
+  .heo_label {
+    left: 211px;
+    top: 67px;
+  }
+
+  .heo_solid {
+    top: 36%;
+    left: 59%;
   }
 
   .gso_line_container {
-    top: 450px;
-    left: 108px;
+    top: 521px;
+    left: 91px;
   }
 
-
+  .gso_label {
+    left: 20px;
+    top: 50px;
+  }
 
   .geo_line_container {
-    top: 429px;
+    top: 438px;
     left: 83px;
   }
 
+  .geo_label {
+    left: 46px;
+    top: 156px;
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
   .gto_line_container {
-    top: 431px;
+    top: 436px;
     left: 67px;
   }
 
-
+  .gto_label {
+    left: 288px;
+    top: 154px;
+  }
 
 
 
@@ -1247,6 +1249,10 @@ body,
     top: -151px;
     height: fit-content;
     left: 0;
+  }
+
+  .orbit_closeup_satellite_icons img{
+    margin-left: 16px;
   }
 
   .orbit_closeup_back_button {
@@ -1298,7 +1304,8 @@ body,
 
   .orbit_closeup_button_plain,
   .orbit_closeup_button_outlined {
-    font-size: 39px;
+    font-size: 24px;
+    padding: 12px 32px;
     height: fit-content;
   }
 
@@ -1311,5 +1318,216 @@ body,
     top: -26%;
     user-select: none;
     z-index: 0 !important;
+  }
+}
+
+
+@media (max-width: 400px) {
+  :root {
+    --mobile-orbit-size: 330px;
+  }
+
+  .leo_line_container {
+    top: 452px;
+  }
+
+  .leo_label {
+    left: 67px;
+    top: 85px;
+  }
+
+  .meo_line_container {
+    left: -167px;
+    top: 499px;
+  }
+
+  .meo_label {
+    left: 42px;
+    top: 85px;
+  }
+
+  .heo_line_container {
+    left: 113px;
+    top: 262px;
+  }
+
+  .heo_label {
+    left: 211px;
+    top: 67px;
+
+  }
+
+  .gso_line_container {
+    top: 467px;
+    left: 79px;
+  }
+
+  .gso_label {
+    left: 20px;
+    top: 50px;
+  }
+
+  .geo_line_container {
+    top: 426px;
+    left: 19px
+  }
+
+  .geo_label {
+    left: 46px;
+    top: 156px;
+  }
+
+  .gto_line_container {
+    top: 421px;
+    left: 22px;
+  }
+
+  .gto_label {
+    left: 306px;
+    top: 148px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --mobile-orbit-size: 306px;
+  }
+
+  .leo_line_container {
+    top: 448px;
+  }
+
+  .leo_label {
+    left: 67px;
+    top: 85px;
+  }
+
+  .meo_line_container {
+    left: -166px;
+    top: 490px;
+  }
+
+  .meo_label {
+    left: 42px;
+    top: 85px;
+  }
+
+
+  .heo_line_container {
+    left: 100px;
+    top: 242px;
+  }
+
+  .heo_label {
+    left: 197px;
+    top: 46px;
+  }
+
+  .gso_line_container {
+    top: 484px;
+    left: 37px;
+  }
+
+  .gso_label {
+    left: 20px;
+    top: 50px;
+  }
+
+  .geo_line_container {
+    top: 412px;
+    left: 19px
+  }
+
+  .geo_label {
+    left: 46px;
+    top: 156px;
+  }
+
+  .gto_line_container {
+    top: 410px;
+    left: 5px;
+  }
+
+  .gto_label {
+    left: 306px;
+    top: 148px;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    --mobile-orbit-size: 272px;
+  }
+
+  .leo_line_container {
+    top: 438px;
+  }
+
+  .leo_label {
+    left: 67px;
+    top: 85px;
+  }
+
+  .meo_line_container {
+    left: -166px;
+    top: 472px;
+  }
+
+  .meo_label {
+    left: 42px;
+    top: 43px;
+  }
+
+  .heo_line_container {
+    left: 64px;
+    top: 239px;
+  }
+
+  .heo_label {
+    left: 179px;
+    top: 41px;
+  }
+
+  .gso_line_container {
+    top: 467px;
+    left: -2px;
+  }
+
+  .gso_label {
+    left: 20px;
+    top: 50px;
+  }
+
+  .geo_line_container {
+    top: 394px;
+    left: -13px;
+  }
+
+  .geo_label {
+    left: 38px;
+    top: 118px;
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
+  .gto_line_container {
+    top: 390px;
+    left: -2px;
+  }
+
+  .gto_label {
+    left: 218px;
+    top: 117px;
+  }
+}
+
+@media (max-height: 640px) {
+
+  /* Shrink popup container for shorter height devices */
+  .orbit_title_popup_container {
+    height: 45%;
+    top: 55%;
   }
 }
