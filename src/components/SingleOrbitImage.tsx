@@ -7,7 +7,7 @@ interface SingleOrbitImageProps {
 
 const SingleOrbitImage: React.FC<SingleOrbitImageProps> = ({
   id,
-  imageDesc,
+  imageDesc
 }) => {
   const imageName = id + imageDesc;
 
@@ -20,7 +20,7 @@ const SingleOrbitImage: React.FC<SingleOrbitImageProps> = ({
 
   return (
     <div className={`${id} ${imageDesc}`}>
-      <img src={image} id={imageName} className={imageName} alt={imageName} />
+      <img src={image} id={imageName} className={imageName} alt={imageName}/>
     </div>
   );
 };

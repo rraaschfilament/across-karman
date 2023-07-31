@@ -20,7 +20,7 @@ body,
   opacity: 1;
   display: flex;
   flex-direction: column;
-
+  z-index: 0;
 }
 
 .splash_screen_background {
@@ -62,7 +62,7 @@ body,
 
 .splash_screen_body {
   font: normal normal normal 16px/24px "acumin-pro", sans-serif;
-  width: 35%;
+  width: 38%;
   line-height: 1.8;
   margin-bottom: 12px;
 
@@ -71,7 +71,8 @@ body,
 .splash_screen_button {
   position: absolute;
   top: 100%;
-  width: 20%;
+  max-width: 80%;
+  white-space: nowrap;
   height: 57px;
   background-color: #F3F2F1;
   font-family: "alternate-gothic-no-1-d", sans-serif;
@@ -106,7 +107,7 @@ body,
   left: 25%;
   width: 85%;
   height: 100%;
-  /* overflow: hidden; */
+  z-index: 1;
 }
 
 .player {
@@ -118,7 +119,7 @@ body,
   transform: translate(-50%, -50%);
 }
 
-.player_dimmed {
+/* .player_dimmed {
   position: absolute;
   width: 105%;
   height: 105%;
@@ -126,7 +127,7 @@ body,
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.25;
-}
+} */
 
 .leo_orbit_moving {
   position: absolute;
@@ -181,9 +182,10 @@ body,
 .nav_container {
   position: absolute;
   height: 100%;
-  width: 35%;
+  width: 35vw;
   animation-name: fade-in;
   animation-duration: 2s;
+  z-index: 1;
 }
 
 .orbit_title_container {
@@ -417,6 +419,24 @@ body,
   height: 7.4%;
 }
 
+.gto_solid_lighter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-36%, -50%);
+  height: 7.4%;
+  opacity: 0.15;
+}
+
+.gto_solid_active {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-36%, -50%);
+  height: 7.4%;
+  opacity: 0.45;
+}
+
 .line_to_orbit_container {
   display: flex;
   width: 100%;
@@ -427,8 +447,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
-  /* width: 662px; */
+  height: 13%;
 
 }
 
@@ -436,7 +455,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
@@ -444,7 +463,7 @@ body,
   position: absolute;
   top: 60%;
   left: 50%;
-  height: 63%;
+  height: 68%;
 
 }
 
@@ -452,13 +471,13 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
 .geo_line_container {
   position: absolute;
-  top: 121%;
+  top: 125%;
   left: 50%;
   height: 2%;
 
@@ -466,7 +485,7 @@ body,
 
 .gto_line_container {
   position: absolute;
-  top: 122%;
+  top: 126%;
   left: 60%;
   height: 1%;
 
@@ -526,8 +545,9 @@ body,
   background: rgb(29, 59, 76);
   opacity: 100%;
   position: relative;
-  width: 92%;
-  height: 95%;
+  width: 37vw;
+  height: 92%;
+  top: 3%;
   left: 5%;
   display: flex;
   flex-direction: column;
@@ -540,7 +560,6 @@ body,
   font-size: 33px;
   color: #fff;
   position: relative;
-  height: 10%;
   padding-left: 7%;
   padding-top: 3%;
   justify-content: left;
@@ -618,7 +637,7 @@ body,
 .orbit_closeup_container {
   position: absolute;
   height: 100%;
-  width: 35%;
+  width: 35vw;
   right: 0;
   background-color: #f3f2f1;
   opacity: 1 !important;
@@ -628,6 +647,8 @@ body,
   z-index: 1;
 }
 
+
+
 .orbit_closeup_text {
   position: relative;
   text-align: left;
@@ -636,7 +657,7 @@ body,
   display: flex;
   flex-direction: column;
   overflow: auto;
-  margin-left: 7%;
+  margin-left: 9%;
   margin-top: 5%;
 }
 
@@ -653,9 +674,11 @@ body,
 
 .orbit_closeup_satellite_icons {
   position: absolute;
-  width: 50px;
-  top: 15%;
-  left: -6%;
+  /* width: 50px; */
+  top: 15vh;
+  right: 35vw;
+  transform: translate(50%); 
+  /* left: -6vw; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -683,8 +706,7 @@ body,
   opacity: 1;
   padding-top: 3%;
   padding-left: 3%;
-  padding-bottom: 15px;
-  flex: 0.3;
+  padding-bottom: 30px;
 }
 
 .orbit_closeup_subheader {
@@ -692,14 +714,13 @@ body,
   -webkit-font-smoothing: antialiased;
   font-size: 33px;
   letter-spacing: 1.33px;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
   padding-left: 3%;
   padding-right: 5%;
   color: #363135;
   position: relative;
   text-align: left;
   opacity: 1;
-  flex: 0.2;
 }
 
 .orbit_closeup_section_headings {
@@ -729,7 +750,6 @@ body,
   padding-left: 3%;
   padding-right: 5%;
   padding-bottom: 18px;
-  flex: 3;
 }
 
 .orbit_closeup_button_group {
@@ -741,8 +761,7 @@ body,
   justify-content: space-between;
   opacity: 1 !important;
   z-index: 2;
-  flex: 1;
-  color: #002439;
+
 }
 
 .orbit_closeup_button_outlined {
@@ -750,11 +769,15 @@ body,
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 45px;
+  max-width: 50%;
   width: 175px;
   height: 65px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #7b726f;
   cursor: pointer;
+  color: #002439;
+  flex: 0.4;
+
 }
 
 .orbit_closeup_button_outlined:hover {
@@ -768,15 +791,20 @@ body,
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 45px;
+  max-width: 50%;
   width: 154px;
   height: 57px;
   background: 0% 0% no-repeat padding-box;
   border: none;
   cursor: pointer;
+  color: #002439;
+  white-space: nowrap;
+  flex: 0.4;
 }
 
 .orbit_closeup_button_plain:hover {
   text-decoration: underline;
+  color: #085988;
 }
 
 .orbit_closeup_button_plain:active {
@@ -903,13 +931,22 @@ body,
 
 @media (max-width: 1770px) {}
 
-@media (max-width: 1600px) {
-  /* .orbit_title_popup_container {
-    top: 45%;
-    height: 55%;
-    width: 110%;
-    z-index: 2  ;
-  } */
+@media (max-width: 750px) {
+    .splash_screen_body {
+      width: 90%;
+    }
+
+    .orbit_closeup_text {
+      margin-left: 12%;
+    }
+
+    .orbit_closeup_button_outlined {
+      font-size: 30px;
+    }
+
+    .orbit_closeup_button_plain {
+      font-size: 30px;
+    }
 }
 
 /*****************************************************************************************************************************************************/
