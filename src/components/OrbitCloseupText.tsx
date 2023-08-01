@@ -171,12 +171,12 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
         src={close}
         onClick={backtoMain}
       />
+
       <img
         className="orbit_closeup_back_button_mobile"
         src={close_mobile}
         onClick={backtoMain}
       />
-
       <div className="orbit_closeup_text">
         <div className="orbit_closeup_header">{headerText}</div>
         <div className="orbit_closeup_subheader">{subHeaderText}</div>
@@ -210,7 +210,6 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
           </div>
         )}
       </div>
-
       <div className="orbit_closeup_button_group">
         {currentStaticImg && (
           <button
