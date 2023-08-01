@@ -1272,6 +1272,12 @@ body,
     top: 154px;
   }
 
+  .gto_solid_active {
+    height: 7.4%;
+    left: 61%;
+    top: 49%;
+  }
+
 
 
   .lf-player-container {
@@ -1477,8 +1483,8 @@ body,
   }
 
   .meo_line_container {
-    left: -166px;
-    top: 490px;
+    left: -197px;
+    top: 451px;
   }
 
   .meo_label {
@@ -1498,8 +1504,8 @@ body,
   }
 
   .gso_line_container {
-    top: 484px;
-    left: 37px;
+    top: 452px;
+    left: 55px;
   }
 
   .gso_label {
@@ -1543,8 +1549,8 @@ body,
   }
 
   .meo_line_container {
-    left: -166px;
-    top: 472px;
+    left: -208px;
+    top: 421px;
   }
 
   .meo_label {
@@ -1563,8 +1569,8 @@ body,
   }
 
   .gso_line_container {
-    top: 467px;
-    left: -2px;
+    top: 434px;
+    left: 20px;
   }
 
   .gso_label {
