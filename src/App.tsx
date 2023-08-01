@@ -21,6 +21,8 @@ export const App: React.FC = () => {
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>("");
   const [isSplashScreen, setIsSplashScreen] = useState(true);
+  const [isMobile] = useState<boolean>(window.innerWidth <= 500);
+  const showMenu = isMobile || (!isSplashScreen && !isMobile);
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
 
@@ -75,7 +77,6 @@ export const App: React.FC = () => {
 
         // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
         earth_orbits_container.style.transformOrigin = "";
-
       } else if (windowWidth < 1920 && windowWidth > 500) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
@@ -97,7 +98,6 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = scale;
         }
-        
       } else if (windowWidth <= 500) {
         const loss = 500 - windowWidth;
         const percentLoss = Math.round(loss / 5);
@@ -114,8 +114,6 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform =
             updatedTransform + " " + scale;
         }
-
-
       }
     }
   }
@@ -185,12 +183,14 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="background_container" >
-      {isSplashScreen && <div id="splash_screen_background" className="splash_screen_background">
-        <SplashScreen setSplashScreen={handleSetSplashScreen} />
-      </div>}
+    <div className="background_container">
+      {isSplashScreen && (
+        <div id="splash_screen_background" className="splash_screen_background">
+          <SplashScreen setSplashScreen={handleSetSplashScreen} />
+        </div>
+      )}
 
-      {!isSplashScreen && (
+      {showMenu && (
         <div className="nav_container">
           {!flyToId && (
             <div className="orbit_title_container">
@@ -241,47 +241,42 @@ export const App: React.FC = () => {
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_label" />}
 
         {/* on hovering over a tab, with no other current active orbit tab */}
-        {!activeId && hoveringId && 
-         orbitIds.map((id) => {
-          if(hoveringId !== "gto"){
-            return (
-              <SingleOrbitAnimation
-              id={id}
-              player={Player}
-              desc="_orbit_moving"
-              shouldPlay={id === hoveringId}
-            />
-            );  
-          } else {
-            return (
-              <SingleOrbitImage id={"gto"} imageDesc="_solid_lighter"/>
-            );  
-          }
-
-        })
-  
-         }
+        {!activeId &&
+          hoveringId &&
+          orbitIds.map((id) => {
+            if (hoveringId !== "gto") {
+              return (
+                <SingleOrbitAnimation
+                  id={id}
+                  player={Player}
+                  desc="_orbit_moving"
+                  shouldPlay={id === hoveringId}
+                />
+              );
+            } else {
+              return <SingleOrbitImage id={"gto"} imageDesc="_solid_lighter" />;
+            }
+          })}
 
         {/* on hovering over a tab, with a different orbit tab currently active/selected */}
-        {activeId &&
-          hoveringId &&
-          activeId !== hoveringId && (
-            <SingleOrbitImage id={hoveringId} imageDesc="_solid" />
-          )}
+        {activeId && hoveringId && activeId !== hoveringId && (
+          <SingleOrbitImage id={hoveringId} imageDesc="_solid" />
+        )}
 
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_fill" />}
 
         {/* this is getting hacky, need a better way to have it not break on gto */}
-        {activeId && (activeId === "gto" ? (
-          <SingleOrbitImage id={activeId} imageDesc="_solid_active"/>
-        ) : (
-          <SingleOrbitAnimation
-            id={activeId}
-            player={Player}
-            desc="_orbit_moving"
-            shouldPlay={true}
-          />
-        ))}
+        {activeId &&
+          (activeId === "gto" ? (
+            <SingleOrbitImage id={activeId} imageDesc="_solid_active" />
+          ) : (
+            <SingleOrbitAnimation
+              id={activeId}
+              player={Player}
+              desc="_orbit_moving"
+              shouldPlay={true}
+            />
+          ))}
 
         {activeId &&
           orbitIds
