@@ -50,7 +50,7 @@
             "why": "The orbital pattern of Molniya satellites lent itself to a longer exposure over the northern hemisphere, at a much lower energy cost. It was specifically designed for coverage of higher latitudes."
         },
         "2": {
-            "name": "TRANSITING EXPOPLANET SURVEY SATELLITE (TESS)",
+            "name": "TRANSITING EXOPLANET SURVEY SATELLITE (TESS)",
             "description": "Transiting Exoplanet Survey Satellite (TESS) is a two-year NASA scientific satellite mission surveying for extrasolar planets in both celestial hemispheres, led by MIT.",
             "purpose": "TESS detects small planets in the solar neighborhood by monitoring the brightnesses of more than 500,000 stars and searches for temporary drops in brightness caused by planetary transits, so that detailed characterizations of the planets and their atmospheres can be performed.",
             "why": "The TESS HEO is in a 2:1 resonant orbit with the moon, meaning its orbital period is half of that of the moon.  In HEO, TESS is afforded continuous viewing of the anti-solar sky for over 27 days per month, and is a very stable environment for exoplanet observations, allowing for sensitivities of less than 60 ppm for the brightest stars."
@@ -74,7 +74,7 @@
         "2": {
             "name": "DISH NETWORK DIRECT BROADCASTING SATELLITES (DBS)",
             "description": "DISH uses a network of 11 satellites in geostationary orbit – including EchoStar-19, Echostar-23, EchoStar-15, Anik F3, Nimiq, and soon-to-come Echostar-25 – each of which are only expected to be useful for 15 years.",
-            "purpose": "TThese satellites deliver direct broadcasting programming to approximately 7.1 million customers across the U.S., namely to rural areas, where satellite TV is the dominant television service.",
+            "purpose": "These satellites deliver direct broadcasting programming to approximately 7.1 million customers across the U.S., namely to rural areas, where satellite TV is the dominant television service.",
             "why": "DISH Network satellites are placed into specific “orbital slots” in GEO, staying in a fixed position in relation to the earth to support direct, uninterrupted broadcasting. Ground stations must be able to \"see\" their satellite all time and hence must remain stationary in the same positions relative to the Earth's surface."
         }
     }

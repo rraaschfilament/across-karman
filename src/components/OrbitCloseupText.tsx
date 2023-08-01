@@ -190,7 +190,7 @@ const OrbitCloseupText: React.FC = () => {
           </div>
         )}
         {currentStaticImg && (
-          <div className="orbit_closeup_section_headings">WHY</div>
+          <div className="orbit_closeup_section_headings">WHY THIS ORBIT?</div>
         )}
         {currentStaticImg && (
           <div className="orbit_closeup_body">
