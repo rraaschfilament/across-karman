@@ -447,7 +447,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
@@ -455,7 +455,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
@@ -463,7 +463,7 @@ body,
   position: absolute;
   top: 60%;
   left: 50%;
-  height: 63%;
+  height: 68%;
 
 }
 
@@ -471,7 +471,7 @@ body,
   position: absolute;
   top: 115%;
   left: 50%;
-  height: 8%;
+  height: 13%;
 
 }
 
@@ -1199,7 +1199,8 @@ body,
 
   .leo_line_container {
     top: 454px;
-    left: -167px
+    left: -167px;
+    height: 8%;
   }
 
   .leo_label {
@@ -1210,6 +1211,7 @@ body,
   .meo_line_container {
     top: 463px;
     left: -197px;
+    height: 8%;
   }
 
   .meo_label {
@@ -1220,6 +1222,7 @@ body,
   .heo_line_container {
     top: 224px;
     left: 170px;
+    height: 63%;
   }
 
   .heo_label {
@@ -1235,6 +1238,7 @@ body,
   .gso_line_container {
     top: 521px;
     left: 91px;
+    height: 8%;
   }
 
   .gso_label {
@@ -1245,6 +1249,7 @@ body,
   .geo_line_container {
     top: 438px;
     left: 83px;
+    height: 2%;
   }
 
   .geo_label {
@@ -1259,6 +1264,7 @@ body,
   .gto_line_container {
     top: 436px;
     left: 67px;
+    height: 1%;
   }
 
   .gto_label {
