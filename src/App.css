@@ -1204,8 +1204,9 @@ body,
   }
 
   .leo_label {
-    left: 67px;
-    top: 85px;
+    left: 100px;
+    top: 72px;
+    height: 8%;
   }
 
   .meo_line_container {
@@ -1215,19 +1216,19 @@ body,
   }
 
   .meo_label {
-    left: 42px;
-    top: 85px;
+    left: 79px;
+    top: 47px;
   }
 
   .heo_line_container {
-    top: 224px;
-    left: 170px;
+    top: 257px;
+    left: 151px;
     height: 63%;
   }
 
   .heo_label {
-    left: 211px;
-    top: 67px;
+    left: 316px;
+    top: 67px
   }
 
   .heo_solid {
@@ -1242,8 +1243,8 @@ body,
   }
 
   .gso_label {
-    left: 20px;
-    top: 50px;
+    left: 73px;
+    top: 14px;
   }
 
   .geo_line_container {
@@ -1253,8 +1254,8 @@ body,
   }
 
   .geo_label {
-    left: 46px;
-    top: 156px;
+    left: 45px;
+    top: 190px;
   }
 
   .geo_fill {
@@ -1268,8 +1269,8 @@ body,
   }
 
   .gto_label {
-    left: 288px;
-    top: 154px;
+    left: 125px;
+    top: 184px;
   }
 
   .gto_solid_active {
@@ -1478,8 +1479,8 @@ body,
   }
 
   .leo_label {
-    left: 67px;
-    top: 85px;
+    left: 82px;
+    top: 59px;
   }
 
   .meo_line_container {
@@ -1488,8 +1489,8 @@ body,
   }
 
   .meo_label {
-    left: 42px;
-    top: 85px;
+    left: 67px;
+    top: 36px;
   }
 
 
@@ -1499,8 +1500,8 @@ body,
   }
 
   .heo_label {
-    left: 197px;
-    top: 46px;
+    left: 268px;
+    top: 53px;
   }
 
   .gso_line_container {
@@ -1509,8 +1510,8 @@ body,
   }
 
   .gso_label {
-    left: 20px;
-    top: 50px;
+    left: 53px;
+    top: 13px;
   }
 
   .geo_line_container {
@@ -1520,7 +1521,7 @@ body,
 
   .geo_label {
     left: 46px;
-    top: 156px;
+    top: 162px;
   }
 
   .gto_line_container {
@@ -1529,8 +1530,8 @@ body,
   }
 
   .gto_label {
-    left: 306px;
-    top: 148px;
+    left: 108px;
+    top: 155px;
   }
 }
 
@@ -1544,8 +1545,8 @@ body,
   }
 
   .leo_label {
-    left: 67px;
-    top: 85px;
+    left: 75px;
+    top: 48px;
   }
 
   .meo_line_container {
@@ -1554,18 +1555,18 @@ body,
   }
 
   .meo_label {
-    left: 42px;
-    top: 43px;
+    left: 61px;
+    top: 30px;
   }
 
   .heo_line_container {
-    left: 64px;
-    top: 239px;
+    left: 57px;
+    top: 250px;
   }
 
   .heo_label {
-    left: 179px;
-    top: 41px;
+    left: 238px;
+    top: 45px;
   }
 
   .gso_line_container {
@@ -1574,8 +1575,8 @@ body,
   }
 
   .gso_label {
-    left: 20px;
-    top: 50px;
+    left: 53px;
+    top: 6px;
   }
 
   .geo_line_container {
@@ -1584,8 +1585,8 @@ body,
   }
 
   .geo_label {
-    left: 38px;
-    top: 118px;
+    left: 48px;
+    top: 144px;
   }
 
   .geo_fill {
@@ -1598,8 +1599,8 @@ body,
   }
 
   .gto_label {
-    left: 218px;
-    top: 117px;
+    left: 100px;
+    top: 140px;
   }
 }
 
