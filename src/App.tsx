@@ -21,8 +21,8 @@ export const App: React.FC = () => {
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>("");
   const [isSplashScreen, setIsSplashScreen] = useState(true);
-  const [isMobile] = useState<boolean>(window.innerWidth <= 500);
-  const showMenu = isMobile || (!isSplashScreen && !isMobile);
+  const [isMobileDevice] = useState<boolean>(window.innerWidth <= 500);
+  const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
 
@@ -160,7 +160,8 @@ export const App: React.FC = () => {
       if (element.classList.contains("earth_fly_out")) {
         //this is handling the fly out
         element.classList.remove("earth_fly_out");
-        adjustElementScale(document.documentElement.clientWidth);
+        if (!isMobileDevice)
+          adjustElementScale(document.documentElement.clientWidth);
       } else {
         //this is handling the fly in
         setflyTransitionEnded(true);
@@ -190,7 +191,7 @@ export const App: React.FC = () => {
         </div>
       )}
 
-      {showMenu && (
+      {showNavBar && (
         <div className="nav_container">
           {!flyToId && (
             <div className="orbit_title_container">
