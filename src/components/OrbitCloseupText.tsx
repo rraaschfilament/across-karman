@@ -53,6 +53,16 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
   const headerIndex = id + "_header";
   const subHeaderIndex = id + "_subheader";
   const bodyIndex = id + "_body";
+  const isMobileDevice = window.innerWidth <= 500;
+
+  // Calculate which close button to use
+  const closeButton = {
+    className: isMobileDevice
+      ? "orbit_closeup_back_button_mobile"
+      : "orbit_closeup_back_button",
+    src: isMobileDevice ? close_mobile : close,
+  };
+
 
   const headerText = (orbitCloseupText as OrbitCloseupTextContent)[headerIndex];
   const subHeaderText = currentStaticImg
@@ -166,17 +176,13 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
           />
         ))}
       </div>
+
       <img
-        className="orbit_closeup_back_button"
-        src={close}
+        className={closeButton.className}
+        src={closeButton.src}
         onClick={backtoMain}
       />
 
-      <img
-        className="orbit_closeup_back_button_mobile"
-        src={close_mobile}
-        onClick={backtoMain}
-      />
       <div className="orbit_closeup_text">
         <div className="orbit_closeup_header">{headerText}</div>
         <div className="orbit_closeup_subheader">{subHeaderText}</div>
