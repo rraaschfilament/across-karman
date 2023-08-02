@@ -43,13 +43,13 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({
     ? useImage(imageName + "_mobile")
     : useImage(imageName);
 
-  const orbitNameImage = useImage(id + "_nav_title_active_mobile").image;
+  const orbitNameImage = useImage(id + "_nav_button_title").image;
 
   const btnId = id + "_nav_button";
 
   return (
     <ShowIf value={!loading}>
-      <div className="orbit_nav_button_group">
+      <div className={`${id}_group orbit_nav_button_group`}>
         <div
           id={btnId}
           className="orbit_nav_button"

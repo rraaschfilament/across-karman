@@ -1022,10 +1022,19 @@ body,
     flex-direction: column;
   }
 
-
   .orbit_name {
     position: relative;
     width: 0;
+  }
+
+  .orbit_name.meo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.leo {
+    top: 0px;
+    left: 8px;
   }
 
   .orbit_name.gso {
@@ -1035,13 +1044,13 @@ body,
 
   .orbit_name.heo {
     top: 8px;
-    left: 68px;
+    left: 71px;
   }
 
   .orbit_name.geo {
     user-select: none;
     top: 8px;
-    left: -24px;
+    left: -17px;
   }
 
   .orbit_name.gto {
@@ -1056,8 +1065,6 @@ body,
   .invisible {
     opacity: 0;
   }
-
- 
 
   .orbit_nav_button_image {
     /* outline: 2px dotted yellow; */
