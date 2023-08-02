@@ -132,6 +132,7 @@ body,
 }
 
 .reset_selection.top {
+  /* background-color: red; */
   height: 49vh;
   width: 100%;
 }
@@ -139,6 +140,7 @@ body,
 .reset_selection.bottom {
   height: 51vh;
   width: calc(56vw + var(--reset_selection_left));
+  /* background-color: green; */
 
 }
 
@@ -676,7 +678,7 @@ body,
   animation-name: fly-in-right;
   animation-duration: 1s;
   animation-fill-mode: forwards;
-  z-index: 1;
+  z-index: 2;
 }
 
 
