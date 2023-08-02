@@ -966,7 +966,7 @@ body,
   :root {
     --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
-    --mobile-view-splash-body-width: 54vw;
+    --mobile-view-splash-body-width: 60vw;
   }
 
   .orbit_closeup_back_button_mobile {
