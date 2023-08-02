@@ -114,7 +114,6 @@ body,
 
 .reset_orbit_selection_container {
   position: absolute;
-  opacity: 30%;
   left: var(--reset_selection_left);
   overflow: clip;
   height: 100vh;
