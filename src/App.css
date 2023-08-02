@@ -9,7 +9,7 @@ body,
   margin: 0px;
   display: flex;
   overflow: hidden;
-  --reset_selection_left: 150px;
+  --reset_selection_left: 228px;
 
 }
 
@@ -113,6 +113,7 @@ body,
 }
 
 .reset_orbit_selection_container {
+  /* outline: 3px dotted dodgerblue; */
   position: absolute;
   left: var(--reset_selection_left);
   overflow: clip;
@@ -138,9 +139,9 @@ body,
 }
 
 .reset_selection.bottom {
+  /* background-color: green; */
   height: 51vh;
   width: calc(56vw + var(--reset_selection_left));
-  /* background-color: green; */
 
 }
 
