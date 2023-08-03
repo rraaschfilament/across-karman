@@ -191,7 +191,18 @@ export const App: React.FC = () => {
           <SplashScreen setSplashScreen={handleSetSplashScreen} />
         </div>
       )}
-
+      {!isSplashScreen && (
+        <div className="reset_orbit_selection_container">
+          <div
+            className="reset_selection top"
+            onClick={resetOrbitSelection}
+          ></div>
+          <div
+            className="reset_selection bottom"
+            onClick={resetOrbitSelection}
+          ></div>
+        </div>
+      )}
       {showNavBar && (
         <div className="nav_container">
           {!flyToId && (
@@ -226,7 +237,6 @@ export const App: React.FC = () => {
         id="earth_orbits_container"
         className={"earth_orbits_container"}
         onTransitionEnd={handleflyTransitionEnd}
-        onClick={resetOrbitSelection}
       >
         {!activeId && !hoveringId && (
           <Player
@@ -287,7 +297,6 @@ export const App: React.FC = () => {
               return <SingleOrbitImage id={id} imageDesc="_dotted" />;
             })}
       </div>
-
       {flyToId && flyTransitionEnded && (
         <img
           src={orbitBackground}
@@ -311,7 +320,6 @@ export const App: React.FC = () => {
           desc="_orbit_details"
         />
       )}
-
       {currentStaticImg && (
         <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg} />
       )}
