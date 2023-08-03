@@ -1,4 +1,6 @@
+import useIsMobileDevice from "../hooks/isMobileDevice";
 import useImage from "../hooks/useImage";
+import { ShowIf } from "./ShowIf";
 
 interface SingleOrbitImageProps {
   id: string;
@@ -7,21 +9,24 @@ interface SingleOrbitImageProps {
 
 const SingleOrbitImage: React.FC<SingleOrbitImageProps> = ({
   id,
-  imageDesc
+  imageDesc,
 }) => {
   const imageName = id + imageDesc;
 
+  const isMobileDevice = useIsMobileDevice();
   const needsMobileAsset = imageDesc === "_fill" || imageDesc === "_dotted";
 
-  const { image } =
-    document.documentElement.clientWidth <= 500 && needsMobileAsset
+  const { image, loading } =
+    isMobileDevice && needsMobileAsset
       ? useImage(imageName + "_mobile")
       : useImage(imageName);
 
   return (
-    <div className={`${id} ${imageDesc}`}>
-      <img src={image} id={imageName} className={imageName} alt={imageName}/>
-    </div>
+    <ShowIf value={!loading}>
+      <div className={`${id} ${imageDesc}`}>
+        <img src={image} id={imageName} className={imageName} alt={imageName} />
+      </div>
+    </ShowIf>
   );
 };
 

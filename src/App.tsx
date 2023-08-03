@@ -13,6 +13,7 @@ import PopUpText from "./components/PopUpText";
 import OrbitCloseupText from "./components/OrbitCloseupText";
 import SplashScreen from "./components/SplashScreen";
 import orbitBackground from "./assets/orbit_background.png";
+import useIsMobileDevice from "./hooks/isMobileDevice";
 
 export const App: React.FC = () => {
   const [activeId, setActiveId] = useState<string>("");
@@ -21,7 +22,7 @@ export const App: React.FC = () => {
   const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
   const [currentStaticImg, setCurrentStaticImg] = useState<string>("");
   const [isSplashScreen, setIsSplashScreen] = useState(true);
-  const [isMobileDevice] = useState<boolean>(window.innerWidth <= 500);
+  const isMobileDevice = useIsMobileDevice()
   const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
