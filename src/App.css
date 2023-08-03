@@ -1006,8 +1006,7 @@ body,
     visibility: visible;
     position: relative;
     top: -48.5vh;
-    right: -7vw;
-    float: right;
+    left: 91vw;
   }
 
   .background_container {
@@ -1390,14 +1389,15 @@ body,
     flex-wrap: nowrap;
     justify-content: flex-end;
     width: 100%;
-    top: -151px;
+    top: -30px;
     height: fit-content;
     left: 0;
     transform: unset;
   }
 
   .orbit_closeup_satellite_icons img {
-    margin-left: 16px;
+    margin-right: 16px;
+    padding: 0;
   }
 
   .orbit_closeup_back_button {
@@ -1405,7 +1405,13 @@ body,
   }
 
   .orbit_closeup_text {
-    height: 75%;
+    /* outline: 2px dotted tomato; */
+    max-width: 100vw;
+    padding: 0 40px;
+    height: 73%;
+    margin-left: 0%;
+    margin-top: 3%;
+
   }
 
   .orbit_closeup_header {
