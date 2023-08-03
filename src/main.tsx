@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
-import App from './AppTest.tsx'
+import App from './App.tsx'
 import store from './app/store';
 
 ReactDOM.render(
