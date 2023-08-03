@@ -1,54 +1,37 @@
 import React, { useEffect, useState, useRef } from "react";
+import { Provider, useSelector, useDispatch } from "react-redux";
+import { setActiveId, setHoveringId, setEarthOrbitsScale } from './features/appSlice';
+
+import store, { RootState } from "./app/store";
 import "./App.css";
-import { Player } from "@lottiefiles/react-lottie-player";
-import orbitsMoving from "./lotties/all_orbits_moving.json";
-import earth from "./assets/earth.png";
+
+import SplashScreen from "./components/SplashScreen";
 import OrbitTitleGroup from "./components/OrbitTitleGroup";
-import SingleOrbitImage from "./components/SingleOrbitImage";
-import SingleOrbitAnimation from "./components/SingleOrbitAnimation";
-import TestStaticImgCloseup from "./components/TestStaticImgCloseup";
+import EarthOrbitsContainer from "./components/EarthOrbitsContainer";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
-import OrbitCloseupText from "./components/OrbitCloseupText";
-import SplashScreen from "./components/SplashScreen";
+import { Player } from "@lottiefiles/react-lottie-player";
 import orbitBackground from "./assets/orbit_background.png";
+import OrbitCloseupText from "./components/OrbitCloseupText";
+import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
+import StaticImgCloseup from "./components/StaticImgCloseup";
+
 
 export const App: React.FC = () => {
-  const [activeId, setActiveId] = useState<string>("");
-  const [hoveringId, setHoveringId] = useState<string>("");
-  const [flyToId, setflyToId] = useState<string>("");
-  const [flyTransitionEnded, setflyTransitionEnded] = useState(false);
-  const [currentStaticImg, setCurrentStaticImg] = useState<string>("");
-  const [isSplashScreen, setIsSplashScreen] = useState(true);
-
   const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
 
-  const lottiePlayerRef = useRef<Player | null>(null);
+  const dispatch = useDispatch();
 
-  const handleSetSplashScreen = () => {
-    setIsSplashScreen(false);
-
-    const splashScreen = document.getElementById("splash_screen_background");
-    if (splashScreen) {
-      splashScreen.style.animation = "fade-out 2s ease forwards";
-    }
-  };
-
-  const handleSetActive = (id: string) => {
-    setActiveId(id);
-  };
-
-  const handleSetHover = (id: string) => {
-    setHoveringId(id);
-  };
-
-  const handleFly = (id: string) => {
-    setflyToId(id);
-  };
+  const activeId = useSelector((state: RootState) => state.app.activeId);
+  const isSplashScreen = useSelector((state: RootState) => state.app.isSplashScreen);
+  const flyToId = useSelector((state: RootState) => state.app.flyToId);
+  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
+  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
 
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    resetOrbitSelection();
+    dispatch(setActiveId(''));
+    dispatch(setHoveringId(''));
   };
 
   function adjustElementScale(windowWidth: number) {
@@ -57,7 +40,11 @@ export const App: React.FC = () => {
     );
 
     if (earth_orbits_container) {
-      if (windowWidth === 1920) {
+      if (windowWidth >= 1920) {
+        //full size, scale will be 1
+        dispatch(setEarthOrbitsScale(1));
+
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -65,17 +52,27 @@ export const App: React.FC = () => {
             ""
           );
           earth_orbits_container.style.transform =
-            updatedTransform + " " + "scale(1)";
+            updatedTransform + " " + "scale(" + {earthOrbitsScale} + ")";
         } else {
-          earth_orbits_container.style.transform = "scale(1)";
+          earth_orbits_container.style.transform = "scale(" + {earthOrbitsScale} + ")";
         }
+
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
       } else if (windowWidth < 1920 && windowWidth > 500) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
         const scaleNum = 1 - percentLoss / 100;
+
+        // Set the scale in the redux store
+        dispatch(setEarthOrbitsScale(scaleNum));
         const scale = "scale(" + scaleNum + ")";
 
-        // Check if the element already has a transform style
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -87,12 +84,18 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = scale;
         }
+
       } else if (windowWidth <= 500) {
         const loss = 500 - windowWidth;
         const percentLoss = Math.round(loss / 5);
         const scaleNum = 1 - percentLoss / 100;
+
+        // Set the scale in the redux store
+        dispatch(setEarthOrbitsScale(scaleNum));
+
         const scale = "scale(" + scaleNum + ")";
 
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -102,18 +105,15 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform =
             updatedTransform + " " + scale;
         }
+
+
       }
     }
   }
 
-  function resetOrbitSelection() {
-    setActiveId("");
-    setHoveringId("");
-  }
-
-  window.addEventListener("resize", handleResize);
-
   useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    //adjust for initial window width
     adjustElementScale(document.documentElement.clientWidth);
   }, []);
 
@@ -122,170 +122,73 @@ export const App: React.FC = () => {
       const element = document.getElementById(
         flyToId + "_sat_" + currentStaticImg
       );
+      console.log('currentStaticImg: ', currentStaticImg);
       element?.classList.remove("static_satellite_closeup");
       // Re-add the class with a slight delay to restart the animation
       setTimeout(() => {
         element?.classList.add("static_satellite_closeup");
       }, 1);
     }
-  }, [currentStaticImg, flyToId]);
-
-  useEffect(() => {
-    if (lottiePlayerRef.current) {
-      // Pause the animation if hoveringId is present, play otherwise
-      if (hoveringId) {
-        lottiePlayerRef.current.pause();
-      } else {
-        lottiePlayerRef.current.play();
-      }
-    }
-  }, [hoveringId]);
-
-  const handleflyTransitionEnd = () => {
-    const element = document.getElementById("earth_orbits_container");
-    if (element) {
-      if (element.classList.contains("earth_fly_out")) {
-        //this is handling the fly out
-        element.classList.remove("earth_fly_out");
-      } else {
-        //this is handling the fly in
-        setflyTransitionEnded(true);
-      }
-    }
-  };
-
-  const handleSetStaticImg = (imgId: string) => {
-    setCurrentStaticImg(imgId);
-  };
-
-  const handleReturntoMain = () => {
-    setActiveId("");
-    setCurrentStaticImg("");
-    setHoveringId("");
-    setflyToId("");
-    setflyTransitionEnded(false);
-    adjustElementScale(document.documentElement.clientWidth);
-  };
+  }, [currentStaticImg]);
 
   return (
-    <div className="background_container">
-      <div id="splash_screen_background" className="splash_screen_background">
-        <SplashScreen setSplashScreen={handleSetSplashScreen} />
-      </div>
-
-      {!isSplashScreen && (
-        <div className="nav_container">
-          {!flyToId && (
-            <div className="orbit_title_container">
-              {orbitIds.map((id, index) => {
-                return (
-                  <OrbitTitleGroup
-                    id={id}
-                    setActive={handleSetActive}
-                    activeId={activeId}
-                    setHover={handleSetHover}
-                    hoverId={hoveringId}
-                    tabIndex={index}
-                  />
-                );
-              })}
-
-              <div className="popup_line_container">
-                {orbitIds.map((id) => {
-                  return <PopUpLine id={id} activeId={activeId} />;
+    <Provider store={store}>
+      <div className="background_container">
+        {isSplashScreen ? (
+          <SplashScreen />
+        ) : (
+          <div className="nav_container">
+            {!flyToId && (
+              <div className="orbit_title_container">
+                {orbitIds.map((id, index) => {
+                  return (
+                    <OrbitTitleGroup
+                      key={id}
+                      id={id}
+                      tabIndex={index}
+                    />
+                  );
                 })}
+
+                <div className="popup_line_container">
+                  {orbitIds.map((id) => {
+                    return <PopUpLine key={id + "_popupline"} id={id} />;
+                  })}
+                </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {!flyToId && activeId && (
-            <PopUpText id={activeId} setFly={handleFly} />
-          )}
-        </div>
-      )}
-      <div
-        id="earth_orbits_container"
-        className={"earth_orbits_container"}
-        onTransitionEnd={handleflyTransitionEnd}
-        onClick={resetOrbitSelection}
-      >
-        {!activeId && (
-          <Player
-            ref={lottiePlayerRef}
-            src={orbitsMoving}
-            className={hoveringId ? "player_dimmed" : "player"}
-            autoplay={!hoveringId}
-          />
+            {!flyToId && activeId && (
+              <PopUpText />
+            )}
+          </div>
         )}
 
-        {<img src={earth} className="earth" alt="earth" />}
+        <EarthOrbitsContainer />
 
-        {activeId && <SingleOrbitImage id={activeId} imageDesc="_label" />}
+        {flyToId ? (
+          <>
+            <img
+              src={orbitBackground}
+              id="orbit_background"
+              className="orbit_background"
+              alt="orbit_background"
+            />
+            <OrbitCloseupText />
+            {currentStaticImg ? (
+              <StaticImgCloseup key={flyToId + "_sat_" + currentStaticImg}/>
+            ) : (
+              <SingleOrbitAnimationDetails
+                id={flyToId}
+                player={Player}
+                desc="_orbit_details"
+              />
+            )}
+          </>
+        ) : null}
 
-        {/* on hovering over a tab, with no other current active orbit tab */}
-        {!activeId && hoveringId && hoveringId != "gto" && (
-          <SingleOrbitAnimation
-            id={hoveringId}
-            player={Player}
-            desc="_orbit_moving"
-          />
-        )}
-
-        {/* on hovering over a tab, with a different orbit tab currently active/selected */}
-        {activeId &&
-          hoveringId &&
-          activeId !== hoveringId &&
-          hoveringId != "gto" && (
-            <SingleOrbitImage id={hoveringId} imageDesc="_solid" />
-          )}
-
-        {activeId && <SingleOrbitImage id={activeId} imageDesc="_fill" />}
-
-        {/* this is getting hacky, need a better way to have it not break on gto */}
-        {activeId && activeId !== "gto" && (
-          <SingleOrbitAnimation
-            id={activeId}
-            player={Player}
-            desc="_orbit_moving"
-          />
-        )}
-
-        {activeId &&
-          orbitIds
-            .filter((id) => id !== activeId && id !== hoveringId)
-            .map((id) => {
-              return <SingleOrbitImage id={id} imageDesc="_dotted" />;
-            })}
       </div>
-
-      {flyToId && flyTransitionEnded && (
-        <img
-          src={orbitBackground}
-          id="orbit_background"
-          className="orbit_background"
-          alt="orbit_background"
-        />
-      )}
-      {flyToId && flyTransitionEnded && (
-        <OrbitCloseupText
-          id={flyToId}
-          setStaticImg={handleSetStaticImg}
-          currentStaticImg={currentStaticImg}
-          unsetFlyTo={handleReturntoMain}
-        />
-      )}
-      {!currentStaticImg && flyTransitionEnded && (
-        <SingleOrbitAnimation
-          id={flyToId}
-          player={Player}
-          desc="_orbit_details"
-        />
-      )}
-
-      {currentStaticImg && (
-        <TestStaticImgCloseup id={flyToId} imageNum={currentStaticImg} />
-      )}
-    </div>
+    </Provider>
   );
 };
 

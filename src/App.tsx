@@ -7,7 +7,7 @@ import OrbitTitleGroup from "./components/OrbitTitleGroup";
 import SingleOrbitImage from "./components/SingleOrbitImage";
 import SingleOrbitAnimation from "./components/SingleOrbitAnimation";
 import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
-import TestStaticImgCloseup from "./components/TestStaticImgCloseup";
+import TestStaticImgCloseup from "./components/StaticImgCloseup";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
 import OrbitCloseupText from "./components/OrbitCloseupText";

@@ -1,22 +1,45 @@
 import React, { useRef } from 'react';
-import useWindow from '../hooks/useWindow';
+import { useSelector } from 'react-redux';
+import { RootState } from "../app/store";
 import lineWidths from '../text/LineWidths.json';
 interface PopUpLineProps {
     id: string;
-    activeId: string;
 }
 
 interface LineWidths {
     [id: string]: number;
 }
 
-const PopUpLine: React.FC<PopUpLineProps> = ({ id, activeId }) => {
+const PopUpLine: React.FC<PopUpLineProps> = ({ id }) => {
+
+    const activeId = useSelector((state: RootState) => state.app.activeId);
     const classRef = useRef<HTMLSpanElement>(null);
     
     const orbitLineContainer = id + '_line_container';
     const orbitLine = id + '_line';
 
-     let elementWidth = (lineWidths as LineWidths)[activeId];
+    const useWindow = (elementWidth: any) => {
+
+        if (document.documentElement.clientWidth !== 1920 ) {
+            //how many pixels did we lose?
+            const loss = 1920 - document.documentElement.clientWidth;
+    
+            const percentLoss = Math.round(loss / 19.2);
+    
+            const elementPercentLoss = (elementWidth / 100) * percentLoss;
+    
+            const newWidth = elementWidth - elementPercentLoss;
+    
+            return {  newWidth };
+        } else {
+            const newWidth = elementWidth;
+    
+            return {  newWidth };
+        }
+    
+        }
+
+    let elementWidth = (lineWidths as LineWidths)[activeId];
      
     let returnedWidth = useWindow(elementWidth);
 
