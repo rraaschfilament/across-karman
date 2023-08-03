@@ -23,9 +23,9 @@ const SingleOrbitImage: React.FC<SingleOrbitImageProps> = ({
 
   return (
     <ShowIf value={!loading}>
-    <div className={`${id} ${imageDesc}`}>
-      <img src={image} id={imageName} className={imageName} alt={imageName}/>
-    </div>
+      <div className={`${id} ${imageDesc}`}>
+        <img src={image} id={imageName} className={imageName} alt={imageName} />
+      </div>
     </ShowIf>
   );
 };

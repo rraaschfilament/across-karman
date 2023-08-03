@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from "../app/store";
 import close from "../assets/close.png";
+import close_mobile from "../assets/close_mobile.png";
 import selectedSat from "../assets/closeup_satellite_selected.png";
 import unselectedSat from "../assets/closeup_satellite_unselected.png";
 import orbitCloseupText from "../text/OrbitCloseups.json";
@@ -159,10 +160,15 @@ const OrbitCloseupText: React.FC = () => {
           />
         ))}
       </div>
-
       <img
         className="orbit_closeup_back_button"
         src={close}
+        onClick={backtoMain}
+      />
+
+      <img
+        className="orbit_closeup_back_button_mobile"
+        src={close_mobile}
         onClick={backtoMain}
       />
       <div className="orbit_closeup_text">
@@ -198,7 +204,6 @@ const OrbitCloseupText: React.FC = () => {
           </div>
         )}
       </div>
-
       <div className="orbit_closeup_button_group">
         {currentStaticImg && (
           <button

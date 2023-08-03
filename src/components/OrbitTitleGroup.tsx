@@ -73,7 +73,6 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
         )}
       </div>
     </ShowIf>
-
   );
 };
 
