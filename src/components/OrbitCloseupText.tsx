@@ -1,17 +1,13 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from "../app/store";
 import close from "../assets/close.png";
 import close_mobile from "../assets/close_mobile.png";
 import selectedSat from "../assets/closeup_satellite_selected.png";
 import unselectedSat from "../assets/closeup_satellite_unselected.png";
 import orbitCloseupText from "../text/OrbitCloseups.json";
 import orbitSatellites from "../text/OrbitSatellites.json";
-
-interface OrbitCloseupTextProps {
-  id: string;
-  setStaticImg: (id: string) => void;
-  currentStaticImg: string;
-  unsetFlyTo: () => void;
-}
+import { setActiveId, setCurrentStaticImg, setFlyToId, setHoveringId } from "../features/appSlice";
 
 interface OrbitCloseupTextContent {
   [id: string]: string;
@@ -38,119 +34,117 @@ const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 };
 
-const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
-  id,
-  setStaticImg,
-  currentStaticImg,
-  unsetFlyTo,
-}) => {
+const OrbitCloseupText: React.FC = () => {
+  const dispatch = useDispatch();
+  const flyToId = useSelector((state: RootState) => state.app.flyToId);
+  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
+  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
+
   const [numSatellites, setnumSatellites] = React.useState(Array);
 
   const previousBtnText = "< PREVIOUS";
-  const previousBtnId = id + "_previous_button";
-  const nextBtnId = id + "_next_button";
-  const orbitBtnId = id + "_orbit_button";
-  const headerIndex = id + "_header";
-  const subHeaderIndex = id + "_subheader";
-  const bodyIndex = id + "_body";
+  const previousBtnId = flyToId + "_previous_button";
+  const nextBtnId = flyToId + "_next_button";
+  const orbitBtnId = flyToId + "_orbit_button";
+  const headerIndex = flyToId + "_header";
+  const subHeaderIndex = flyToId + "_subheader";
+  const bodyIndex = flyToId + "_body";
 
   const headerText = (orbitCloseupText as OrbitCloseupTextContent)[headerIndex];
   const subHeaderText = currentStaticImg
-    ? (orbitSatellites as unknown as OrbitCloseupImgContent)[id]?.[
+    ? (orbitSatellites as unknown as OrbitCloseupImgContent)[flyToId]?.[
         currentStaticImg
       ]?.["name"]
     : (orbitCloseupText as OrbitCloseupTextContent)[subHeaderIndex];
 
   const satelliteDes: React.ReactNode = (
     orbitSatellites as unknown as OrbitCloseupImgContent
-  )[id]?.[currentStaticImg]?.["description"];
+  )[flyToId]?.[currentStaticImg]?.["description"];
   const satellitePurp: React.ReactNode = (
     orbitSatellites as unknown as OrbitCloseupImgContent
-  )[id]?.[currentStaticImg]?.["purpose"];
+  )[flyToId]?.[currentStaticImg]?.["purpose"];
   const satelliteWhy: React.ReactNode = (
     orbitSatellites as unknown as OrbitCloseupImgContent
-  )[id]?.[currentStaticImg]?.["why"];
+  )[flyToId]?.[currentStaticImg]?.["why"];
 
   const bodyText: React.ReactNode = (
     orbitCloseupText as OrbitCloseupTextContent
   )[bodyIndex];
 
   useEffect(() => {
-    if (id) {
+    if (flyToId) {
       const numSatellites = Array.from(
         {
           length: Object.keys(
-            (orbitSatellites as unknown as OrbitCloseupImgContent)[id]
+            (orbitSatellites as unknown as OrbitCloseupImgContent)[flyToId]
           ).length,
         },
         (_, index) => index + 1
       );
       setnumSatellites(numSatellites);
     }
-  }, [id]);
+  }, [flyToId]);
 
   const showNext = () => {
-    const btnelement = document.getElementById(nextBtnId);
-    if (btnelement) {
-      btnelement?.classList.add("clicked");
-    }
 
     if (!currentStaticImg) {
-      setStaticImg("1");
+      dispatch(setCurrentStaticImg("1"));
     } else {
       const number = parseInt(currentStaticImg) + 1;
+
       const validSatelliteIndex = (
         orbitSatellites as unknown as OrbitCloseupImgContent
-      )[id]?.[number.toString()];
+      )[flyToId]?.[number.toString()];
 
       if (validSatelliteIndex) {
-        setStaticImg(number.toString());
+        dispatch(setCurrentStaticImg(number.toString()));
       } else {
-        setStaticImg("");
+        dispatch(setCurrentStaticImg(""));
       }
     }
   };
 
   const showPrevious = () => {
     if (!currentStaticImg) {
-      setStaticImg("1");
+      dispatch(setCurrentStaticImg("1"));
     } else {
       const number = parseInt(currentStaticImg) - 1;
 
       const validSatelliteIndex = (
         orbitSatellites as unknown as OrbitCloseupImgContent
-      )[id][number.toString()];
+      )[flyToId][number.toString()];
+
       if (validSatelliteIndex) {
-        setStaticImg(number.toString());
+        dispatch(setCurrentStaticImg(number.toString()));
       } else {
-        setStaticImg("");
+        dispatch(setCurrentStaticImg(""));
       }
     }
   };
 
   const backtoMain = () => {
-    const btnelement = document.getElementById(orbitBtnId);
-    if (btnelement) {
-      btnelement?.classList.add("clicked");
-    }
+    dispatch(setFlyToId(""));
+    dispatch(setActiveId(""));
+    dispatch(setHoveringId(""));
+    dispatch(setCurrentStaticImg(""));
 
-    unsetFlyTo();
-    const elementName = "earth_orbits_container";
-    const element = document.getElementById(elementName);
+    //there's a better Reacty way to do this
+    const element = document.getElementById("earth_orbits_container");
 
     if (element) {
-      element.classList.add("earth_fly_out");
-      element.style.transform = "scale(1)";
+      element.style.transform = "scale(" + earthOrbitsScale + ")";
       element.style.transition = "transform 2s ease";
       element.style.transformOrigin = "50% 16%";
       element.style.overflow = "hidden";
+      element.style.animation = "fade-in 3s ease forwards";
     }
 
     setTimeout(() => {
       if (element) {
-        element.style.animation = "fade-in 2s ease forwards";
+        element.style.transformOrigin = "";
+        element.style.transition = "transform 2s ease-in";
       }
-    }, 1);
+    }, 3000);
   };
 
   return (
@@ -202,7 +196,7 @@ const OrbitCloseupText: React.FC<OrbitCloseupTextProps> = ({
           </div>
         )}
         {currentStaticImg && (
-          <div className="orbit_closeup_section_headings">WHY</div>
+          <div className="orbit_closeup_section_headings">WHY THIS ORBIT?</div>
         )}
         {currentStaticImg && (
           <div className="orbit_closeup_body">

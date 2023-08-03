@@ -6,7 +6,8 @@ import earth from "./assets/earth.png";
 import OrbitTitleGroup from "./components/OrbitTitleGroup";
 import SingleOrbitImage from "./components/SingleOrbitImage";
 import SingleOrbitAnimation from "./components/SingleOrbitAnimation";
-import TestStaticImgCloseup from "./components/TestStaticImgCloseup";
+import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
+import TestStaticImgCloseup from "./components/StaticImgCloseup";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
 import OrbitCloseupText from "./components/OrbitCloseupText";
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
 
   const lottiePlayerRef = useRef<Player | null>(null);
 
+  //something not right here
   const handleSetSplashScreen = () => {
     setIsSplashScreen(false);
 
@@ -58,6 +60,7 @@ export const App: React.FC = () => {
 
     if (earth_orbits_container) {
       if (windowWidth === 1920) {
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -69,13 +72,20 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = "scale(1)";
         }
+
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
       } else if (windowWidth < 1920 && windowWidth > 500) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
         const scaleNum = 1 - percentLoss / 100;
         const scale = "scale(" + scaleNum + ")";
 
-        // Check if the element already has a transform style
+        // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
+        earth_orbits_container.style.transformOrigin = "";
+
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -87,12 +97,14 @@ export const App: React.FC = () => {
         } else {
           earth_orbits_container.style.transform = scale;
         }
+        
       } else if (windowWidth <= 500) {
         const loss = 500 - windowWidth;
         const percentLoss = Math.round(loss / 5);
         const scaleNum = 1 - percentLoss / 100;
         const scale = "scale(" + scaleNum + ")";
 
+        // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
         if (existingTransform && existingTransform.includes("scale(")) {
           const updatedTransform = existingTransform.replace(
@@ -102,6 +114,8 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform =
             updatedTransform + " " + scale;
         }
+
+
       }
     }
   }
@@ -130,6 +144,7 @@ export const App: React.FC = () => {
     }
   }, [currentStaticImg, flyToId]);
 
+  //This was for when an orbit is hovered, and no other orbit is selected, but I had to change it from using the full player to show the non-hovered (dimmed) orbits, to individual orbit animations, so I'll have to go back and remove this at some point
   useEffect(() => {
     if (lottiePlayerRef.current) {
       // Pause the animation if hoveringId is present, play otherwise
@@ -147,6 +162,7 @@ export const App: React.FC = () => {
       if (element.classList.contains("earth_fly_out")) {
         //this is handling the fly out
         element.classList.remove("earth_fly_out");
+        adjustElementScale(document.documentElement.clientWidth);
       } else {
         //this is handling the fly in
         setflyTransitionEnded(true);
@@ -158,6 +174,7 @@ export const App: React.FC = () => {
     setCurrentStaticImg(imgId);
   };
 
+  //check on this
   const handleReturntoMain = () => {
     setActiveId("");
     setCurrentStaticImg("");
@@ -168,10 +185,10 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="background_container">
-      <div id="splash_screen_background" className="splash_screen_background">
+    <div className="background_container" >
+      {isSplashScreen && <div id="splash_screen_background" className="splash_screen_background">
         <SplashScreen setSplashScreen={handleSetSplashScreen} />
-      </div>
+      </div>}
 
       {!isSplashScreen && (
         <div className="nav_container">
@@ -209,12 +226,13 @@ export const App: React.FC = () => {
         onTransitionEnd={handleflyTransitionEnd}
         onClick={resetOrbitSelection}
       >
-        {!activeId && (
+        {!activeId && !hoveringId && (
           <Player
             ref={lottiePlayerRef}
             src={orbitsMoving}
-            className={hoveringId ? "player_dimmed" : "player"}
-            autoplay={!hoveringId}
+            className="player"
+            autoplay
+            loop
           />
         )}
 
@@ -223,32 +241,47 @@ export const App: React.FC = () => {
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_label" />}
 
         {/* on hovering over a tab, with no other current active orbit tab */}
-        {!activeId && hoveringId && hoveringId != "gto" && (
-          <SingleOrbitAnimation
-            id={hoveringId}
-            player={Player}
-            desc="_orbit_moving"
-          />
-        )}
+        {!activeId && hoveringId && 
+         orbitIds.map((id) => {
+          if(hoveringId !== "gto"){
+            return (
+              <SingleOrbitAnimation
+              id={id}
+              player={Player}
+              desc="_orbit_moving"
+              shouldPlay={id === hoveringId}
+            />
+            );  
+          } else {
+            return (
+              <SingleOrbitImage id={"gto"} imageDesc="_solid_lighter"/>
+            );  
+          }
+
+        })
+  
+         }
 
         {/* on hovering over a tab, with a different orbit tab currently active/selected */}
         {activeId &&
           hoveringId &&
-          activeId !== hoveringId &&
-          hoveringId != "gto" && (
+          activeId !== hoveringId && (
             <SingleOrbitImage id={hoveringId} imageDesc="_solid" />
           )}
 
         {activeId && <SingleOrbitImage id={activeId} imageDesc="_fill" />}
 
         {/* this is getting hacky, need a better way to have it not break on gto */}
-        {activeId && activeId !== "gto" && (
+        {activeId && (activeId === "gto" ? (
+          <SingleOrbitImage id={activeId} imageDesc="_solid_active"/>
+        ) : (
           <SingleOrbitAnimation
             id={activeId}
             player={Player}
             desc="_orbit_moving"
+            shouldPlay={true}
           />
-        )}
+        ))}
 
         {activeId &&
           orbitIds
@@ -275,7 +308,7 @@ export const App: React.FC = () => {
         />
       )}
       {!currentStaticImg && flyTransitionEnded && (
-        <SingleOrbitAnimation
+        <SingleOrbitAnimationDetails
           id={flyToId}
           player={Player}
           desc="_orbit_details"

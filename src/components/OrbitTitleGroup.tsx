@@ -1,47 +1,44 @@
-import React from "react";
-import useImage from "../hooks/useImage";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from "../app/store";
+import { setActiveId, setHoveringId } from '../features/appSlice';
+import useImage from '../hooks/useImage';
 import useIsMobileDevice from "../hooks/isMobileDevice";
 import { ShowIf } from "./ShowIf";
 
 interface OrbitTitleGroupProps {
   id: string;
-  setActive: (id: string) => void;
-  activeId: string;
-  setHover: (id: string) => void;
-  hoverId?: string;
   tabIndex?: number;
 }
 
-const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({
-  id,
-  setActive,
-  activeId,
-  setHover,
-  hoverId,
-  tabIndex,
-}) => {
+const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
+  const dispatch = useDispatch();
+  const activeId = useSelector((state: RootState) => state.app.activeId);
+  const hoverId = useSelector((state: RootState) => state.app.hoveringId);
+
   const handleClick = () => {
-    setActive(id);
+    dispatch(setActiveId(id));
+
   };
 
   const handleHover = () => {
-    setHover(id);
+    dispatch(setHoveringId(id));
   };
 
   const handleUnHover = () => {
-    setHover("");
+    dispatch(setHoveringId(''));
   };
 
   const imageName =
     id === activeId || id === hoverId
       ? id + "_nav_button_active"
       : id + "_nav_button";
-
+    
   const isMobileDevice = useIsMobileDevice();
-
+    
   const { image, loading } = isMobileDevice
-    ? useImage(imageName + "_mobile")
-    : useImage(imageName);
+  ? useImage(imageName + "_mobile")
+  : useImage(imageName);
 
   const orbitNameImage = useImage(id + "_nav_button_title").image;
 

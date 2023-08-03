@@ -10,7 +10,6 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 228px;
-
 }
 
 .background_container {
@@ -1461,7 +1460,6 @@ body,
     height: 73%;
     margin-left: 0%;
     margin-top: 3%;
-
   }
 
   .orbit_closeup_header {
