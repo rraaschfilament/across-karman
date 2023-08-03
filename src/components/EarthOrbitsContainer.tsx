@@ -1,24 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import { RootState } from "../app/store";
 import { Player } from "@lottiefiles/react-lottie-player";
 // import orbitsMoving from "../lotties/all_orbits_moving.json";
 import earth from "../assets/earth.png";
 import SingleOrbitImage from './SingleOrbitImage';
 import SingleOrbitAnimation from './SingleOrbitAnimation';
-import { setActiveId, setHoveringId } from '../features/appSlice';
 
 const EarthOrbitsContainer: React.FC = () => {
     const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
 
-    const dispatch = useDispatch();
     const activeId = useSelector((state: RootState) => state.app.activeId);
     const hoveringId = useSelector((state: RootState) => state.app.hoveringId);
-
-
-    const resetOrbitSelection = () => {
-        dispatch(setActiveId(''));
-        dispatch(setHoveringId(''));
-    }
 
     const handleOrbitActivation = () => {
 
@@ -93,7 +85,7 @@ const EarthOrbitsContainer: React.FC = () => {
         }
 
         return (
-            <div id="earth_orbits_container" className="earth_orbits_container" onClick={resetOrbitSelection}>
+            <div id="earth_orbits_container" className="earth_orbits_container" >
 
                 <img src={earth} className="earth" alt="earth" />
 
