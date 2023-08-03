@@ -41,11 +41,9 @@ export const App: React.FC = () => {
   const showNavBar = isMobileDevice || !isSplashScreen;
 
   const handleResize = () => {
-    if (!isMobileDevice) {
-      adjustElementScale(document.documentElement.clientWidth);
-      dispatch(setActiveId(""));
-      dispatch(setHoveringId(""));
-    }
+    adjustElementScale(document.documentElement.clientWidth);
+    dispatch(setActiveId(""));
+    dispatch(setHoveringId(""));
   };
 
   const resetOrbitSelection = () => {
@@ -108,11 +106,9 @@ export const App: React.FC = () => {
   }
 
   useEffect(() => {
-    if (!isMobileDevice) {
-      window.addEventListener("resize", handleResize);
-      //adjust for initial window width
-      adjustElementScale(document.documentElement.clientWidth);
-    }
+    window.addEventListener("resize", handleResize);
+    //adjust for initial window width
+    adjustElementScale(document.documentElement.clientWidth);
   }, []);
 
   useEffect(() => {
