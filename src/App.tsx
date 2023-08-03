@@ -12,6 +12,7 @@ import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
 import { Player } from "@lottiefiles/react-lottie-player";
 import orbitBackground from "./assets/orbit_background.png";
+import useIsMobileDevice from "./hooks/isMobileDevice";
 import OrbitCloseupText from "./components/OrbitCloseupText";
 import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
 import StaticImgCloseup from "./components/StaticImgCloseup";
@@ -27,7 +28,7 @@ export const App: React.FC = () => {
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
   const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
   const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
-  const [isMobileDevice] = useState<boolean>(window.innerWidth <= 500);
+  const isMobileDevice = useIsMobileDevice()
   const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
   
@@ -154,7 +155,8 @@ export const App: React.FC = () => {
                 className="reset_selection bottom"
                 onClick={resetOrbitSelection}
               ></div>
-            </div><div className="nav_container">
+            </div>
+            <div className="nav_container">
                 {!flyToId && (
                   <div className="orbit_title_container">
                     {orbitIds.map((id, index) => {
@@ -178,6 +180,7 @@ export const App: React.FC = () => {
                   <PopUpText />
                 )}
               </div></>
+
         )}
 
         <EarthOrbitsContainer />

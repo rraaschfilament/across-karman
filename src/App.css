@@ -987,6 +987,10 @@ body,
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 
+.hidden {
+  display: none !important
+}
+
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
@@ -996,6 +1000,7 @@ body,
   :root {
     --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
+    --mobile-view-splash-body-width: 60vw;
   }
 
   .orbit_closeup_back_button_mobile {
@@ -1025,13 +1030,15 @@ body,
     position: static;
   }
 
-  .orbit_nav_button {
+  .orbit_nav_button,
+  .orbit_nav_button_group {
     /* outline: 2px dotted red; */
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-    opacity: 1;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
 
@@ -1057,6 +1064,60 @@ body,
     z-index: 2;
     flex-direction: column;
     align-items: flex-end;
+  }
+
+  .orbit_name {
+    position: relative;
+    width: 0;
+  }
+
+  .orbit_name.meo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.leo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.gso {
+    top: 0px;
+    left: -89px;
+  }
+
+  .orbit_name.heo {
+    top: 8px;
+    left: 71px;
+  }
+
+  .orbit_name.geo {
+    user-select: none;
+    top: 8px;
+    left: -17px;
+  }
+
+  .orbit_name.gto {
+    top: 8px;
+    left: -51px;
+  }
+
+  .visible {
+    opacity: 1;
+  }
+
+  .invisible {
+    opacity: 0;
+  }
+
+  .orbit_nav_button_image {
+    /* outline: 2px dotted yellow; */
+    position: relative;
+    object-fit: contain;
+    object-position: left;
+    width: 100%;
+    height: 40px;
+
   }
 
   .reset_selection {
@@ -1136,6 +1197,7 @@ body,
     height: 70px;
     align-items: center;
     align-self: center;
+    margin-left: 6vw;
   }
 
   .orbit_title_text {
