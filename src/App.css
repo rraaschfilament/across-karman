@@ -106,7 +106,8 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
-  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transition: transform 1s ease-in;
+  /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
   transform-origin: 50% 20%;
   position: relative;
   left: 25%;
@@ -638,7 +639,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
-  animation: fade-in 1s ease-in forwards; 
+  animation: fade-in 1s ease-in forwards;
 }
 
 .orbit_closeup_container {
@@ -950,9 +951,10 @@ body,
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
- .hidden {
-   display: none !important
- }
+.hidden {
+  display: none !important
+}
+
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
@@ -1186,7 +1188,7 @@ body,
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 90%;
+    height: 54%;
     top: 0;
   }
 
@@ -1194,7 +1196,7 @@ body,
     border-style: none;
     font-size: 20px;
     padding: 10px 25px;
-    bottom: 7%;
+    top: 46%;
     left: 10%;
     width: fit-content;
     height: fit-content;
@@ -1204,12 +1206,17 @@ body,
     overflow: unset;
     height: fit-content;
     width: 90%;
+    font-size: 32px;
+  }
+
+  .orbit_title_info_footer {
+    flex: 0.6;
   }
 
   .orbit_title_info_body {
     font-size: 12px;
     width: 85%;
-    flex: 2;
+    flex: 1;
   }
 
 
