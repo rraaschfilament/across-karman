@@ -18,7 +18,7 @@ const PopUpLine: React.FC<PopUpLineProps> = ({ id }) => {
     const orbitLineContainer = id + '_line_container';
     const orbitLine = id + '_line';
 
-    const useWindow = (elementWidth: any) => {
+    const useWindow = (elementWidth: number) => {
 
         if (document.documentElement.clientWidth !== 1920 ) {
             //how many pixels did we lose?
@@ -39,9 +39,9 @@ const PopUpLine: React.FC<PopUpLineProps> = ({ id }) => {
     
         }
 
-    let elementWidth = (lineWidths as LineWidths)[activeId];
+    const elementWidth = (lineWidths as LineWidths)[activeId];
      
-    let returnedWidth = useWindow(elementWidth);
+    const returnedWidth = useWindow(elementWidth);
 
     const componentStyle = returnedWidth ? { width: `${returnedWidth.newWidth}px` }: {width: elementWidth};
     

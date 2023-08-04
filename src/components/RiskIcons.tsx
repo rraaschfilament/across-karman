@@ -50,13 +50,13 @@ const RiskIcons: React.FC<RiskIconsProps> = ({id}) => {
   
     const renderedImages = images.map((image, index) => (
 
-        <a data-tooltip-id={imageDescs[index]} data-tooltip-content={formatTooltipContent(imageDescs[index])}>
+        <a key={imageDescs[index]} data-tooltip-id={imageDescs[index]} data-tooltip-content={formatTooltipContent(imageDescs[index])}>
         < img src={image} className={"risk_icon"} />
         <Tooltip id={imageDescs[index]} />
 </a>
     ));
   
-    return <div>{renderedImages}</div>;
+    return <div className="risk_icon_container">{renderedImages}</div>;
   };
 
 export default RiskIcons

@@ -7,7 +7,7 @@ interface SingleOrbitAnimationProps {
     isSelectedOrbit: boolean;
 }
 
-const SingleOrbitImage: React.FC<SingleOrbitAnimationProps> = ({id, player, desc, isSelectedOrbit}) => {
+const SingleOrbitAnimation: React.FC<SingleOrbitAnimationProps> = ({id, player, desc, isSelectedOrbit}) => {
     const {animation} = useLottie(id + desc)
     const Player = player
 
@@ -16,4 +16,4 @@ const SingleOrbitImage: React.FC<SingleOrbitAnimationProps> = ({id, player, desc
     )
 }
 
-export default SingleOrbitImage;
+export default SingleOrbitAnimation;

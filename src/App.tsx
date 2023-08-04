@@ -31,19 +31,16 @@ export const App: React.FC = () => {
     (state: RootState) => state.app.isSplashScreen
   );
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
-  const currentStaticImg = useSelector(
-    (state: RootState) => state.app.currentStaticImg
-  );
-  const earthOrbitsScale = useSelector(
-    (state: RootState) => state.app.earthOrbitsScale
-  );
-  const isMobileDevice = useIsMobileDevice();
-  const showNavBar = isMobileDevice || !isSplashScreen;
+  const flyTransitionComplete = useSelector((state: RootState) => state.app.flyTransitionComplete);
+  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
+  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
+  const isMobileDevice = useIsMobileDevice()
+  const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
+  
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    dispatch(setActiveId(""));
-    dispatch(setHoveringId(""));
+    resetOrbitSelection();
   };
 
   const resetOrbitSelection = () => {
@@ -87,7 +84,7 @@ export const App: React.FC = () => {
         const scale = "scale(" + scaleNum + ")";
 
         // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
-        earth_orbits_container.style.transformOrigin = "";
+        earth_orbits_container.style.transformOrigin = "center center";
 
         // Check if the element already has been scaled
         const existingTransform = earth_orbits_container.style.transform;
@@ -105,6 +102,7 @@ export const App: React.FC = () => {
     }
   }
 
+  //ES Lint doesn't like me passing an empty array as the second argument to useEffect, but I only want this to run once on mount
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     //adjust for initial window width
@@ -116,14 +114,13 @@ export const App: React.FC = () => {
       const element = document.getElementById(
         flyToId + "_sat_" + currentStaticImg
       );
-      console.log("currentStaticImg: ", currentStaticImg);
       element?.classList.remove("static_satellite_closeup");
       // Re-add the class with a slight delay to restart the animation
       setTimeout(() => {
         element?.classList.add("static_satellite_closeup");
       }, 1);
     }
-  }, [currentStaticImg]);
+  }, [currentStaticImg, flyToId]);
 
   return (
     <Provider store={store}>
@@ -164,7 +161,7 @@ export const App: React.FC = () => {
 
         <EarthOrbitsContainer />
 
-        {flyToId ? (
+        {flyToId && flyTransitionComplete ? (
           <>
             <img
               src={orbitBackground}

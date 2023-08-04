@@ -106,13 +106,14 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
+  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transform-origin: 50% 20%;
   position: relative;
   left: 25%;
   width: 85%;
   height: 100%;
-  z-index: 1;
+  z-index: 0;
 }
-
 
 .reset_selection {
   left: var(--reset_selection_left);
@@ -145,16 +146,6 @@ body,
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-/* .player_dimmed {
-  position: absolute;
-  width: 105%;
-  height: 105%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.25;
-} */
 
 .leo_orbit_moving {
   position: absolute;
@@ -464,26 +455,14 @@ body,
   opacity: 0.45;
 }
 
-.line_to_orbit_container {
-  display: flex;
-  width: 100%;
-}
-
 /* These lines containers are sized at 1920x1080, will need to figure out something better */
-.leo_line_container {
+.leo_line_container,
+.meo_line_container,
+.gso_line_container {
   position: absolute;
   top: 115%;
   left: 50%;
   height: 13%;
-
-}
-
-.meo_line_container {
-  position: absolute;
-  top: 115%;
-  left: 50%;
-  height: 13%;
-
 }
 
 .heo_line_container {
@@ -491,15 +470,6 @@ body,
   top: 60%;
   left: 50%;
   height: 68%;
-
-}
-
-.gso_line_container {
-  position: absolute;
-  top: 115%;
-  left: 50%;
-  height: 13%;
-
 }
 
 .geo_line_container {
@@ -526,6 +496,7 @@ body,
   transition: width 2s;
   /* Adjust the transition duration to match the animation duration */
   transform-origin: left;
+  z-index: 3;
 }
 
 .drawing .line {
@@ -643,9 +614,17 @@ body,
   border: 4px solid #195788;
 }
 
+.risk_icon_container {
+  position: absolute;
+  width: 15vw;
+  z-index: 2;
+  white-space: nowrap;
+
+}
+
 .risk_icon {
   margin-right: 5%;
-  z-index: 2;
+
 }
 
 /* Orbit Closeup */
@@ -659,6 +638,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
+  animation: fade-in 1s ease-in forwards; 
 }
 
 .orbit_closeup_container {
@@ -846,23 +826,14 @@ body,
 
 
 /*this is the closeup player*/
-.leo_orbit_details {
-  opacity: 0%;
-  animation-name: fade-in;
-  animation-duration: 2s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-.meo_orbit_details {
-  opacity: 0%;
-  animation-name: fade-in;
-  animation-duration: 2s;
-  animation-delay: 1s;
-  animation-fill-mode: forwards;
-}
-
-.heo_orbit_details {
+.leo_orbit_details,
+.meo_orbit_details,
+.heo_orbit_details,
+.gso_orbit_details,
+.geo_orbit_details {
+  position: absolute;
+  top: -10vh;
+  height: 100vh;
   opacity: 0%;
   animation-name: fade-in;
   animation-duration: 2s;
@@ -1099,7 +1070,6 @@ body,
     height: 40px;
 
   }
-  
   .reset_selection {
     opacity: 30%;
     align-self: flex-end;
@@ -1107,7 +1077,6 @@ body,
   }
   
   .reset_selection.top {
-    /* background-color: red; */
     left: 0;
     top: 90px;
     height: calc(46% - 90px);

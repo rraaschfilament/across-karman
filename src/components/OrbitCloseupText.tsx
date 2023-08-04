@@ -7,7 +7,7 @@ import selectedSat from "../assets/closeup_satellite_selected.png";
 import unselectedSat from "../assets/closeup_satellite_unselected.png";
 import orbitCloseupText from "../text/OrbitCloseups.json";
 import orbitSatellites from "../text/OrbitSatellites.json";
-import { setActiveId, setCurrentStaticImg, setFlyToId, setHoveringId } from "../features/appSlice";
+import { setActiveId, setCurrentStaticImg, setFlyToId, setFlyTransitionComplete, setHoveringId } from "../features/appSlice";
 
 interface OrbitCloseupTextContent {
   [id: string]: string;
@@ -127,9 +127,10 @@ const OrbitCloseupText: React.FC = () => {
     dispatch(setActiveId(""));
     dispatch(setHoveringId(""));
     dispatch(setCurrentStaticImg(""));
+    dispatch(setFlyTransitionComplete(false));
 
-    //there's a better Reacty way to do this
-    const element = document.getElementById("earth_orbits_container");
+    //I'd like to be doing this on the EarthOrbitsContainer component, but waiting for a state change to trigger it is too slow
+   const element = document.getElementById('earth_orbits_container');
 
     if (element) {
       element.style.transform = "scale(" + earthOrbitsScale + ")";
@@ -141,8 +142,7 @@ const OrbitCloseupText: React.FC = () => {
 
     setTimeout(() => {
       if (element) {
-        element.style.transformOrigin = "";
-        element.style.transition = "transform 2s ease-in";
+        element.style.transformOrigin = "center center";
       }
     }, 3000);
   };
@@ -150,13 +150,14 @@ const OrbitCloseupText: React.FC = () => {
   return (
     <div className="orbit_closeup_container">
       <div className="orbit_closeup_satellite_icons">
-        {numSatellites.map((_satellite: any, index: any) => (
+        {numSatellites.map((_satellite: any, index: number) => (
           <img
-            id={index + 1}
+            key={index + 1}
+            id={(index + 1).toString()}
             className={`${
-              index + 1 == currentStaticImg ? "selectedSat" : "unselectedSat"
+              (index + 1).toString() == currentStaticImg ? "selectedSat" : "unselectedSat"
             }`}
-            src={index + 1 == currentStaticImg ? selectedSat : unselectedSat}
+            src={(index + 1).toString() == currentStaticImg ? selectedSat : unselectedSat}
           />
         ))}
       </div>
