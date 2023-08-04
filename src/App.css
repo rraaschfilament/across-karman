@@ -106,7 +106,8 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
-  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transition: transform 1s ease-in;
+  /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
   transform-origin: 50% 20%;
   position: relative;
   left: 25%;
@@ -638,7 +639,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
-  animation: fade-in 1s ease-in forwards; 
+  animation: fade-in 1s ease-in forwards;
 }
 
 .orbit_closeup_container {
@@ -950,9 +951,10 @@ body,
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
- .hidden {
-   display: none !important
- }
+.hidden {
+  display: none !important
+}
+
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
@@ -1212,6 +1214,9 @@ body,
     flex: 2;
   }
 
+  .risk_icon {
+    margin-right: 12px
+  }
 
   .drawing {
     /* outline: 4px dotted red; */
