@@ -955,7 +955,7 @@ body,
 /* 
 Note: Because this site is being viewed through an iFrame that has a set height of 900px, adjustments were made to the styling of mobile devices to 
 accomodate that. This comes in the form a large amount of empty space on the bottom of the screen. 
-Also, some elements appear to overlap when viewing alone but not when viewed within the staging site
+Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
 */
 
 .hidden {
