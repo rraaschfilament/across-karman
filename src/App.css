@@ -1107,7 +1107,7 @@ body,
   }
   
   .reset_selection.top {
-    background-color: red;
+    /* background-color: red; */
     left: 0;
     top: 90px;
     height: calc(46% - 90px);
