@@ -56,7 +56,7 @@ const RiskIcons: React.FC<RiskIconsProps> = ({id}) => {
 </a>
     ));
   
-    return <div>{renderedImages}</div>;
+    return <div className="risk_icon_container">{renderedImages}</div>;
   };
 
 export default RiskIcons

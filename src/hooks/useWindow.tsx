@@ -1,6 +1,6 @@
 
 
-const useWindow = (elementWidth: any) => {
+const useWindow = (elementWidth: number) => {
 
     if (document.documentElement.clientWidth !== 1920 ) {
         //how many pixels did we lose?

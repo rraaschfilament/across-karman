@@ -9,7 +9,7 @@ body,
   margin: 0px;
   display: flex;
   overflow: hidden;
-  --reset_selection_left: 228px;
+  --reset_selection_left: 180px;
 }
 
 .background_container {
@@ -113,24 +113,12 @@ body,
   left: 25%;
   width: 85%;
   height: 100%;
-  z-index: 1;
-}
-
-.reset_orbit_selection_container {
-  /* outline: 3px dotted dodgerblue; */
-  position: absolute;
-  left: var(--reset_selection_left);
-  overflow: clip;
-  height: 100vh;
-  width: 95vw;
-  align-self: flex-end;
-  display: flex;
-  z-index: 2;
-  flex-direction: column;
-  align-items: flex-end;
+  z-index: 0;
 }
 
 .reset_selection {
+  left: var(--reset_selection_left);
+  position: absolute;
   opacity: 30%;
   align-self: flex-end;
   z-index: 2;
@@ -145,6 +133,8 @@ body,
 .reset_selection.bottom {
   /* background-color: green; */
   height: 51vh;
+  top: 49vh;
+  left: 39vw;
   width: calc(56vw + var(--reset_selection_left));
 
 }
@@ -466,26 +456,14 @@ body,
   opacity: 0.45;
 }
 
-.line_to_orbit_container {
-  display: flex;
-  width: 100%;
-}
-
 /* These lines containers are sized at 1920x1080, will need to figure out something better */
-.leo_line_container {
+.leo_line_container,
+.meo_line_container,
+.gso_line_container {
   position: absolute;
   top: 115%;
   left: 50%;
   height: 13%;
-
-}
-
-.meo_line_container {
-  position: absolute;
-  top: 115%;
-  left: 50%;
-  height: 13%;
-
 }
 
 .heo_line_container {
@@ -493,15 +471,6 @@ body,
   top: 60%;
   left: 50%;
   height: 68%;
-
-}
-
-.gso_line_container {
-  position: absolute;
-  top: 115%;
-  left: 50%;
-  height: 13%;
-
 }
 
 .geo_line_container {
@@ -528,6 +497,7 @@ body,
   transition: width 2s;
   /* Adjust the transition duration to match the animation duration */
   transform-origin: left;
+  z-index: 3;
 }
 
 .drawing .line {
@@ -645,9 +615,17 @@ body,
   border: 4px solid #195788;
 }
 
+.risk_icon_container {
+  position: absolute;
+  width: 15vw;
+  z-index: 2;
+  white-space: nowrap;
+
+}
+
 .risk_icon {
   margin-right: 5%;
-  z-index: 2;
+
 }
 
 /* Orbit Closeup */
@@ -1158,22 +1136,6 @@ body,
 
   }
 
-  .reset_orbit_selection_container {
-    /* outline: 2px dotted dodgerblue; */
-    position: absolute;
-    opacity: 30%;
-    left: unset;
-    top: 90px;
-    overflow: clip;
-    height: calc(47% - 90px);
-    width: 100vw;
-    align-self: flex-end;
-    display: flex;
-    z-index: 2;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-
   .reset_selection {
     opacity: 30%;
     align-self: flex-end;
@@ -1181,9 +1143,10 @@ body,
   }
 
   .reset_selection.top {
-    /* background-color: tomato; */
-    height: 100%;
-    width: 100%;
+    left: 0;
+    top: 90px;
+    height: calc(46% - 90px);
+    width: 100vw;
   }
 
   .reset_selection.bottom {
