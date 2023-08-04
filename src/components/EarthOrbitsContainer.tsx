@@ -1,14 +1,12 @@
 import {  useSelector } from 'react-redux';
 import { RootState } from "../app/store";
 import { Player } from "@lottiefiles/react-lottie-player";
-// import orbitsMoving from "../lotties/all_orbits_moving.json";
 import earth from "../assets/earth.png";
 import SingleOrbitImage from './SingleOrbitImage';
 import SingleOrbitAnimation from './SingleOrbitAnimation';
 
 const EarthOrbitsContainer: React.FC = () => {
     const orbitIds = ["leo", "meo", "heo", "gso", "geo", "gto"];
-
     const activeId = useSelector((state: RootState) => state.app.activeId);
     const hoveringId = useSelector((state: RootState) => state.app.hoveringId);
 
@@ -22,6 +20,7 @@ const EarthOrbitsContainer: React.FC = () => {
             if (activeId !== 'gto') {
                 //the selected orbit will have animation
                 orbitElements.push(<SingleOrbitAnimation
+                    key={activeId + "_orbit_moving"}
                     id={activeId}
                     player={Player}
                     desc="_orbit_moving"
@@ -40,12 +39,12 @@ const EarthOrbitsContainer: React.FC = () => {
             orbitIds
                 .filter((id) => id !== activeId)
                 .map((id) => {
-                    orbitElements.push(<SingleOrbitImage id={id} imageDesc="_dotted" />);
+                    orbitElements.push(<SingleOrbitImage key={id + "_dotted"} id={id} imageDesc="_dotted" />);
                 })
 
             //if there is an active tab AND a DIFFERENT tab is hovered
             if (hoveringId && hoveringId !== activeId) {
-                orbitElements.push(<SingleOrbitImage id={hoveringId} imageDesc="_solid" />)
+                orbitElements.push(<SingleOrbitImage key={hoveringId + "_solid"} id={hoveringId} imageDesc="_solid" />)
             }
         } else {
             if (hoveringId) {
@@ -71,6 +70,7 @@ const EarthOrbitsContainer: React.FC = () => {
                 orbitIds.map((id) => {
                     if (hoveringId !== "gto") {
                         orbitElements.push(<SingleOrbitAnimation
+                            key={id + "_orbit_moving"}
                             id={id}
                             player={Player}
                             desc="_orbit_moving"
@@ -85,7 +85,7 @@ const EarthOrbitsContainer: React.FC = () => {
         }
 
         return (
-            <div id="earth_orbits_container" className="earth_orbits_container" >
+            <div key="earth_orbits_container" id="earth_orbits_container" className="earth_orbits_container" >
 
                 <img src={earth} className="earth" alt="earth" />
 

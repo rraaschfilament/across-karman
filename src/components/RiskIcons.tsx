@@ -50,7 +50,7 @@ const RiskIcons: React.FC<RiskIconsProps> = ({id}) => {
   
     const renderedImages = images.map((image, index) => (
 
-        <a data-tooltip-id={imageDescs[index]} data-tooltip-content={formatTooltipContent(imageDescs[index])}>
+        <a key={imageDescs[index]} data-tooltip-id={imageDescs[index]} data-tooltip-content={formatTooltipContent(imageDescs[index])}>
         < img src={image} className={"risk_icon"} />
         <Tooltip id={imageDescs[index]} />
 </a>
