@@ -39,8 +39,9 @@ export const App: React.FC = () => {
 
   
   const handleResize = () => {
-    adjustElementScale(document.documentElement.clientWidth);
-    resetOrbitSelection();
+    // adjustElementScale(document.documentElement.clientWidth);
+    // dispatch(setActiveId(""));
+    // dispatch(setHoveringId(""));
   };
 
   const resetOrbitSelection = () => {

@@ -926,6 +926,8 @@ body,
   }
 }
 
+
+
 /* EXTRA LARGE */
 @media (min-width: 1921px) and (min-height: 1081px) {
 
@@ -949,14 +951,54 @@ body,
 
 }
 
-@media (max-width:1100px) {
+/* @media (max-width:1100px) {
 
   .earth_orbits_container {
     align-self: flex-end;
     top: -8%;
     min-width: 1000px;
   }
+} */
+@media (max-width:1170px) {
+
+  .hard_scale_value {
+    transform: scale(.6) !important;
+  }
+
+  :root {
+    --min-orbit-size: 800px;
+  }
+ 
+   .earth_orbits_container {
+    position: relative;
+    left: 24%;
+    bottom: 10%;
+    min-height: var(--min-orbit-size);
+    min-width: var(--min-orbit-size);
+  } 
+
+  .gso_fill {
+    height: 94%;
+  }
+
+  .geo_fill {
+    height: 8.9%;
+  }
+
+  .heo_fill {
+    height: 64.5%;
+  }
+
+  .meo_fill {
+    height: 78%;
+  }
+
+  .leo_fill {
+    height: 61%;
+  }
 }
+
+
 
 @media (max-width: 750px) {
   .splash_screen_body {
@@ -973,6 +1015,14 @@ body,
 
   .orbit_closeup_button_plain {
     font-size: 30px;
+  }
+
+
+}
+
+@media (max-width: 800px) {
+  .earth_orbits_container {
+    left: 20%;
   }
 }
 
@@ -1000,6 +1050,10 @@ body,
     position: relative;
     top: -48.5vh;
     left: 91vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
   }
 
   .background_container {
@@ -1184,6 +1238,11 @@ body,
     font-size: 16px;
   }
 
+  .earth_orbits_contaienr {
+    min-height: unset;
+    min-width: unset;
+  }
+
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
@@ -1194,6 +1253,7 @@ body,
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);
+    min-height: unset;
     z-index: -1;
 
   }
