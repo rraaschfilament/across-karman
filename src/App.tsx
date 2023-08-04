@@ -131,7 +131,7 @@ export const App: React.FC = () => {
         {isSplashScreen ? (
           <SplashScreen />
         ) : (
-          <div className="reset_orbit_selection_container">
+          <>
             <div
               className="reset_selection top"
               onClick={resetOrbitSelection}
@@ -140,7 +140,7 @@ export const App: React.FC = () => {
               className="reset_selection bottom"
               onClick={resetOrbitSelection}
             ></div>
-          </div>
+          </>
         )}
         {showNavBar && (
           <div className="nav_container">
