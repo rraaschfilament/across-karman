@@ -150,14 +150,14 @@ const OrbitCloseupText: React.FC = () => {
   return (
     <div className="orbit_closeup_container">
       <div className="orbit_closeup_satellite_icons">
-        {numSatellites.map((_satellite: any, index: any) => (
+        {numSatellites.map((_satellite: any, index: number) => (
           <img
             key={index + 1}
-            id={index + 1}
+            id={(index + 1).toString()}
             className={`${
-              index + 1 == currentStaticImg ? "selectedSat" : "unselectedSat"
+              (index + 1).toString() == currentStaticImg ? "selectedSat" : "unselectedSat"
             }`}
-            src={index + 1 == currentStaticImg ? selectedSat : unselectedSat}
+            src={(index + 1).toString() == currentStaticImg ? selectedSat : unselectedSat}
           />
         ))}
       </div>

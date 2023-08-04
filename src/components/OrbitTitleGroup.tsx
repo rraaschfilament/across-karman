@@ -36,9 +36,9 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
     
   const isMobileDevice = useIsMobileDevice();
     
-  const { image, loading } = isMobileDevice
-  ? useImage(imageName + "_mobile")
-  : useImage(imageName);
+  const { image, loading } = useImage(
+    isMobileDevice ? imageName + "_mobile" : imageName
+  ); //ES Lint was complaining about calling useImage conditionally, so I made the imageName the part that is conditional
 
   const orbitNameImage = useImage(id + "_nav_button_title").image;
 

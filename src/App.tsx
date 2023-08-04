@@ -102,11 +102,11 @@ export const App: React.FC = () => {
     }
   }
 
+  //ES Lint doesn't like me passing an empty array as the second argument to useEffect, but I only want this to run once on mount
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     //adjust for initial window width
     adjustElementScale(document.documentElement.clientWidth);
-    console.log("useEffect plain");
   }, []);
 
   useEffect(() => {
@@ -128,7 +128,7 @@ export const App: React.FC = () => {
         {isSplashScreen ? (
           <SplashScreen />
         ) : (
-          <div className="reset_orbit_selection_container">
+          <>
             <div
               className="reset_selection top"
               onClick={resetOrbitSelection}
@@ -137,7 +137,7 @@ export const App: React.FC = () => {
               className="reset_selection bottom"
               onClick={resetOrbitSelection}
             ></div>
-          </div>
+          </>
         )}
         {showNavBar && (
           <div className="nav_container">

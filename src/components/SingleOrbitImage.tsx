@@ -16,10 +16,10 @@ const SingleOrbitImage: React.FC<SingleOrbitImageProps> = ({
   const isMobileDevice = useIsMobileDevice();
   const needsMobileAsset = imageDesc === "_fill" || imageDesc === "_dotted";
 
-  const { image, loading } =
-    isMobileDevice && needsMobileAsset
-      ? useImage(imageName + "_mobile")
-      : useImage(imageName);
+  //ES Lint was complaining about calling useImage conditionally, so I made the imageName the part that is conditional
+  const { image, loading } = useImage(
+    isMobileDevice && needsMobileAsset ? imageName + "_mobile" : imageName
+  )
 
   return (
     <ShowIf value={!loading}>

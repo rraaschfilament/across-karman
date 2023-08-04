@@ -68,7 +68,7 @@ const EarthOrbitsContainer: React.FC = () => {
             } else {
                 //no tab is hovered OR active/selected
                 orbitIds.map((id) => {
-                    if (hoveringId !== "gto") {
+                    if (id !== "gto") {
                         orbitElements.push(<SingleOrbitAnimation
                             key={id + "_orbit_moving"}
                             id={id}
@@ -77,7 +77,7 @@ const EarthOrbitsContainer: React.FC = () => {
                             isSelectedOrbit={true}
                         />)
                     } else {
-                        orbitElements.push(<SingleOrbitImage id={"gto"} imageDesc="_solid_lighter" />)
+                        orbitElements.push(<SingleOrbitImage id={"gto"} imageDesc="_solid_active" />)
                     }
                 })
             }
