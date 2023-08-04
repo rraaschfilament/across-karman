@@ -106,7 +106,8 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
-  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transition: transform 1s ease-in;
+  /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
   transform-origin: 50% 20%;
   position: relative;
   left: 25%;
@@ -660,7 +661,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
-  animation: fade-in 1s ease-in forwards; 
+  animation: fade-in 1s ease-in forwards;
 }
 
 .orbit_closeup_container {
@@ -951,43 +952,43 @@ body,
 
 }
 
-/* @media (max-width:1100px) {
 
-  .earth_orbits_container {
-    align-self: flex-end;
-    top: -8%;
-    min-width: 1000px;
-  }
-} */
 @media (max-width:1170px) {
 
   .hard_scale_value {
-    transform: scale(.6) !important;
+    transform: scale(.8) !important;
   }
 
   :root {
-    --min-orbit-size: 800px;
+    --min-orbit-size: 900px;
   }
- 
-   .earth_orbits_container {
+
+  .earth {
+    height: 48%;
+  }
+
+  .earth_orbits_container {
     position: relative;
-    left: 24%;
-    bottom: 10%;
+    left: 30vw;
+    bottom: 5vh;
     min-height: var(--min-orbit-size);
+    max-height: var(--min-orbit-size);
     min-width: var(--min-orbit-size);
-  } 
+    max-width: var(--min-orbit-size);
+  }
 
   .gso_fill {
-    height: 94%;
+    height: 95%;
   }
 
   .geo_fill {
-    height: 8.9%;
+    height: inherit;
   }
 
   .heo_fill {
-    height: 64.5%;
+    height: 64.8%;
   }
+
 
   .meo_fill {
     height: 78%;
@@ -998,7 +999,12 @@ body,
   }
 }
 
+@media (max-width:1000px) {
 
+  .earth_orbits_container {
+    left: 27vw;
+  }
+}
 
 @media (max-width: 750px) {
   .splash_screen_body {
@@ -1017,14 +1023,14 @@ body,
     font-size: 30px;
   }
 
-
-}
-
-@media (max-width: 800px) {
   .earth_orbits_container {
-    left: 20%;
+    left: 18vw;
   }
+
 }
+
+@media (max-width: 900px) {}
+
 
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
