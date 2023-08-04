@@ -1172,7 +1172,7 @@ body,
   .orbit_title_popup_container {
     /* outline: 6px dotted turquoise; */
     position: absolute;
-    height: 55%;
+    height: 100%;
     top: 47%;
     z-index: 1;
     flex: 5;
@@ -1188,7 +1188,7 @@ body,
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 54%;
+    height: 25%;
     top: 0;
   }
 
@@ -1196,7 +1196,7 @@ body,
     border-style: none;
     font-size: 20px;
     padding: 10px 25px;
-    top: 46%;
+    top: 21.8%;
     left: 10%;
     width: fit-content;
     height: fit-content;
@@ -1381,9 +1381,12 @@ body,
 
 
   .orbit_closeup_container {
-    width: 100%;
-    height: 50%;
-    top: 50%;
+    position: relative;
+    outline: 2px dotted red;
+    width: 90%;
+    height: 38%;
+    top: 29%;
+
   }
 
   .orbit_closeup_satellite_icons {
