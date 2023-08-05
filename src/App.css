@@ -125,7 +125,7 @@ body,
 
 .reset_selection.top {
   /* background-color: red; */
-  height: 49vh;
+  height:49vh;
   width: 100%;
 }
 
@@ -1070,13 +1070,12 @@ body,
     height: 40px;
 
   }
-
   .reset_selection {
     opacity: 30%;
     align-self: flex-end;
     z-index: 2;
   }
-
+  
   .reset_selection.top {
     left: 0;
     top: 90px;
