@@ -106,7 +106,8 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
-  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transition: transform 1s ease-in;
+  /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
   transform-origin: 50% 20%;
   position: relative;
   left: 25%;
@@ -638,7 +639,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
-  animation: fade-in 1s ease-in forwards; 
+  animation: fade-in 1s ease-in forwards;
 }
 
 .orbit_closeup_container {
@@ -904,6 +905,8 @@ body,
   }
 }
 
+
+
 /* EXTRA LARGE */
 @media (min-width: 1921px) and (min-height: 1081px) {
 
@@ -927,7 +930,59 @@ body,
 
 }
 
-@media (max-width: 1770px) {}
+
+@media (max-width:1170px) {
+
+  .hard_scale_value {
+    transform: scale(.8) !important;
+  }
+
+  :root {
+    --min-orbit-size: 900px;
+  }
+
+  .earth {
+    height: 48%;
+  }
+
+  .earth_orbits_container {
+    position: relative;
+    left: 30vw;
+    bottom: 5vh;
+    min-height: var(--min-orbit-size);
+    max-height: var(--min-orbit-size);
+    min-width: var(--min-orbit-size);
+    max-width: var(--min-orbit-size);
+  }
+
+  .gso_fill {
+    height: 95%;
+  }
+
+  .geo_fill {
+    height: inherit;
+  }
+
+  .heo_fill {
+    height: 64.8%;
+  }
+
+
+  .meo_fill {
+    height: 78%;
+  }
+
+  .leo_fill {
+    height: 61%;
+  }
+}
+
+@media (max-width:1000px) {
+
+  .earth_orbits_container {
+    left: 27vw;
+  }
+}
 
 @media (max-width: 750px) {
   .splash_screen_body {
@@ -945,14 +1000,20 @@ body,
   .orbit_closeup_button_plain {
     font-size: 30px;
   }
+
+  .earth_orbits_container {
+    left: 18vw;
+  }
+
 }
 
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
- .hidden {
-   display: none !important
- }
+.hidden {
+  display: none !important
+}
+
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
@@ -970,6 +1031,10 @@ body,
     position: relative;
     top: -48.5vh;
     left: 91vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
   }
 
   .background_container {
@@ -1138,6 +1203,11 @@ body,
     font-size: 16px;
   }
 
+  .earth_orbits_contaienr {
+    min-height: unset;
+    min-width: unset;
+  }
+
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
@@ -1148,6 +1218,7 @@ body,
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);
+    min-height: unset;
     z-index: -1;
 
   }
