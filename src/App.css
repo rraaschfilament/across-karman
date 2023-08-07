@@ -1017,6 +1017,7 @@ accomodate that. This comes in the form a large amount of empty space on the bot
 Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
 */
 
+
 .hidden {
   display: none !important
 }
@@ -1294,6 +1295,9 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     flex: 1;
   }
 
+  .risk_icon {
+    margin-right: 12px
+  }
 
   .drawing {
     /* outline: 4px dotted red; */
