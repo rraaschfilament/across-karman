@@ -12,7 +12,7 @@ const SingleOrbitAnimation: React.FC<SingleOrbitAnimationProps> = ({id, player, 
     const Player = player
 
     return (
-            <Player src={animation} className={id + desc} autoplay={isSelectedOrbit} loop style={{opacity: isSelectedOrbit ? 1 : 0.25}}/>
+            <Player id={id + "_lottie"} src={animation} className={id + desc} autoplay={isSelectedOrbit} loop style={{opacity: isSelectedOrbit ? 1 : 0.25}}/>
     )
 }
 
