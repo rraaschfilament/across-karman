@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import close from "../assets/close.png";
 import close_mobile from "../assets/close_mobile.png";
@@ -37,8 +37,12 @@ const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({
 const OrbitCloseupText: React.FC = () => {
   const dispatch = useDispatch();
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
-  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
-  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
+  const currentStaticImg = useSelector(
+    (state: RootState) => state.app.currentStaticImg
+  );
+  const earthOrbitsScale = useSelector(
+    (state: RootState) => state.app.earthOrbitsScale
+  );
 
   const [numSatellites, setnumSatellites] = React.useState(Array);
 
@@ -86,7 +90,6 @@ const OrbitCloseupText: React.FC = () => {
   }, [flyToId]);
 
   const showNext = () => {
-
     if (!currentStaticImg) {
       dispatch(setCurrentStaticImg("1"));
     } else {
@@ -138,8 +141,9 @@ const OrbitCloseupText: React.FC = () => {
       element.style.transformOrigin = "50% 16%";
       element.style.overflow = "hidden";
       element.style.animation = "fade-in 3s ease forwards";
+      element.classList.add("hard_scale_value");
     }
-
+    
     setTimeout(() => {
       if (element) {
         element.style.transformOrigin = "center center";

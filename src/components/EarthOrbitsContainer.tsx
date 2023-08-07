@@ -118,7 +118,7 @@ const EarthOrbitsContainer: React.FC = () => {
       <div
         key="earth_orbits_container"
         id="earth_orbits_container"
-        className="earth_orbits_container"
+        className="earth_orbits_container hard_scale_value"
       >
         <img src={earth} className="earth" alt="earth" />
 

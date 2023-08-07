@@ -31,16 +31,22 @@ export const App: React.FC = () => {
     (state: RootState) => state.app.isSplashScreen
   );
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
-  const flyTransitionComplete = useSelector((state: RootState) => state.app.flyTransitionComplete);
-  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
-  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
-  const isMobileDevice = useIsMobileDevice()
+  const flyTransitionComplete = useSelector(
+    (state: RootState) => state.app.flyTransitionComplete
+  );
+  const currentStaticImg = useSelector(
+    (state: RootState) => state.app.currentStaticImg
+  );
+  const earthOrbitsScale = useSelector(
+    (state: RootState) => state.app.earthOrbitsScale
+  );
+  const isMobileDevice = useIsMobileDevice();
   const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
-  
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    resetOrbitSelection();
+    dispatch(setActiveId(""));
+    dispatch(setHoveringId(""));
   };
 
   const resetOrbitSelection = () => {
