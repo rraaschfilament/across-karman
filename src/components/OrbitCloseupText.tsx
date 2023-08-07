@@ -184,6 +184,9 @@ const OrbitCloseupText: React.FC = () => {
         onClick={backtoMain}
         alt="close button"
         tabIndex={0}
+        onKeyDown={(e) => {
+          e.key === "Enter" && backtoMain();
+        }}
       />
 
       <img
@@ -192,6 +195,9 @@ const OrbitCloseupText: React.FC = () => {
         onClick={backtoMain}
         alt="close button"
         tabIndex={0}
+        onKeyDown={(e) => {
+          e.key === "Enter" && backtoMain();
+        }}
       />
       <div className="orbit_closeup_text" tabIndex={0}>
         <div className="orbit_closeup_header">{headerText}</div>
