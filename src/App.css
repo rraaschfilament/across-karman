@@ -126,7 +126,7 @@ body,
 
 .reset_selection.top {
   /* background-color: red; */
-  height: 49vh;
+  height:49vh;
   width: 100%;
 }
 
@@ -905,6 +905,8 @@ body,
   }
 }
 
+
+
 /* EXTRA LARGE */
 @media (min-width: 1921px) and (min-height: 1081px) {
 
@@ -928,7 +930,59 @@ body,
 
 }
 
-@media (max-width: 1770px) {}
+
+@media (max-width:1170px) {
+
+  .hard_scale_value {
+    transform: scale(.8) !important;
+  }
+
+  :root {
+    --min-orbit-size: 900px;
+  }
+
+  .earth {
+    height: 48%;
+  }
+
+  .earth_orbits_container {
+    position: relative;
+    left: 30vw;
+    bottom: 5vh;
+    min-height: var(--min-orbit-size);
+    max-height: var(--min-orbit-size);
+    min-width: var(--min-orbit-size);
+    max-width: var(--min-orbit-size);
+  }
+
+  .gso_fill {
+    height: 95%;
+  }
+
+  .geo_fill {
+    height: inherit;
+  }
+
+  .heo_fill {
+    height: 64.8%;
+  }
+
+
+  .meo_fill {
+    height: 78%;
+  }
+
+  .leo_fill {
+    height: 61%;
+  }
+}
+
+@media (max-width:1000px) {
+
+  .earth_orbits_container {
+    left: 27vw;
+  }
+}
 
 @media (max-width: 750px) {
   .splash_screen_body {
@@ -946,6 +1000,11 @@ body,
   .orbit_closeup_button_plain {
     font-size: 30px;
   }
+
+  .earth_orbits_container {
+    left: 18vw;
+  }
+
 }
 
 /*****************************************************************************************************************************************************/
@@ -979,6 +1038,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     position: relative;
     top: -35.5vh;
     left: 86vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
   }
 
   .background_container {
@@ -1079,13 +1142,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: 40px;
 
   }
-
   .reset_selection {
     opacity: 30%;
     align-self: flex-end;
     z-index: 2;
   }
-
+  
   .reset_selection.top {
     left: 0;
     top: 90px;
@@ -1148,6 +1210,11 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 16px;
   }
 
+  .earth_orbits_contaienr {
+    min-height: unset;
+    min-width: unset;
+  }
+
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
@@ -1158,6 +1225,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);
+    min-height: unset;
     z-index: -1;
 
   }
