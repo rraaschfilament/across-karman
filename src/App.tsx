@@ -130,7 +130,7 @@ export const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <div className="background_container">
+      <div className="background_container" role="main">
         {isSplashScreen ? (
           <SplashScreen />
         ) : (
@@ -149,8 +149,8 @@ export const App: React.FC = () => {
           <div className="nav_container">
             {!flyToId && (
               <div className="orbit_title_container">
-                {orbitIds.map((id, index) => {
-                  return <OrbitTitleGroup key={id} id={id} tabIndex={index} />;
+                {orbitIds.map((id) => {
+                  return <OrbitTitleGroup key={id} id={id} tabIndex={0} />;
                 })}
 
                 <div className="popup_line_container">
