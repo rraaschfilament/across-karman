@@ -1272,7 +1272,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 25%;
+    height: 40%;
     top: 0;
   }
 
@@ -1280,7 +1280,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     border-style: none;
     font-size: 20px;
     padding: 10px 25px;
-    top: 21.8%;
+    top: 36.8%;
     left: 10%;
     width: fit-content;
     height: fit-content;
@@ -1294,7 +1294,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_info_footer {
-    flex: 0.6;
+    flex: 0;
   }
 
   .orbit_title_info_body {
@@ -1470,7 +1470,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .orbit_closeup_container {
     position: relative;
     width: 90%;
-    height: 36%;
+    height: 51%;
     top: 27%;
   }
 
@@ -1530,13 +1530,23 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-bottom: 5%;
   }
 
+  .static_satellite_image_container {
+    /* outline: 2px dotted tomato; */
+    position: absolute;
+    width: 100vw;
+    height: 35vh;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .static_satellite_closeup {
     top: unset;
     scale: unset;
-    position: absolute;
-    height: 32%;
-    bottom: 65%;
-    left: 23%;
+    position: unset;
+    width: 75%;
+    height: auto;
   }
 
   .orbit_background {
