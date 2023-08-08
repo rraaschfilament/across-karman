@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import close from "../assets/close.png";
 import close_mobile from "../assets/close_mobile.png";
@@ -7,7 +7,13 @@ import selectedSat from "../assets/closeup_satellite_selected.png";
 import unselectedSat from "../assets/closeup_satellite_unselected.png";
 import orbitCloseupText from "../text/OrbitCloseups.json";
 import orbitSatellites from "../text/OrbitSatellites.json";
-import { setActiveId, setCurrentStaticImg, setFlyToId, setFlyTransitionComplete, setHoveringId } from "../features/appSlice";
+import {
+  setActiveId,
+  setCurrentStaticImg,
+  setFlyToId,
+  setFlyTransitionComplete,
+  setHoveringId,
+} from "../features/appSlice";
 
 interface OrbitCloseupTextContent {
   [id: string]: string;
@@ -37,8 +43,12 @@ const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({
 const OrbitCloseupText: React.FC = () => {
   const dispatch = useDispatch();
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
-  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
-  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
+  const currentStaticImg = useSelector(
+    (state: RootState) => state.app.currentStaticImg
+  );
+  const earthOrbitsScale = useSelector(
+    (state: RootState) => state.app.earthOrbitsScale
+  );
 
   const [numSatellites, setnumSatellites] = React.useState(Array);
 
@@ -86,7 +96,6 @@ const OrbitCloseupText: React.FC = () => {
   }, [flyToId]);
 
   const showNext = () => {
-
     if (!currentStaticImg) {
       dispatch(setCurrentStaticImg("1"));
     } else {
@@ -130,7 +139,7 @@ const OrbitCloseupText: React.FC = () => {
     dispatch(setFlyTransitionComplete(false));
 
     //I'd like to be doing this on the EarthOrbitsContainer component, but waiting for a state change to trigger it is too slow
-   const element = document.getElementById('earth_orbits_container');
+    const element = document.getElementById("earth_orbits_container");
 
     if (element) {
       element.style.transform = "scale(" + earthOrbitsScale + ")";
@@ -138,6 +147,7 @@ const OrbitCloseupText: React.FC = () => {
       element.style.transformOrigin = "50% 16%";
       element.style.overflow = "hidden";
       element.style.animation = "fade-in 3s ease forwards";
+      element.classList.add("hard_scale_value");
     }
 
     setTimeout(() => {
@@ -155,9 +165,16 @@ const OrbitCloseupText: React.FC = () => {
             key={index + 1}
             id={(index + 1).toString()}
             className={`${
-              (index + 1).toString() == currentStaticImg ? "selectedSat" : "unselectedSat"
+              (index + 1).toString() == currentStaticImg
+                ? "selectedSat"
+                : "unselectedSat"
             }`}
-            src={(index + 1).toString() == currentStaticImg ? selectedSat : unselectedSat}
+            src={
+              (index + 1).toString() == currentStaticImg
+                ? selectedSat
+                : unselectedSat
+            }
+            alt="satellite icon"
           />
         ))}
       </div>
@@ -165,14 +182,24 @@ const OrbitCloseupText: React.FC = () => {
         className="orbit_closeup_back_button"
         src={close}
         onClick={backtoMain}
+        alt="close button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          e.key === "Enter" && backtoMain();
+        }}
       />
 
       <img
         className="orbit_closeup_back_button_mobile"
         src={close_mobile}
         onClick={backtoMain}
+        alt="close button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          e.key === "Enter" && backtoMain();
+        }}
       />
-      <div className="orbit_closeup_text">
+      <div className="orbit_closeup_text" tabIndex={0}>
         <div className="orbit_closeup_header">{headerText}</div>
         <div className="orbit_closeup_subheader">{subHeaderText}</div>
         {!currentStaticImg && (

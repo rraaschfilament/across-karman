@@ -106,7 +106,8 @@ body,
 
 .earth_orbits_container {
   transform: scale(1);
-  transition: transform 1s ease-in; /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
+  transition: transform 1s ease-in;
+  /* It seems I need to set initial properties for transition & transform-origin, otherwise the fly intransition doesn't work the first time */
   transform-origin: 50% 20%;
   position: relative;
   left: 25%;
@@ -638,7 +639,7 @@ body,
   left: 60px;
   transform: scale(12);
   transition: transform 1s ease;
-  animation: fade-in 1s ease-in forwards; 
+  animation: fade-in 1s ease-in forwards;
 }
 
 .orbit_closeup_container {
@@ -904,6 +905,8 @@ body,
   }
 }
 
+
+
 /* EXTRA LARGE */
 @media (min-width: 1921px) and (min-height: 1081px) {
 
@@ -927,7 +930,64 @@ body,
 
 }
 
-@media (max-width: 1770px) {}
+
+@media (max-width:1170px) {
+  :root {
+    --min-orbit-size: 900px;
+  }
+
+  .hard_scale_value {
+    transform: scale(.8) !important;
+  }
+
+  .static_satellite_closeup {
+    top: -95%;
+    left: -28px;
+  }
+
+
+  .earth {
+    height: 48%;
+  }
+
+  .earth_orbits_container {
+    position: relative;
+    left: 30vw;
+    bottom: 5vh;
+    min-height: var(--min-orbit-size);
+    max-height: var(--min-orbit-size);
+    min-width: var(--min-orbit-size);
+    max-width: var(--min-orbit-size);
+  }
+
+  .gso_fill {
+    height: 95%;
+  }
+
+  .geo_fill {
+    height: inherit;
+  }
+
+  .heo_fill {
+    height: 64.8%;
+  }
+
+
+  .meo_fill {
+    height: 78%;
+  }
+
+  .leo_fill {
+    height: 61%;
+  }
+}
+
+@media (max-width:1000px) {
+
+  .earth_orbits_container {
+    left: 27vw;
+  }
+}
 
 @media (max-width: 750px) {
   .splash_screen_body {
@@ -945,14 +1005,28 @@ body,
   .orbit_closeup_button_plain {
     font-size: 30px;
   }
+
+  .earth_orbits_container {
+    left: 18vw;
+  }
+
 }
 
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
- .hidden {
-   display: none !important
- }
+
+/* 
+Note: Because this site is being viewed through an iFrame that has a set height of 900px, adjustments were made to the styling of mobile devices to 
+accomodate that. This comes in the form a large amount of empty space on the bottom of the screen. 
+Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
+*/
+
+
+.hidden {
+  display: none !important
+}
+
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
@@ -965,11 +1039,17 @@ body,
     --mobile-view-splash-body-width: 60vw;
   }
 
+
+
   .orbit_closeup_back_button_mobile {
     visibility: visible;
     position: relative;
-    top: -48.5vh;
-    left: 91vw;
+    top: -35.5vh;
+    left: 86vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
   }
 
   .background_container {
@@ -1139,6 +1219,11 @@ body,
     font-size: 16px;
   }
 
+  .earth_orbits_contaienr {
+    min-height: unset;
+    min-width: unset;
+  }
+
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
@@ -1149,6 +1234,7 @@ body,
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);
+    min-height: unset;
     z-index: -1;
 
   }
@@ -1170,7 +1256,7 @@ body,
   .orbit_title_popup_container {
     /* outline: 6px dotted turquoise; */
     position: absolute;
-    height: 55%;
+    height: 100%;
     top: 47%;
     z-index: 1;
     flex: 5;
@@ -1186,7 +1272,7 @@ body,
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 90%;
+    height: 25%;
     top: 0;
   }
 
@@ -1194,7 +1280,7 @@ body,
     border-style: none;
     font-size: 20px;
     padding: 10px 25px;
-    bottom: 7%;
+    top: 21.8%;
     left: 10%;
     width: fit-content;
     height: fit-content;
@@ -1204,14 +1290,22 @@ body,
     overflow: unset;
     height: fit-content;
     width: 90%;
+    font-size: 32px;
+  }
+
+  .orbit_title_info_footer {
+    flex: 0.6;
   }
 
   .orbit_title_info_body {
     font-size: 12px;
     width: 85%;
-    flex: 2;
+    flex: 1;
   }
 
+  .risk_icon {
+    margin-right: 12px
+  }
 
   .drawing {
     /* outline: 4px dotted red; */
@@ -1348,7 +1442,7 @@ body,
   .lf-player-container {
     /* outline: 9px dotted green; */
     width: 100%;
-    height: 100%;
+    height: 54%;
   }
 
   .lf-player-container div {
@@ -1374,9 +1468,10 @@ body,
 
 
   .orbit_closeup_container {
-    width: 100%;
-    height: 50%;
-    top: 50%;
+    position: relative;
+    width: 90%;
+    height: 36%;
+    top: 27%;
   }
 
   .orbit_closeup_satellite_icons {
@@ -1404,7 +1499,7 @@ body,
     /* outline: 2px dotted tomato; */
     max-width: 100vw;
     padding: 0 40px;
-    height: 73%;
+    height: 66%;
     margin-left: 0%;
     margin-top: 3%;
   }
@@ -1436,16 +1531,19 @@ body,
   }
 
   .static_satellite_closeup {
-    height: 35%;
-    top: 3%;
-    left: 1%;
+    top: unset;
+    scale: unset;
+    position: absolute;
+    height: 32%;
+    bottom: 65%;
+    left: 23%;
   }
 
   .orbit_background {
-    width: 150vw;
-    left: -60px;
-    top: 25px;
-    height: 45%;
+    width: 122vw;
+    left: -8px;
+    top: 9px;
+    height: 37%;
   }
 
   .orbit_closeup_button_plain,
@@ -1461,7 +1559,7 @@ body,
   .gso_orbit_details,
   .geo_orbit_details {
     position: absolute;
-    top: -26%;
+    top: -35%;
     user-select: none;
     z-index: 0 !important;
   }

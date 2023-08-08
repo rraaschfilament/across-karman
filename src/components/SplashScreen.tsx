@@ -15,7 +15,7 @@ const SplashScreen: React.FC = () => {
         }, 1500);
     }
     return (
-      <div id="splash_screen_background" className="splash_screen_background">
+      <div id="splash_screen_background" className="splash_screen_background" role="region" aria-label="splash screen">
             <div className="splash_screen_text">
                 <div className="splash_screen_title">LAUNCHING INTO ORBIT</div>
                 <div className="splash_screen_subtitle">A SPOTLIGHT ON SATELLITES</div>

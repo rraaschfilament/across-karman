@@ -1,8 +1,8 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
-import { setActiveId, setHoveringId } from '../features/appSlice';
-import useImage from '../hooks/useImage';
+import { setActiveId, setHoveringId } from "../features/appSlice";
+import useImage from "../hooks/useImage";
 import useIsMobileDevice from "../hooks/isMobileDevice";
 import { ShowIf } from "./ShowIf";
 
@@ -18,7 +18,6 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
 
   const handleClick = () => {
     dispatch(setActiveId(id));
-
   };
 
   const handleHover = () => {
@@ -26,16 +25,16 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
   };
 
   const handleUnHover = () => {
-    dispatch(setHoveringId(''));
+    dispatch(setHoveringId(""));
   };
 
   const imageName =
     id === activeId || id === hoverId
       ? id + "_nav_button_active"
       : id + "_nav_button";
-    
+
   const isMobileDevice = useIsMobileDevice();
-    
+
   const { image, loading } = useImage(
     isMobileDevice ? imageName + "_mobile" : imageName
   ); //ES Lint was complaining about calling useImage conditionally, so I made the imageName the part that is conditional
@@ -52,6 +51,9 @@ const OrbitTitleGroup: React.FC<OrbitTitleGroupProps> = ({ id, tabIndex }) => {
           className="orbit_nav_button"
           onClick={handleClick}
           tabIndex={tabIndex}
+          onKeyDown={(e) => {
+            e.key === "Enter" && handleClick();
+          }}
         >
           <img
             src={image}

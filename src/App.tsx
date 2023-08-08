@@ -31,16 +31,22 @@ export const App: React.FC = () => {
     (state: RootState) => state.app.isSplashScreen
   );
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
-  const flyTransitionComplete = useSelector((state: RootState) => state.app.flyTransitionComplete);
-  const currentStaticImg = useSelector((state: RootState) => state.app.currentStaticImg);
-  const earthOrbitsScale = useSelector((state: RootState) => state.app.earthOrbitsScale);
-  const isMobileDevice = useIsMobileDevice()
+  const flyTransitionComplete = useSelector(
+    (state: RootState) => state.app.flyTransitionComplete
+  );
+  const currentStaticImg = useSelector(
+    (state: RootState) => state.app.currentStaticImg
+  );
+  const earthOrbitsScale = useSelector(
+    (state: RootState) => state.app.earthOrbitsScale
+  );
+  const isMobileDevice = useIsMobileDevice();
   const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
-  
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
-    resetOrbitSelection();
+    dispatch(setActiveId(""));
+    dispatch(setHoveringId(""));
   };
 
   const resetOrbitSelection = () => {
@@ -124,7 +130,7 @@ export const App: React.FC = () => {
 
   return (
     <Provider store={store}>
-      <div className="background_container">
+      <div className="background_container" role="main">
         {isSplashScreen ? (
           <SplashScreen />
         ) : (
@@ -143,8 +149,8 @@ export const App: React.FC = () => {
           <div className="nav_container">
             {!flyToId && (
               <div className="orbit_title_container">
-                {orbitIds.map((id, index) => {
-                  return <OrbitTitleGroup key={id} id={id} tabIndex={index} />;
+                {orbitIds.map((id) => {
+                  return <OrbitTitleGroup key={id} id={id} tabIndex={0} />;
                 })}
 
                 <div className="popup_line_container">
