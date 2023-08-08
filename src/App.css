@@ -126,7 +126,7 @@ body,
 
 .reset_selection.top {
   /* background-color: red; */
-  height:49vh;
+  height: 49vh;
   width: 100%;
 }
 
@@ -932,14 +932,19 @@ body,
 
 
 @media (max-width:1170px) {
+  :root {
+    --min-orbit-size: 900px;
+  }
 
   .hard_scale_value {
     transform: scale(.8) !important;
   }
 
-  :root {
-    --min-orbit-size: 900px;
+  .static_satellite_closeup {
+    top: -95%;
+    left: -28px;
   }
+
 
   .earth {
     height: 48%;
@@ -1033,6 +1038,8 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     --mobile-view-width: 90vw;
     --mobile-view-splash-body-width: 60vw;
   }
+
+
 
   .orbit_closeup_back_button_mobile {
     visibility: visible;
@@ -1143,12 +1150,13 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: 40px;
 
   }
+
   .reset_selection {
     opacity: 30%;
     align-self: flex-end;
     z-index: 2;
   }
-  
+
   .reset_selection.top {
     left: 0;
     top: 90px;
@@ -1523,10 +1531,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .static_satellite_closeup {
+    top: unset;
+    scale: unset;
     position: absolute;
     height: 32%;
     bottom: 65%;
-    left: 12%;
+    left: 23%;
   }
 
   .orbit_background {
