@@ -46,7 +46,7 @@ const PopUpText: React.FC = () => {
     <div className="orbit_title_popup_container">
       <div className="orbit_title_popup">
         <div className="orbit_title_info_header">{headerText}</div>
-        <div className="orbit_title_info_body">
+        <div className="orbit_title_info_body" tabIndex={0}>
           <strong>Distance: </strong>
           {bodyDistanceText}
           <br />

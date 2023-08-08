@@ -119,6 +119,8 @@ const EarthOrbitsContainer: React.FC = () => {
         key="earth_orbits_container"
         id="earth_orbits_container"
         className="earth_orbits_container hard_scale_value"
+        role="region"
+        aria-label="earth orbits container"
       >
         <img src={earth} className="earth" alt="earth" />
 
