@@ -86,6 +86,8 @@ const OrbitCloseupText: React.FC = () => {
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
     }
+
+    window.scrollTo(0, 0);
   });
 
   useEffect(() => {
