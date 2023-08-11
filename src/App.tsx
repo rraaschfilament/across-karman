@@ -14,7 +14,6 @@ import OrbitTitleGroup from "./components/OrbitTitleGroup";
 import EarthOrbitsContainer from "./components/EarthOrbitsContainer";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
-import { Player } from "@lottiefiles/react-lottie-player";
 import orbitBackground from "./assets/orbit_background.png";
 import useIsMobileDevice from "./hooks/isMobileDevice";
 import OrbitCloseupText from "./components/OrbitCloseupText";
@@ -150,7 +149,7 @@ export const App: React.FC = () => {
             {!flyToId && (
               <div className="orbit_title_container">
                 {orbitIds.map((id) => {
-                  return <OrbitTitleGroup key={id} id={id} tabIndex={0} />;
+                  return <OrbitTitleGroup key={id + "_orbit_title_group_component"} id={id} tabIndex={0} />;
                 })}
 
                 <div className="popup_line_container">
@@ -180,8 +179,8 @@ export const App: React.FC = () => {
               <StaticImgCloseup key={flyToId + "_sat_" + currentStaticImg} />
             ) : (
               <SingleOrbitAnimationDetails
+                key={flyToId + "_orbit_details"}
                 id={flyToId}
-                player={Player}
                 desc="_orbit_details"
               />
             )}

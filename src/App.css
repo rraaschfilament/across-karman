@@ -16,7 +16,7 @@ body,
   position: relative;
   height: 100%;
   width: 100%;
-  background: transparent url('./assets/background.png') 0% 0% no-repeat;
+  background: transparent url("./assets/background.png") 0% 0% no-repeat;
   background-size: cover;
   opacity: 1;
   display: flex;
@@ -28,7 +28,8 @@ body,
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(113deg, #0024394D 0%, #3631354D 100%) 0% 0% no-repeat padding-box;
+  background: linear-gradient(113deg, #0024394d 0%, #3631354d 100%) 0% 0%
+    no-repeat padding-box;
   opacity: 1;
   z-index: 1;
 }
@@ -41,7 +42,6 @@ body,
   color: white;
   text-align: left;
   z-index: 2;
-
 }
 
 .splash_screen_title {
@@ -62,11 +62,12 @@ body,
 }
 
 .splash_screen_body {
-  font: normal normal normal 16px/24px "acumin-pro", sans-serif;
+  font:
+    normal normal normal 16px/24px "acumin-pro",
+    sans-serif;
   width: 38%;
   line-height: 1.8;
   margin-bottom: 12px;
-
 }
 
 .splash_screen_button {
@@ -75,7 +76,7 @@ body,
   max-width: 80%;
   white-space: nowrap;
   height: 57px;
-  background-color: #F3F2F1;
+  background-color: #f3f2f1;
   font-family: "alternate-gothic-no-1-d", sans-serif;
   font-size: 33px;
   letter-spacing: 1.92px;
@@ -136,7 +137,6 @@ body,
   top: 49vh;
   left: 39vw;
   width: calc(56vw + var(--reset_selection_left));
-
 }
 
 .player {
@@ -248,7 +248,6 @@ body,
 
 .leo_outline {
   position: absolute;
-
 }
 
 .leo_label {
@@ -478,7 +477,6 @@ body,
   top: 125%;
   left: 50%;
   height: 2%;
-
 }
 
 .gto_line_container {
@@ -486,7 +484,6 @@ body,
   top: 126%;
   left: 60%;
   height: 1%;
-
 }
 
 .line,
@@ -563,7 +560,6 @@ body,
   padding-top: 3%;
   justify-content: left;
   flex: 0.3;
-
 }
 
 .orbit_title_info_body {
@@ -579,7 +575,6 @@ body,
   font-weight: 300;
   flex: 3;
   overflow: auto;
-
 }
 
 .orbit_title_info_footer {
@@ -607,11 +602,11 @@ body,
 }
 
 .orbit_popup_button:hover {
-  background: #0E6EA6;
+  background: #0e6ea6;
 }
 
 .orbit_popup_button:active {
-  background: #0E6EA6 0% 0% no-repeat padding-box;
+  background: #0e6ea6 0% 0% no-repeat padding-box;
   border: 4px solid #195788;
 }
 
@@ -620,12 +615,10 @@ body,
   width: 15vw;
   z-index: 2;
   white-space: nowrap;
-
 }
 
 .risk_icon {
   margin-right: 5%;
-
 }
 
 /* Orbit Closeup */
@@ -634,7 +627,7 @@ body,
   width: 100%;
   height: 100%;
   opacity: 1;
-  scale: .10;
+  scale: 0.1;
   top: -10px;
   left: 60px;
   transform: scale(12);
@@ -655,8 +648,6 @@ body,
   z-index: 2;
 }
 
-
-
 .orbit_closeup_text {
   position: relative;
   text-align: left;
@@ -676,7 +667,7 @@ body,
   padding-right: 5%;
   padding-top: 5%;
   z-index: 1;
-  flex: 0.10;
+  flex: 0.1;
   cursor: pointer;
 }
 
@@ -769,7 +760,6 @@ body,
   justify-content: space-between;
   opacity: 1 !important;
   z-index: 2;
-
 }
 
 .orbit_closeup_button_outlined {
@@ -785,7 +775,6 @@ body,
   cursor: pointer;
   color: #002439;
   flex: 0.4;
-
 }
 
 .orbit_closeup_button_outlined:hover {
@@ -825,7 +814,6 @@ body,
   border: 2px solid #085988;
 }
 
-
 /*this is the closeup player*/
 .leo_orbit_details,
 .meo_orbit_details,
@@ -848,7 +836,6 @@ body,
   animation-fill-mode: forwards;
   position: relative;
   left: 9%;
-
 }
 
 @keyframes fly-in-right {
@@ -878,19 +865,16 @@ body,
   0% {
     opacity: 1;
     transform: scale(13);
-
   }
 
   50% {
     opacity: 1;
     transform: scale(13);
-
   }
 
   100% {
     opacity: 0;
     transform: scale(13);
-
   }
 }
 
@@ -905,18 +889,14 @@ body,
   }
 }
 
-
-
 /* EXTRA LARGE */
 @media (min-width: 1921px) and (min-height: 1081px) {
-
   .earth {
     position: absolute;
     height: 350px;
     width: 350px;
     left: 930px;
     top: 280px;
-
   }
 
   .player {
@@ -926,25 +906,21 @@ body,
     top: 0px;
     left: 650px;
   }
-
-
 }
 
-
-@media (max-width:1170px) {
+@media (max-width: 1170px) {
   :root {
     --min-orbit-size: 900px;
   }
 
   .hard_scale_value {
-    transform: scale(.8) !important;
+    transform: scale(0.8) !important;
   }
 
   .static_satellite_closeup {
     top: -95%;
     left: -28px;
   }
-
 
   .earth {
     height: 48%;
@@ -972,7 +948,6 @@ body,
     height: 64.8%;
   }
 
-
   .meo_fill {
     height: 78%;
   }
@@ -982,8 +957,7 @@ body,
   }
 }
 
-@media (max-width:1000px) {
-
+@media (max-width: 1000px) {
   .earth_orbits_container {
     left: 27vw;
   }
@@ -1009,7 +983,6 @@ body,
   .earth_orbits_container {
     left: 18vw;
   }
-
 }
 
 /*****************************************************************************************************************************************************/
@@ -1022,15 +995,13 @@ accomodate that. This comes in the form a large amount of empty space on the bot
 Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
 */
 
-
 .hidden {
-  display: none !important
+  display: none !important;
 }
 
 .orbit_closeup_back_button_mobile {
   visibility: hidden;
 }
-
 
 @media (max-width: 500px) {
   :root {
@@ -1038,8 +1009,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     --mobile-view-width: 90vw;
     --mobile-view-splash-body-width: 60vw;
   }
-
-
 
   .orbit_closeup_back_button_mobile {
     visibility: visible;
@@ -1148,7 +1117,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     object-position: left;
     width: 100%;
     height: 40px;
-
   }
 
   .reset_selection {
@@ -1236,7 +1204,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     max-width: var(--mobile-orbit-size);
     min-height: unset;
     z-index: -1;
-
   }
 
   .earth {
@@ -1263,8 +1230,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     display: flex;
     justify-content: center;
     /* background image will hide the connecting line underneath the popup container at smaller heights */
-    background-image: url('./assets/background.png');
-
+    background-image: url("./assets/background.png");
   }
 
   .orbit_title_popup {
@@ -1304,7 +1270,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .risk_icon {
-    margin-right: 12px
+    margin-right: 12px;
   }
 
   .drawing {
@@ -1327,13 +1293,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     left: 100%;
     height: 12px;
     width: 12px;
-
   }
 
   ._label img {
     height: 25px;
     position: absolute;
-    z-index: 2
+    z-index: 2;
   }
 
   ._dotted img,
@@ -1353,7 +1318,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .heo img {
     transform: translate(-49.9%, -49.9%);
   }
-
 
   .leo_line_container {
     top: 454px;
@@ -1386,7 +1350,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .heo_label {
     left: 316px;
-    top: 67px
+    top: 67px;
   }
 
   .heo_solid {
@@ -1437,8 +1401,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     top: 49%;
   }
 
-
-
   .lf-player-container {
     /* outline: 9px dotted green; */
     width: 100%;
@@ -1458,14 +1420,13 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .geo_orbit_moving {
-    top: 49.9%
+    top: 49.9%;
   }
 
   .gto_orbit_moving {
     top: 0;
     left: 0;
   }
-
 
   .orbit_closeup_container {
     position: relative;
@@ -1575,7 +1536,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 }
 
-
 @media (max-width: 400px) {
   :root {
     --mobile-orbit-size: 330px;
@@ -1608,7 +1568,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .heo_label {
     left: 211px;
     top: 67px;
-
   }
 
   .gso_line_container {
@@ -1623,7 +1582,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .geo_line_container {
     top: 426px;
-    left: 19px
+    left: 19px;
   }
 
   .geo_label {
@@ -1671,7 +1630,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     top: 36px;
   }
 
-
   .heo_line_container {
     left: 100px;
     top: 242px;
@@ -1694,7 +1652,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .geo_line_container {
     top: 412px;
-    left: 19px
+    left: 19px;
   }
 
   .geo_label {
@@ -1783,7 +1741,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 }
 
 @media (max-height: 640px) {
-
   /* Shrink popup container for shorter height devices */
   .orbit_title_popup_container {
     height: 45%;

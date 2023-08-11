@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
-import { Player } from "@lottiefiles/react-lottie-player";
 import earth from "../assets/earth.png";
 import SingleOrbitImage from "./SingleOrbitImage";
 import SingleOrbitAnimation from "./SingleOrbitAnimation";
@@ -21,7 +20,6 @@ const EarthOrbitsContainer: React.FC = () => {
           <SingleOrbitAnimation
             key={activeId + "_orbit_moving"}
             id={activeId}
-            player={Player}
             desc="_orbit_moving"
             isSelectedOrbit={true}
           />
@@ -29,7 +27,7 @@ const EarthOrbitsContainer: React.FC = () => {
       } else {
         //special case for GTO
         orbitElements.push(
-          <SingleOrbitImage id={activeId} imageDesc="_solid_active" />
+          <SingleOrbitImage key="gto_solid_active" id={activeId} imageDesc="_solid_active" />
         );
       }
 
@@ -81,14 +79,13 @@ const EarthOrbitsContainer: React.FC = () => {
               <SingleOrbitAnimation
                 key={id + "_orbit_moving"}
                 id={id}
-                player={Player}
                 desc="_orbit_moving"
                 isSelectedOrbit={id === hoveringId}
               />
             );
           } else {
             return orbitElements.push(
-              <SingleOrbitImage id={"gto"} imageDesc="_solid_lighter" />
+              <SingleOrbitImage key="gto_solid_lighter" id={"gto"} imageDesc="_solid_lighter" />
             );
           }
         });
@@ -100,14 +97,13 @@ const EarthOrbitsContainer: React.FC = () => {
               <SingleOrbitAnimation
                 key={id + "_orbit_moving"}
                 id={id}
-                player={Player}
                 desc="_orbit_moving"
                 isSelectedOrbit={true}
               />
             );
           } else {
             orbitElements.push(
-              <SingleOrbitImage id={"gto"} imageDesc="_solid_active" />
+              <SingleOrbitImage key="gto_solid_active" id={"gto"} imageDesc="_solid_active" />
             );
           }
         });
@@ -122,7 +118,7 @@ const EarthOrbitsContainer: React.FC = () => {
         role="region"
         aria-label="earth orbits container"
       >
-        <img src={earth} className="earth" alt="earth" />
+        <img key="earth" src={earth} className="earth" alt="earth" />
 
         {orbitElements}
       </div>

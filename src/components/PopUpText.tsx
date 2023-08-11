@@ -54,12 +54,13 @@ const PopUpText: React.FC = () => {
           {bodyAboutText}
           <br />
           <strong>Risks</strong>
-          <RiskIcons id={activeId} />
+          <RiskIcons key={activeId + "_risk_icon_component"} id={activeId} />
         </div>
         <div className="orbit_title_info_footer"></div>
       </div>
       {activeId !== "gto" && (
         <button
+        key={activeId + "orbit_popup_button"}
           id={activeId}
           className="orbit_popup_button"
           onClick={flyToOrbit}

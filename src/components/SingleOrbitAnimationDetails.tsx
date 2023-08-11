@@ -1,17 +1,16 @@
 import useLottie from '../hooks/useLottie';
+import { Player } from "@lottiefiles/react-lottie-player";
 
 
 interface SingleOrbitAnimationDetailsProps {
     id: string;
-    player: React.ElementType;
     desc: string;
 }
-const SingleOrbitAnimationDetails: React.FC<SingleOrbitAnimationDetailsProps> = ({id, player, desc}) => {
+const SingleOrbitAnimationDetails: React.FC<SingleOrbitAnimationDetailsProps> = ({id, desc}) => {
     const {animation} = useLottie(id + desc)
-    const Player = player
 
     return (
-            <Player src={animation} className={id + desc} autoplay loop />
+            <Player key={id + desc} src={animation} className={id + desc} autoplay loop />
     );
 }
 
