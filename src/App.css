@@ -1186,9 +1186,9 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     position: fixed;
     aspect-ratio: 1;
     top: 90px;
-    left: 50%;
-    /* Has to be this way to work on iPhone */
-    transform: translate(calc(-50%)) !important;
+    /* can't use tranform here for iPhone 11 Safari */
+    /* calculate left so that the container is centered in the window*/
+    left: calc(50vw - (var(--mobile-orbit-size) / 2));
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);

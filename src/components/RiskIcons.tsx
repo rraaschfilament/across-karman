@@ -15,7 +15,7 @@ const RiskIcons: React.FC<RiskIconsProps> = ({ id }) => {
       "cyber",
       "electronic",
       "physical_kinetic",
-      "physical_non-kinetic",
+      "physical_non_kinetic",
       "space_debris",
       "crowding_collision",
     ],
@@ -23,26 +23,33 @@ const RiskIcons: React.FC<RiskIconsProps> = ({ id }) => {
       "cyber",
       "electronic",
       "physical_kinetic",
-      "physical_non-kinetic",
+      "physical_non_kinetic",
       "space_debris",
     ],
-    heo: ["cyber", "electronic", "physical_kinetic", "physical_non-kinetic"],
-    gso: ["cyber", "electronic", "physical_kinetic", "physical_non-kinetic"],
-    geo: ["cyber", "electronic", "physical_kinetic", "physical_non-kinetic"],
+    heo: ["cyber", "electronic", "physical_kinetic", "physical_non_kinetic"],
+    gso: ["cyber", "electronic", "physical_kinetic", "physical_non_kinetic"],
+    geo: ["cyber", "electronic", "physical_kinetic", "physical_non_kinetic"],
     gto: ["space_debris"],
   };
 
   const imageDescs = orbitRiskIcons[id] || [];
   const [images, setImages] = useState<string[]>([]);
 
-  const formatTooltipContent = (text: string): string => {
+  const dict: any = {
+    cyber: "Cyber",
+    electronic: "Electronic",
+    physical_kinetic: "Physical (Kinetic)",
+    physical_non_kinetic: "Physical (Non-Kinetic)",
+    space_debris: "Space Debris",
+    crowding_collision: "Crowding/Collison",
+  };
+
+  const formatTooltipContent = (text: string | undefined) => {
     if (text === undefined) {
       return "";
     }
-    return text
-      .split("_")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+
+    return dict[text];
   };
 
   useEffect(() => {
