@@ -1184,14 +1184,11 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
-    /* Need webkit for iPhone 11 */
-    -webkit-aspect-ratio: 1;
     aspect-ratio: 1;
     top: 90px;
     left: 50%;
-    /* Need webkit for iPhone 11 */
-    -webkit-translate: -50%;
-    translate: -50%;
+    /* Has to be this way to work on iPhone */
+    transform: translate(calc(-50%)) !important;
     height: var(--mobile-orbit-size);
     min-width: var(--mobile-orbit-size);
     max-width: var(--mobile-orbit-size);
