@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import close from "../assets/close.webp";
@@ -41,6 +41,7 @@ const DynamicHTMLRenderer: React.FC<DynamicHTMLRendererProps> = ({
 };
 
 const OrbitCloseupText: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const dispatch = useDispatch();
   const flyToId = useSelector((state: RootState) => state.app.flyToId);
   const currentStaticImg = useSelector(
@@ -63,8 +64,8 @@ const OrbitCloseupText: React.FC = () => {
   const headerText = (orbitCloseupText as OrbitCloseupTextContent)[headerIndex];
   const subHeaderText = currentStaticImg
     ? (orbitSatellites as unknown as OrbitCloseupImgContent)[flyToId]?.[
-        currentStaticImg
-      ]?.["name"]
+    currentStaticImg
+    ]?.["name"]
     : (orbitCloseupText as OrbitCloseupTextContent)[subHeaderIndex];
 
   const satelliteDes: React.ReactNode = (
@@ -80,6 +81,12 @@ const OrbitCloseupText: React.FC = () => {
   const bodyText: React.ReactNode = (
     orbitCloseupText as OrbitCloseupTextContent
   )[bodyIndex];
+
+  useEffect(() => {
+    if (containerRef.current) {
+      containerRef.current.scrollTop = 0;
+    }
+  });
 
   useEffect(() => {
     if (flyToId) {
@@ -158,17 +165,16 @@ const OrbitCloseupText: React.FC = () => {
   };
 
   return (
-    <div className="orbit_closeup_container">
+    <div className="orbit_closeup_container" >
       <div className="orbit_closeup_satellite_icons">
         {numSatellites.map((_satellite: any, index: number) => (
           <img
             key={index + 1}
             id={(index + 1).toString()}
-            className={`${
-              (index + 1).toString() == currentStaticImg
-                ? "selectedSat"
-                : "unselectedSat"
-            }`}
+            className={`${(index + 1).toString() == currentStaticImg
+              ? "selectedSat"
+              : "unselectedSat"
+              }`}
             src={
               (index + 1).toString() == currentStaticImg
                 ? selectedSat
@@ -199,7 +205,7 @@ const OrbitCloseupText: React.FC = () => {
           e.key === "Enter" && backtoMain();
         }}
       />
-      <div className="orbit_closeup_text" tabIndex={0}>
+      <div ref={(el) => (containerRef.current = el)} className="orbit_closeup_text" tabIndex={0}>
         <div className="orbit_closeup_header">{headerText}</div>
         <div className="orbit_closeup_subheader">{subHeaderText}</div>
         {!currentStaticImg && (
