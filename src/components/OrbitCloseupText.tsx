@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import close from "../assets/close.webp";
-import close_mobile from "../assets/close_mobile.webp";
 import selectedSat from "../assets/closeup_satellite_selected.webp";
 import unselectedSat from "../assets/closeup_satellite_unselected.webp";
 import orbitCloseupText from "../text/OrbitCloseups.json";
@@ -82,6 +81,7 @@ const OrbitCloseupText: React.FC = () => {
     orbitCloseupText as OrbitCloseupTextContent
   )[bodyIndex];
 
+  //reset scroll postion of text container when component is rendered with new text
   useEffect(() => {
     if (containerRef.current) {
       containerRef.current.scrollTop = 0;
@@ -195,16 +195,6 @@ const OrbitCloseupText: React.FC = () => {
         }}
       />
 
-      <img
-        className="orbit_closeup_back_button_mobile"
-        src={close_mobile}
-        onClick={backtoMain}
-        alt="close button"
-        tabIndex={0}
-        onKeyDown={(e) => {
-          e.key === "Enter" && backtoMain();
-        }}
-      />
       <div ref={(el) => (containerRef.current = el)} className="orbit_closeup_text" tabIndex={0}>
         <div className="orbit_closeup_header">{headerText}</div>
         <div className="orbit_closeup_subheader">{subHeaderText}</div>
