@@ -28,8 +28,7 @@ body,
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(113deg, #0024394d 0%, #3631354d 100%) 0% 0%
-    no-repeat padding-box;
+  background: linear-gradient(113deg, #0024394d 0%, #3631354d 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
   z-index: 1;
 }
@@ -1003,6 +1002,14 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   visibility: hidden;
 }
 
+.title_info_section {
+  font-weight: bold;
+}
+
+.title_info_section span {
+  font-weight: normal;
+}
+
 @media (max-width: 500px) {
   :root {
     --mobile-orbit-size: 360px;
@@ -1206,6 +1213,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     z-index: -1;
   }
 
+
   .earth {
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -1257,6 +1265,8 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: fit-content;
     width: 90%;
     font-size: 32px;
+    flex: unset;
+    padding-bottom: 8px;
   }
 
   .orbit_title_info_footer {
@@ -1267,6 +1277,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 12px;
     width: 85%;
     flex: 1;
+  }
+
+  .title_info_section {
+    margin-bottom: 16px;
   }
 
   .risk_icon {
@@ -1741,6 +1755,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 }
 
 @media (max-height: 640px) {
+
   /* Shrink popup container for shorter height devices */
   .orbit_title_popup_container {
     height: 45%;
