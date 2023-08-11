@@ -1487,13 +1487,21 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-bottom: 0%;
   }
 
+  .orbit_closeup_section_headings {
+    padding-bottom: 5px;
+  }
+
+  .orbit_closeup_section_headings:not(:nth-child(3)) {
+    padding-top: 20px;
+  }
+
   .orbit_closeup_subheader {
     font-size: 25px;
     letter-spacing: 1.33px;
     padding-top: 1%;
     padding-left: 3%;
     padding-right: 5%;
-    padding-bottom: 2%;
+    padding-bottom: 25px;
   }
 
   .orbit_closeup_body {
@@ -1502,7 +1510,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     line-height: 2;
     padding-left: 3%;
     padding-right: 5%;
-    padding-bottom: 5%;
+    padding-bottom: 0;
   }
 
   .static_satellite_image_container {
