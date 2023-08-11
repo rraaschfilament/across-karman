@@ -50,7 +50,7 @@ const RiskIcons: React.FC<RiskIconsProps> = ({ id }) => {
       const imageUrls: string[] = [];
 
       for (const imageDesc of imageDescs) {
-        const imagePath = await import(`../assets/${imageDesc}.png`);
+        const imagePath = await import(`../assets/${imageDesc}.webp`);
         imageUrls.push(imagePath.default);
       }
 

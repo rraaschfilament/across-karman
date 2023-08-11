@@ -16,7 +16,7 @@ body,
   position: relative;
   height: 100%;
   width: 100%;
-  background: transparent url("./assets/background.png") 0% 0% no-repeat;
+  background: transparent url("./assets/background.webp") 0% 0% no-repeat;
   background-size: cover;
   opacity: 1;
   display: flex;
@@ -1230,7 +1230,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     display: flex;
     justify-content: center;
     /* background image will hide the connecting line underneath the popup container at smaller heights */
-    background-image: url("./assets/background.png");
+    background-image: url("./assets/background.webp");
   }
 
   .orbit_title_popup {

@@ -9,7 +9,7 @@ const useImage = (fileName: string) => {
     useEffect(() => {
         const importImage = async () => {
             try {
-                const { default: img } = await import(`../assets/${fileName}.png`);
+                const { default: img } = await import(`../assets/${fileName}.webp`);
                 if (!img) {
                     console.log(`Image ${fileName} not found`);
                 } else {

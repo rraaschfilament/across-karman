@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../app/store";
-import earth from "../assets/earth.png";
+import earth from "../assets/earth.webp";
 import SingleOrbitImage from "./SingleOrbitImage";
 import SingleOrbitAnimation from "./SingleOrbitAnimation";
 

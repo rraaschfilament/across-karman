@@ -14,7 +14,7 @@ import OrbitTitleGroup from "./components/OrbitTitleGroup";
 import EarthOrbitsContainer from "./components/EarthOrbitsContainer";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
-import orbitBackground from "./assets/orbit_background.png";
+import orbitBackground from "./assets/orbit_background.webp";
 import useIsMobileDevice from "./hooks/isMobileDevice";
 import OrbitCloseupText from "./components/OrbitCloseupText";
 import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";

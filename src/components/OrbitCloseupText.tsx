@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
-import close from "../assets/close.png";
-import close_mobile from "../assets/close_mobile.png";
-import selectedSat from "../assets/closeup_satellite_selected.png";
-import unselectedSat from "../assets/closeup_satellite_unselected.png";
+import close from "../assets/close.webp";
+import close_mobile from "../assets/close_mobile.webp";
+import selectedSat from "../assets/closeup_satellite_selected.webp";
+import unselectedSat from "../assets/closeup_satellite_unselected.webp";
 import orbitCloseupText from "../text/OrbitCloseups.json";
 import orbitSatellites from "../text/OrbitSatellites.json";
 import {
