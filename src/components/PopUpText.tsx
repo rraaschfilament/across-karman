@@ -47,13 +47,13 @@ const PopUpText: React.FC = () => {
       <div className="orbit_title_popup">
         <div className="orbit_title_info_header">{headerText}</div>
         <div className="orbit_title_info_body" tabIndex={0}>
-          <section className="title_info_section">
+          <section className="orbit_title_info_section">
             Distance: <span>{bodyDistanceText}</span>
           </section>
-          <section className="title_info_section">
+          <section className="orbit_title_info_section">
             About: <span>{bodyAboutText}</span>
           </section>
-          <section className="title_info_section">
+          <section className="orbit_title_info_section">
             Risks
             <span>
               <RiskIcons
