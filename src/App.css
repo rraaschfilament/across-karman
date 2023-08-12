@@ -1630,13 +1630,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: calc(46% - var(--mobile-orbit-top-offset));
   }
 
-  .popup_line_container,
-  .earth_orbits_container {
-    top: var(--mobile-orbit-top-offset);
-    left: 50%;
-  }
-
-
 
   .orbit_title_info_header {
     overflow: unset;
