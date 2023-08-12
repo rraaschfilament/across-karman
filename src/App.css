@@ -1039,7 +1039,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .nav_container {
     /* outline: 2px dotted yellow; */
     width: var(--mobile-view-width);
-    animation-name: unset;
     display: flex;
     flex-direction: column;
     align-items: center;

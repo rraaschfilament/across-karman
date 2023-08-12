@@ -39,8 +39,6 @@ export const App: React.FC = () => {
   const earthOrbitsScale = useSelector(
     (state: RootState) => state.app.earthOrbitsScale
   );
-  const isMobileDevice = useIsMobileDevice();
-  const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
@@ -142,26 +140,30 @@ export const App: React.FC = () => {
               className="reset_selection bottom"
               onClick={resetOrbitSelection}
             ></div>
-          </>
-        )}
-        {showNavBar && (
-          <div className="nav_container">
-            {!flyToId && (
-              <div className="orbit_title_container">
-                {orbitIds.map((id) => {
-                  return <OrbitTitleGroup key={id + "_orbit_title_group_component"} id={id} tabIndex={0} />;
-                })}
-
-                <div className="popup_line_container">
+            <div className="nav_container">
+              {!flyToId && (
+                <div className="orbit_title_container">
                   {orbitIds.map((id) => {
-                    return <PopUpLine key={id + "_popupline"} id={id} />;
+                    return (
+                      <OrbitTitleGroup
+                        key={id + "_orbit_title_group_component"}
+                        id={id}
+                        tabIndex={0}
+                      />
+                    );
                   })}
-                </div>
-              </div>
-            )}
 
-            {!flyToId && activeId && <PopUpText />}
-          </div>
+                  <div className="popup_line_container">
+                    {orbitIds.map((id) => {
+                      return <PopUpLine key={id + "_popupline"} id={id} />;
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {!flyToId && activeId && <PopUpText />}
+            </div>
+          </>
         )}
 
         <EarthOrbitsContainer />
