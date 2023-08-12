@@ -1558,9 +1558,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 30px;
   }
 
-  .earth_orbits_container {
-    left: 18vw;
-  }
 }
 
 @media (max-width: 500px) {
