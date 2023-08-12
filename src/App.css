@@ -1542,6 +1542,201 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 }
 
+@media (max-width: 500px) {
+  :root {
+    --mobile-orbit-size: 360px;
+    --mobile-view-width: 90vw;
+    --mobile-view-splash-body-width: 60vw;
+    --mobile-orbit-top-offset: 90px;
+  }
+
+  .orbit_closeup_back_button_mobile {
+    visibility: visible;
+    position: relative;
+    top: -35.5vh;
+    left: 86vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
+  }
+
+  .nav_container {
+    height: 70px;
+    margin-top: 20px;
+  }
+
+
+  .orbit_name {
+    position: relative;
+    width: 0;
+  }
+
+  .orbit_name.meo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.leo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.gso {
+    top: 0px;
+    left: -89px;
+  }
+
+  .orbit_name.heo {
+    top: 8px;
+    left: 71px;
+  }
+
+  .orbit_name.geo {
+    user-select: none;
+    top: 8px;
+    left: -17px;
+  }
+
+  .orbit_name.gto {
+    top: 8px;
+    left: -51px;
+  }
+
+  .orbit_nav_button_image {
+    height: 40px;
+  }
+
+  .reset_selection {
+    opacity: 30%;
+    align-self: flex-end;
+    z-index: 2;
+  }
+
+  .reset_selection.top {
+    top: var(--mobile-orbit-top-offset);
+    height: calc(46% - var(--mobile-orbit-top-offset));
+  }
+
+  .popup_line_container,
+  .earth_orbits_container {
+    top: var(--mobile-orbit-top-offset);
+    left: 50%;
+  }
+
+
+
+  .orbit_title_info_header {
+    overflow: unset;
+    height: fit-content;
+    width: 90%;
+    font-size: 32px;
+    flex: unset;
+    padding-bottom: 8px;
+  }
+
+  .orbit_title_info_footer {
+    flex: 0.07;
+  }
+
+  .orbit_title_info_body {
+    font-size: 12px;
+    width: 85%;
+    flex: 1;
+  }
+
+  .orbit_title_info_section {
+    margin-bottom: 16px;
+  }
+
+  .risk_icon {
+    height: unset;
+    margin-right: 12px;
+  }
+
+  ._label img {
+    height: 25px;
+  }
+
+  .leo_line_container {
+    top: 454px;
+    left: -167px;
+    height: 8%;
+  }
+
+  .leo_label {
+    left: 100px;
+    top: 72px;
+    height: 8%;
+  }
+
+  .meo_line_container {
+    top: 463px;
+    left: -197px;
+    height: 8%;
+  }
+
+  .meo_label {
+    left: 79px;
+    top: 47px;
+  }
+
+  .heo_line_container {
+    top: 257px;
+    left: 151px;
+    height: 63%;
+  }
+
+  .heo_label {
+    left: 316px;
+    top: 67px;
+  }
+
+  .heo_solid {
+    top: 36%;
+    left: 59%;
+  }
+
+  .gso_line_container {
+    top: 521px;
+    left: 91px;
+    height: 8%;
+  }
+
+  .gso_label {
+    left: 73px;
+    top: 14px;
+  }
+
+  .geo_line_container {
+    top: 438px;
+    left: 83px;
+    height: 2%;
+  }
+
+  .geo_label {
+    left: 45px;
+    top: 190px;
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
+  .gto_line_container {
+    top: 436px;
+    left: 67px;
+    height: 1%;
+  }
+
+  .gto_label {
+    left: 125px;
+    top: 184px;
+  }
+
+}
+
+
 @media (max-width: 400px) {
   :root {
     --mobile-orbit-size: 330px;
