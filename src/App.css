@@ -965,6 +965,12 @@ body,
     top: -10vh;
   }
 
+
+  .geo_label {
+    left: 131px;
+    top: 398px;
+  }
+
   .orbit_closeup_text {
     height: 80vh;
   }
