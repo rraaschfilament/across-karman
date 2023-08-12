@@ -907,6 +907,11 @@ body,
   }
 }
 
+
+.orbit_closeup_text {
+  height: 80vh;
+}
+
 /* iPad Air - Landscape */
 /* Acceptable */
 @media (max-width: 1180px) {
@@ -958,6 +963,7 @@ body,
   }
 }
 
+
 /* iPad Mini - Landscape */
 /* Samsung Galaxy Tab S8 - Landscape */
 @media (max-width: 1040px) {
@@ -971,9 +977,7 @@ body,
     top: 398px;
   }
 
-  .orbit_closeup_text {
-    height: 80vh;
-  }
+
 
   .orbit_closeup_button_plain,
   .orbit_closeup_button_outlined {
