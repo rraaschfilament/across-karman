@@ -964,6 +964,18 @@ body,
   .earth_orbits_container {
     top: -10vh;
   }
+
+  .orbit_closeup_text {
+    height: 80vh;
+  }
+
+  .orbit_closeup_button_plain,
+  .orbit_closeup_button_outlined {
+    font-size: 24px;
+    padding: 12px 32px;
+    height: fit-content;
+  }
+
 }
 
 
