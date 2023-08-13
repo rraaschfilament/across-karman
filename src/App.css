@@ -971,7 +971,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .gso_label {
     left: 29%;
-    top: 10%;
+    top: 15%;
   }
 
   .leo_line_container {
@@ -1062,6 +1062,31 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     left: 43%;
   }
 
+  .leo_label {
+    top: 20%;
+    left: 35%;
+  }
+
+  .meo_label {
+    top: 12%;
+    left: 32%;
+  }
+
+  .heo_label {
+    top: 16%;
+    left: 73%;
+  }
+
+  .gso_label {
+    left: 28%;
+    top: 5%;
+  }
+
+  .geo_label {
+    left: 25%;
+    top: 43%;
+  }
+
   .leo_orbit_details,
   .meo_orbit_details,
   .heo_orbit_details,
@@ -1069,7 +1094,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .geo_orbit_details {
     width: 100%
   }
-} 
+}
 
 /* iPad Air - Portrait */
 /* iPad Mini - Portrait */
@@ -1411,8 +1436,8 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .leo_label {
-    left: 170px;
-    top: 130px;
+    left: 173px;
+    top: 120px;
   }
 
   .meo_line_container {
@@ -1422,7 +1447,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .meo_label {
-    left: 166px;
+    left: 150px;
     top: 72px;
   }
 
