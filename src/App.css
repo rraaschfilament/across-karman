@@ -1608,7 +1608,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 }
 
 
-@media (max-width: 750px) {
+/* @media (max-width: 750px) {
   .splash_screen_body {
     width: 90%;
   }
@@ -1625,8 +1625,9 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 30px;
   }
 
-}
+} */
 
+/* Phones (Portrait) */
 @media (max-width: 500px) {
   :root {
     --mobile-orbit-size: 360px;
