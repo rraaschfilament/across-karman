@@ -557,6 +557,7 @@ body,
   position: relative;
   padding-left: 7%;
   padding-top: 3%;
+  margin-bottom: 8px;
   justify-content: left;
   flex: 0.3;
 }
@@ -574,6 +575,15 @@ body,
   font-weight: 300;
   flex: 3;
   overflow: auto;
+}
+
+.orbit_title_info_section {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.orbit_title_info_section span {
+  font-weight: normal;
 }
 
 .orbit_title_info_footer {
