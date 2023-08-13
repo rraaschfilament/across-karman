@@ -932,16 +932,30 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     transform: scale(1) !important;
   }
 
-  .orbit_title_container {
-    z-index: -1;
-  }
-
   .orbit_nav_button {
     height: 6vh;
   }
 
+  .orbit_title_container {
+    z-index: -1;
+  }
+
+  .orbit_title_info_header {
+    width: 80%;
+  }
+
+  .orbit_title_info_body {
+    flex: 2;
+  }
+
+  .orbit_title_popup {
+    height: 90%;
+    top: 5%;
+  }
+
   .orbit_popup_button {
     padding: 5px 30px;
+    top: 85%;
   }
 
   .earth {
@@ -952,8 +966,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: 30vh;
   }
 
-  .gso_line_container {
-    z-index: -1;
+
+  .gso_label {
+    left: 29%;
+    top: 10%;
   }
 
   .leo_line_container {
@@ -962,10 +978,23 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     z-index: -1;
   }
 
+  .leo_label {
+    top: 20%;
+    left: 38%;
+  }
+
+  .meo_label {
+    top: 12%;
+    left: 35%;
+  }
+
+  .meo_line_container {
+    left: 47%;
+  }
 
   .heo_line_container {
-    height: 30.5vh;
-    z-index: -1;
+    height: 35.5vh;
+    left: 50%;
   }
 
   .gso_line_container {
@@ -973,27 +1002,22 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     z-index: -1;
   }
 
-  /* Styles */
   .geo_line_container {
     height: 8vh;
   }
 
-  .orbit_title_popup {
-    height: 90%;
-    top: 5%;
+  .geo_label {
+    left: 290px;
+    top: 250px;
   }
 
   .gto_line_container {
-    left: 49%;
+    left: 56%;
   }
 
-  .orbit_title_info_body {
-    flex: 2;
-  }
 
-  .orbit_popup_button {
-    top: 85%;
-  }
+
+
 
   .static_satellite_image_container {
     width: 64vw;
@@ -1050,7 +1074,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
 /* iPad Mini - Landscape */
 /* Samsung Galaxy Tab S8 - Landscape */
-@media (max-width: 1040px) {
+/* @media (max-width: 1040px) {
 
   .geo_label {
     left: 131px;
@@ -1064,9 +1088,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: fit-content;
   }
 
-}
+} */
 
 /* iPad Air - Portrait */
+/* Samsung Galaxy Tab S8 - Portrait */
 /* Desktop  */
 @media (max-width: 1180px) {
   :root {
@@ -1607,25 +1632,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 }
 
-
-/* @media (max-width: 750px) {
-  .splash_screen_body {
-    width: 90%;
-  }
-
-  .orbit_closeup_text {
-    margin-left: 12%;
-  }
-
-  .orbit_closeup_button_outlined {
-    font-size: 30px;
-  }
-
-  .orbit_closeup_button_plain {
-    font-size: 30px;
-  }
-
-} */
 
 /* Phones (Portrait) */
 @media (max-width: 500px) {
