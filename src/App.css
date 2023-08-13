@@ -98,7 +98,7 @@ body,
 .earth {
   position: absolute;
   z-index: -1;
-  height: 50%;
+  height: 54%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -907,6 +907,24 @@ body,
   }
 }
 
+
+
+/*****************************************************************************************************************************************************/
+
+/* 
+Note: Because this site is being viewed through an iFrame that has a set height of 900px, adjustments were made to the styling of mobile devices to 
+accomodate that. This comes in the form a large amount of empty space on the bottom of the screen. 
+Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
+*/
+
+.hidden {
+  display: none !important;
+}
+
+.orbit_closeup_back_button_mobile {
+  visibility: hidden;
+}
+
 /* Samsung Galaxy Tab S8 - Landscape */
 @media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
@@ -1033,17 +1051,11 @@ body,
 /* iPad Mini - Landscape */
 /* Samsung Galaxy Tab S8 - Landscape */
 @media (max-width: 1040px) {
-  /* .earth_orbits_container {
-    top: -10vh;
-  } */
-
 
   .geo_label {
     left: 131px;
     top: 398px;
   }
-
-
 
   .orbit_closeup_button_plain,
   .orbit_closeup_button_outlined {
@@ -1054,25 +1066,9 @@ body,
 
 }
 
-
-/*****************************************************************************************************************************************************/
-
-/* 
-Note: Because this site is being viewed through an iFrame that has a set height of 900px, adjustments were made to the styling of mobile devices to 
-accomodate that. This comes in the form a large amount of empty space on the bottom of the screen. 
-Also, some elements appear to overlap, or be awkwardly placed when viewing alone but not when viewed within the staging site.
-*/
-
-.hidden {
-  display: none !important;
-}
-
-.orbit_closeup_back_button_mobile {
-  visibility: hidden;
-}
-
 /* iPad Air - Portrait */
-@media (max-width: 1000px) {
+/* Desktop  */
+@media (max-width: 1180px) {
   :root {
     --mobile-orbit-size: 600px;
     --mobile-view-width: 90vw;
