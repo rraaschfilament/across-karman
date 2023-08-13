@@ -985,10 +985,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
 
-  .gso_label {
-    left: 29%;
-    top: 15%;
-  }
 
   .leo_line_container {
     height: 11.5vh;
@@ -1015,9 +1011,19 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     left: 50%;
   }
 
+  .heo_label {
+    top: 16%;
+    left: 68%;
+  }
+
   .gso_line_container {
     height: 11.5vh;
     z-index: -1;
+  }
+
+  .gso_label {
+    left: 29%;
+    top:9%;
   }
 
   .geo_line_container {
@@ -1030,7 +1036,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .gto_line_container {
-    left: 50%;
+    left: 55%;
   }
 
 
@@ -1600,6 +1606,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-left: 3%;
     padding-right: 5%;
     padding-bottom: 2%;
+    margin-bottom: 8px;
   }
 
   .orbit_closeup_body {
@@ -1628,6 +1635,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     position: unset;
     width: 75%;
     height: auto;
+    scale: .70;
   }
 
   .orbit_background {
