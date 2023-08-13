@@ -717,6 +717,8 @@ body,
   padding-bottom: 30px;
 }
 
+
+
 .orbit_closeup_subheader {
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -743,6 +745,10 @@ body,
   position: relative;
   text-align: left;
   opacity: 1;
+}
+
+.orbit_closeup_section_headings:not(:nth-child(3)) {
+  margin-top: 16px;
 }
 
 .orbit_closeup_body {
