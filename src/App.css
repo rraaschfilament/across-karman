@@ -926,6 +926,8 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 }
 
 /* Samsung Galaxy Tab S8 - Landscape */
+/* IPad Air 5 Landscape */
+/* IPad Mini Landscape */
 @media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
   .hard_scale_value {
@@ -1012,11 +1014,8 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .gto_line_container {
-    left: 56%;
+    left: 50%;
   }
-
-
-
 
 
   .static_satellite_image_container {
@@ -1032,11 +1031,18 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     scale: 0.5;
   }
 
-}
+  .orbit_closeup_button_plain,
+  .orbit_closeup_button_outlined {
+    font-size: 24px;
+    padding: 12px 32px;
+    height: fit-content;
+  }
 
+}
 
 /* IPad Air 5 Landscape */
 /* IPad Mini Landscape */
+/* Fine tunes a few things for these devices */
 @media only screen and (max-device-width : 1110px) and (orientation : landscape) {
 
   .orbit_nav_button {
@@ -1056,13 +1062,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     left: 43%;
   }
 
-  .orbit_closeup_button_plain,
-  .orbit_closeup_button_outlined {
-    font-size: 24px;
-    padding: 12px 32px;
-    height: fit-content;
-  }
-
   .leo_orbit_details,
   .meo_orbit_details,
   .heo_orbit_details,
@@ -1070,30 +1069,14 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .geo_orbit_details {
     width: 100%
   }
-}
-
-/* iPad Mini - Landscape */
-/* Samsung Galaxy Tab S8 - Landscape */
-/* @media (max-width: 1040px) {
-
-  .geo_label {
-    left: 131px;
-    top: 398px;
-  }
-
-  .orbit_closeup_button_plain,
-  .orbit_closeup_button_outlined {
-    font-size: 24px;
-    padding: 12px 32px;
-    height: fit-content;
-  }
-
-} */
+} 
 
 /* iPad Air - Portrait */
+/* iPad Mini - Portrait */
 /* Samsung Galaxy Tab S8 - Portrait */
 /* Desktop  */
-@media (max-width: 1180px) {
+@media (max-width: 1080px),
+(max-width: 1132px) {
   :root {
     --mobile-orbit-size: 600px;
     --mobile-view-width: 90vw;
