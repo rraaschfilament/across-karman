@@ -907,65 +907,135 @@ body,
   }
 }
 
-
-
-/* iPad Air - Landscape */
-@media (max-width: 1180px) {
-  :root {
-    --min-orbit-size: 900px;
-  }
+/* Samsung Galaxy Tab S8 - Landscape */
+@media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
   .hard_scale_value {
-    transform: scale(0.8) !important;
+    transform: scale(1) !important;
   }
 
-  .static_satellite_closeup {
-    top: -95%;
-    left: -28px;
+  .orbit_title_container {
+    z-index: -1;
+  }
+
+  .orbit_nav_button {
+    height: 6vh;
+  }
+
+  .orbit_popup_button {
+    padding: 5px 30px;
   }
 
   .earth {
-    height: 51%;
+    height: 53%;
   }
 
-  .earth_orbits_container {
-    position: relative;
-    left: 30vw;
-    bottom: 7vh;
-    min-height: var(--min-orbit-size);
-    max-height: var(--min-orbit-size);
-    min-width: var(--min-orbit-size);
-    max-width: var(--min-orbit-size);
+  .drawing {
+    height: 30vh;
   }
 
-  .gso_fill {
-    height: 95%;
+  .gso_line_container {
+    z-index: -1;
   }
 
-  .geo_fill {
-    height: inherit;
+  .leo_line_container {
+    height: 11.5vh;
+    left: 48%;
+    z-index: -1;
   }
 
-  .heo_fill {
-    height: 64.8%;
+
+  .heo_line_container {
+    height: 30.5vh;
+    z-index: -1;
   }
 
-  .meo_fill {
-    height: 78%;
+  .gso_line_container {
+    height: 11.5vh;
+    z-index: -1;
   }
 
-  .leo_fill {
-    height: 61%;
+  /* Styles */
+  .geo_line_container {
+    height: 8vh;
   }
+
+  .orbit_title_popup {
+    height: 90%;
+    top: 5%;
+  }
+
+  .gto_line_container {
+    left: 49%;
+  }
+
+  .orbit_title_info_body {
+    flex: 2;
+  }
+
+  .orbit_popup_button {
+    top: 85%;
+  }
+
+  .static_satellite_image_container {
+    width: 64vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .static_satellite_closeup {
+    position: static;
+    scale: 0.5;
+  }
+
 }
 
+
+/* IPad Air 5 Landscape */
+/* IPad Mini Landscape */
+@media only screen and (max-device-width : 1110px) and (orientation : landscape) {
+
+  .orbit_nav_button {
+    height: 6.5vh;
+  }
+
+  .orbit_title_popup {
+    height: 85%;
+    top: 10%;
+  }
+
+  .gto_line_container {
+    left: 46%;
+  }
+
+  .leo_line_container {
+    left: 43%;
+  }
+
+  .orbit_closeup_button_plain,
+  .orbit_closeup_button_outlined {
+    font-size: 24px;
+    padding: 12px 32px;
+    height: fit-content;
+  }
+
+  .leo_orbit_details,
+  .meo_orbit_details,
+  .heo_orbit_details,
+  .gso_orbit_details,
+  .geo_orbit_details {
+    width: 100%
+  }
+}
 
 /* iPad Mini - Landscape */
 /* Samsung Galaxy Tab S8 - Landscape */
 @media (max-width: 1040px) {
-  .earth_orbits_container {
+  /* .earth_orbits_container {
     top: -10vh;
-  }
+  } */
 
 
   .geo_label {
@@ -1240,15 +1310,19 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 40%;
+    height: 35%;
+    min-height: 340px;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    justify-content: flex-start;
   }
 
   .orbit_popup_button {
     border-style: none;
-    font-size: 20px;
     padding: 10px 25px;
-    top: 40%;
+    top: 33%;
     left: 10%;
     /* Fixes button sizing on iPhone 11 Safari */
     width: auto;
@@ -1260,16 +1334,19 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: fit-content;
     width: 90%;
     font-size: 40px;
+    flex: unset;
   }
 
   .orbit_title_info_footer {
-    flex: 0.07;
+    display: hidden;
   }
 
   .orbit_title_info_body {
+    /* outline: 2px dotted yellow; */
     font-size: 16px;
     width: 85%;
-    flex: 1;
+    height: 25%;
+    flex: auto;
   }
 
   .risk_icon {
@@ -1951,6 +2028,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   /* Shrink popup container for shorter height devices */
   .orbit_title_popup_container {
     height: 45%;
-    top: 55%;
+    top: 51%;
   }
 }
