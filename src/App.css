@@ -1023,7 +1023,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .gso_label {
     left: 29%;
-    top:9%;
+    top: 9%;
   }
 
   .geo_line_container {
@@ -1309,11 +1309,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 16px;
   }
 
-  .earth_orbits_contaienr {
-    min-height: unset;
-    min-width: unset;
-  }
-
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
@@ -1361,24 +1356,21 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-top: 10px;
     width: var(--mobile-view-width);
     left: 0%;
-    height: 35%;
-    min-height: 340px;
+    height: 40%;
     top: 0;
-    display: flex;
-    flex-direction: column;
-    align-self: start;
-    justify-content: flex-start;
   }
 
   .orbit_popup_button {
     border-style: none;
+    font-size: 20px;
     padding: 10px 25px;
-    top: 33%;
+    top: 40%;
     left: 10%;
     /* Fixes button sizing on iPhone 11 Safari */
     width: auto;
     height: fit-content;
   }
+
 
   .orbit_title_info_header {
     overflow: unset;
@@ -1389,20 +1381,23 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_info_footer {
-    display: hidden;
+    flex: 0.07;
   }
 
   .orbit_title_info_body {
     /* outline: 2px dotted yellow; */
     font-size: 16px;
     width: 85%;
-    height: 25%;
-    flex: auto;
+    flex: 1;
+  }
+
+  .orbit_popup_button {
+    font-size: 30px;
+    top: 39%;
   }
 
   .risk_icon {
     margin-right: 12px;
-    height: 40px;
   }
 
   .drawing {
@@ -1665,8 +1660,9 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 }
 
 
-/* Phones (Portrait) */
-@media (max-width: 500px) {
+/* Phones (Portrait)*/
+/* Desktop */
+@media (max-width: 740px) {
   :root {
     --mobile-orbit-size: 360px;
     --mobile-view-width: 90vw;
@@ -1749,7 +1745,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     width: 90%;
     font-size: 32px;
     flex: unset;
-    padding-bottom: 8px;
+    padding-bottom: 0;
   }
 
   .orbit_title_info_footer {
@@ -2055,14 +2051,5 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .gto_label {
     left: 100px;
     top: 140px;
-  }
-}
-
-@media (max-height: 640px) {
-
-  /* Shrink popup container for shorter height devices */
-  .orbit_title_popup_container {
-    height: 45%;
-    top: 51%;
   }
 }
