@@ -1388,7 +1388,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     /* outline: 2px dotted yellow; */
     font-size: 16px;
     width: 85%;
-    flex: 1;
+    flex: 0.8;
   }
 
   .orbit_popup_button {
@@ -1755,7 +1755,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .orbit_title_info_body {
     font-size: 12px;
     width: 85%;
-    flex: 1;
   }
 
   .orbit_title_info_section {
