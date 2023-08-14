@@ -28,8 +28,7 @@ body,
   position: absolute;
   width: 100%;
   height: 100%;
-  background: linear-gradient(113deg, #0024394d 0%, #3631354d 100%) 0% 0%
-    no-repeat padding-box;
+  background: linear-gradient(113deg, #0024394d 0%, #3631354d 100%) 0% 0% no-repeat padding-box;
   opacity: 1;
   z-index: 1;
 }
@@ -99,7 +98,7 @@ body,
 .earth {
   position: absolute;
   z-index: -1;
-  height: 50%;
+  height: 54%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -558,6 +557,7 @@ body,
   position: relative;
   padding-left: 7%;
   padding-top: 3%;
+  margin-bottom: 8px;
   justify-content: left;
   flex: 0.3;
 }
@@ -575,6 +575,15 @@ body,
   font-weight: 300;
   flex: 3;
   overflow: auto;
+}
+
+.orbit_title_info_section {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+.orbit_title_info_section span {
+  font-weight: normal;
 }
 
 .orbit_title_info_footer {
@@ -652,7 +661,7 @@ body,
   position: relative;
   text-align: left;
   top: 0%;
-  height: 87%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -708,6 +717,8 @@ body,
   padding-bottom: 30px;
 }
 
+
+
 .orbit_closeup_subheader {
   font-family: "alternate-gothic-no-1-d", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -734,6 +745,10 @@ body,
   position: relative;
   text-align: left;
   opacity: 1;
+}
+
+.orbit_closeup_section_headings:not(:nth-child(3)) {
+  margin-top: 16px;
 }
 
 .orbit_closeup_body {
@@ -908,85 +923,8 @@ body,
   }
 }
 
-@media (max-width: 1170px) {
-  :root {
-    --min-orbit-size: 900px;
-  }
 
-  .hard_scale_value {
-    transform: scale(0.8) !important;
-  }
 
-  .static_satellite_closeup {
-    top: -95%;
-    left: -28px;
-  }
-
-  .earth {
-    height: 48%;
-  }
-
-  .earth_orbits_container {
-    position: relative;
-    left: 30vw;
-    bottom: 5vh;
-    min-height: var(--min-orbit-size);
-    max-height: var(--min-orbit-size);
-    min-width: var(--min-orbit-size);
-    max-width: var(--min-orbit-size);
-  }
-
-  .gso_fill {
-    height: 95%;
-  }
-
-  .geo_fill {
-    height: inherit;
-  }
-
-  .heo_fill {
-    height: 64.8%;
-  }
-
-  .meo_fill {
-    height: 78%;
-  }
-
-  .leo_fill {
-    height: 61%;
-  }
-}
-
-@media (max-width: 1000px) {
-  .earth_orbits_container {
-    left: 27vw;
-  }
-}
-
-@media (max-width: 750px) {
-  .splash_screen_body {
-    width: 90%;
-  }
-
-  .orbit_closeup_text {
-    margin-left: 12%;
-  }
-
-  .orbit_closeup_button_outlined {
-    font-size: 30px;
-  }
-
-  .orbit_closeup_button_plain {
-    font-size: 30px;
-  }
-
-  .earth_orbits_container {
-    left: 18vw;
-  }
-}
-
-/*****************************************************************************************************************************************************/
-/*****************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************/
 
 /* 
@@ -999,15 +937,212 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   display: none !important;
 }
 
-@media (max-width: 500px) {
-  :root {
-    --mobile-orbit-size: 360px;
-    --mobile-view-width: 90vw;
-    --mobile-view-splash-body-width: 60vw;
-  }
+.orbit_closeup_back_button_mobile {
+  visibility: hidden;
+}
+
+/* Samsung Galaxy Tab S8 - Landscape */
+/* IPad Air 5 Landscape */
+/* IPad Mini Landscape */
+@media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
   .hard_scale_value {
     transform: scale(1) !important;
+  }
+
+  .orbit_nav_button {
+    height: 6vh;
+  }
+
+  .orbit_title_container {
+    z-index: -1;
+  }
+
+  .orbit_title_info_header {
+    width: 80%;
+  }
+
+  .orbit_title_info_body {
+    flex: 2;
+  }
+
+  .orbit_title_popup {
+    height: 90%;
+    top: 5%;
+  }
+
+  .orbit_popup_button {
+    padding: 5px 30px;
+    top: 85%;
+  }
+
+  .earth {
+    height: 53%;
+  }
+
+  .drawing {
+    height: 30vh;
+  }
+
+
+
+  .leo_line_container {
+    height: 11.5vh;
+    left: 48%;
+    z-index: -1;
+  }
+
+  .leo_label {
+    top: 20%;
+    left: 38%;
+  }
+
+  .meo_label {
+    top: 12%;
+    left: 35%;
+  }
+
+  .meo_line_container {
+    left: 47%;
+  }
+
+  .heo_line_container {
+    height: 35.5vh;
+    left: 50%;
+  }
+
+  .heo_label {
+    top: 16%;
+    left: 68%;
+  }
+
+  .gso_line_container {
+    height: 11.5vh;
+    z-index: -1;
+  }
+
+  .gso_label {
+    left: 29%;
+    top: 9%;
+  }
+
+  .geo_line_container {
+    height: 8vh;
+  }
+
+  .geo_label {
+    left: 290px;
+    top: 250px;
+  }
+
+  .gto_line_container {
+    left: 55%;
+  }
+
+
+  .static_satellite_image_container {
+    width: 64vw;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .static_satellite_closeup {
+    position: static;
+    scale: 0.5;
+  }
+
+  .orbit_closeup_button_plain,
+  .orbit_closeup_button_outlined {
+    font-size: 24px;
+    padding: 12px 32px;
+    height: fit-content;
+  }
+
+}
+
+/* IPad Air 5 Landscape */
+/* IPad Mini Landscape */
+/* Fine tunes a few things for these devices */
+@media only screen and (max-device-width : 1110px) and (orientation : landscape) {
+
+  .orbit_nav_button {
+    height: 6.5vh;
+  }
+
+  .orbit_title_popup {
+    height: 85%;
+    top: 10%;
+  }
+
+  .gto_line_container {
+    left: 46%;
+  }
+
+  .leo_line_container {
+    left: 43%;
+  }
+
+  .leo_label {
+    top: 20%;
+    left: 35%;
+  }
+
+  .meo_label {
+    top: 12%;
+    left: 32%;
+  }
+
+  .heo_label {
+    top: 16%;
+    left: 73%;
+  }
+
+  .gso_label {
+    left: 28%;
+    top: 5%;
+  }
+
+  .geo_label {
+    left: 25%;
+    top: 43%;
+  }
+
+  .leo_orbit_details,
+  .meo_orbit_details,
+  .heo_orbit_details,
+  .gso_orbit_details,
+  .geo_orbit_details {
+    width: 100%
+  }
+}
+
+/* iPad Air - Portrait */
+/* iPad Mini - Portrait */
+/* Samsung Galaxy Tab S8 - Portrait */
+/* Desktop  */
+@media (max-width: 1080px),
+(max-width: 1132px) {
+  :root {
+    --mobile-orbit-size: 600px;
+    --mobile-view-width: 90vw;
+    --mobile-view-splash-body-width: 60vw;
+    --orbit-name-top-offset: -2px;
+    --mobile-orbit-top-offset: 130px;
+    --orbit-name-top-special-offset: calc(var(--orbit-name-top-offset) + 8px);
+
+  }
+
+  .hard_scale_value {
+    transform: unset !important;
+  }
+
+  .orbit_closeup_back_button_mobile {
+    visibility: visible;
+    position: relative;
+    top: -35.5vh;
+    left: 86vw;
   }
 
   .background_container {
@@ -1021,20 +1156,19 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .nav_container {
     /* outline: 2px dotted yellow; */
     width: var(--mobile-view-width);
-    animation-name: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: 70px;
     position: static;
-    margin-top: 20px;
+    margin-top: 50px;
   }
 
   /* Horizontal alignment for mobile view */
   .orbit_title_container {
     position: static;
-    width: var(--mobile-view-width);
+    width: 100%;
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1061,34 +1195,33 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_name.meo {
-    top: 0px;
-    left: 8px;
+    top: var(--orbit-name-top-offset);
+    left: 15px;
   }
 
   .orbit_name.leo {
-    top: 0px;
-    left: 8px;
+    top: var(--orbit-name-top-offset);
+    left: 15px;
   }
 
   .orbit_name.gso {
-    top: 0px;
-    left: -89px;
+    top: var(--orbit-name-top-offset);
+    left: -55px;
   }
 
   .orbit_name.heo {
-    top: 8px;
-    left: 71px;
+    top: var(--orbit-name-top-special-offset);
+    left: 77px;
   }
 
   .orbit_name.geo {
-    user-select: none;
-    top: 8px;
-    left: -17px;
+    top: var(--orbit-name-top-special-offset);
+    left: 15px;
   }
 
   .orbit_name.gto {
-    top: 8px;
-    left: -51px;
+    top: var(--orbit-name-top-special-offset);
+    left: -20px;
   }
 
   .visible {
@@ -1100,12 +1233,11 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_nav_button_image {
-    /* outline: 2px dotted yellow; */
     position: relative;
     object-fit: contain;
     object-position: left;
     width: 100%;
-    height: 40px;
+    height: 60px;
   }
 
   .reset_selection {
@@ -1115,9 +1247,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .reset_selection.top {
+    /* background-color: pink; */
     left: 0;
-    top: 90px;
-    height: calc(46% - 90px);
+    top: var(--mobile-orbit-top-offset);
+    height: calc(46% - var(--mobile-orbit-top-offset));
     width: 100vw;
   }
 
@@ -1176,16 +1309,11 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     font-size: 16px;
   }
 
-  .earth_orbits_contaienr {
-    min-height: unset;
-    min-width: unset;
-  }
-
   .popup_line_container,
   .earth_orbits_container {
     position: fixed;
     aspect-ratio: 1;
-    top: 90px;
+    top: var(--mobile-orbit-top-offset);
     /* can't use tranform here for iPhone 11 Safari */
     /* calculate left so that the container is centered in the window*/
     left: calc(50vw - (var(--mobile-orbit-size) / 2));
@@ -1243,11 +1371,13 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: fit-content;
   }
 
+
   .orbit_title_info_header {
     overflow: unset;
     height: fit-content;
     width: 90%;
-    font-size: 32px;
+    font-size: 40px;
+    flex: unset;
   }
 
   .orbit_title_info_footer {
@@ -1255,9 +1385,15 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_info_body {
-    font-size: 12px;
+    /* outline: 2px dotted yellow; */
+    font-size: 16px;
     width: 85%;
-    flex: 1;
+    flex: 0.8;
+  }
+
+  .orbit_popup_button {
+    font-size: 30px;
+    top: 39%;
   }
 
   .risk_icon {
@@ -1287,7 +1423,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   ._label img {
-    height: 25px;
+    height: 35px;
     position: absolute;
     z-index: 2;
   }
@@ -1311,37 +1447,36 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .leo_line_container {
-    top: 454px;
-    left: -167px;
+    top: 587px;
+    left: -111px;
     height: 8%;
   }
 
   .leo_label {
-    left: 100px;
-    top: 72px;
-    height: 8%;
+    left: 173px;
+    top: 120px;
   }
 
   .meo_line_container {
-    top: 463px;
-    left: -197px;
+    top: 575px;
+    left: -168px;
     height: 8%;
   }
 
   .meo_label {
-    left: 79px;
-    top: 47px;
+    left: 150px;
+    top: 72px;
   }
 
   .heo_line_container {
-    top: 257px;
-    left: 151px;
+    top: 247px;
+    left: 427px;
     height: 63%;
   }
 
   .heo_label {
-    left: 316px;
-    top: 67px;
+    left: 531px;
+    top: 107px;
   }
 
   .heo_solid {
@@ -1350,25 +1485,24 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .gso_line_container {
-    top: 521px;
-    left: 91px;
-    height: 8%;
+    top: 550px;
+    left: -209px;
   }
 
   .gso_label {
-    left: 73px;
-    top: 14px;
+    left: 120px;
+    top: 29px;
   }
 
   .geo_line_container {
-    top: 438px;
-    left: 83px;
+    top: 569px;
+    left: 232px;
     height: 2%;
   }
 
   .geo_label {
-    left: 45px;
-    top: 190px;
+    left: 58px;
+    top: 312px;
   }
 
   .geo_fill {
@@ -1376,14 +1510,14 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .gto_line_container {
-    top: 436px;
-    left: 67px;
+    top: 562px;
+    left: 237px;
     height: 1%;
   }
 
   .gto_label {
-    left: 125px;
-    top: 184px;
+    left: 200px;
+    top: 305px;
   }
 
   .gto_solid_active {
@@ -1467,6 +1601,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-left: 3%;
     padding-right: 5%;
     padding-bottom: 2%;
+    margin-bottom: 8px;
   }
 
   .orbit_closeup_body {
@@ -1495,6 +1630,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     position: unset;
     width: 75%;
     height: auto;
+    scale: .70;
   }
 
   .orbit_background {
@@ -1522,6 +1658,196 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     z-index: 0 !important;
   }
 }
+
+
+/* Phones (Portrait)*/
+/* Desktop */
+@media (max-width: 740px) {
+  :root {
+    --mobile-orbit-size: 360px;
+    --mobile-view-width: 90vw;
+    --mobile-view-splash-body-width: 60vw;
+    --mobile-orbit-top-offset: 90px;
+  }
+
+  .orbit_closeup_back_button_mobile {
+    visibility: visible;
+    position: relative;
+    top: -35.5vh;
+    left: 86vw;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
+  }
+
+  .nav_container {
+    height: 70px;
+    margin-top: 20px;
+  }
+
+
+  .orbit_name {
+    position: relative;
+    width: 0;
+  }
+
+  .orbit_name.meo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.leo {
+    top: 0px;
+    left: 8px;
+  }
+
+  .orbit_name.gso {
+    top: 0px;
+    left: -89px;
+  }
+
+  .orbit_name.heo {
+    top: 8px;
+    left: 71px;
+  }
+
+  .orbit_name.geo {
+    user-select: none;
+    top: 8px;
+    left: -17px;
+  }
+
+  .orbit_name.gto {
+    top: 8px;
+    left: -51px;
+  }
+
+  .orbit_nav_button_image {
+    height: 40px;
+  }
+
+  .reset_selection {
+    opacity: 30%;
+    align-self: flex-end;
+    z-index: 2;
+  }
+
+  .reset_selection.top {
+    top: var(--mobile-orbit-top-offset);
+    height: calc(46% - var(--mobile-orbit-top-offset));
+  }
+
+
+  .orbit_title_info_header {
+    overflow: unset;
+    height: fit-content;
+    width: 90%;
+    font-size: 32px;
+    flex: unset;
+    padding-bottom: 0;
+  }
+
+  .orbit_title_info_footer {
+    flex: 0.07;
+  }
+
+  .orbit_title_info_body {
+    font-size: 12px;
+    width: 85%;
+  }
+
+  .orbit_title_info_section {
+    margin-bottom: 16px;
+  }
+
+  .risk_icon {
+    height: unset;
+    margin-right: 12px;
+  }
+
+  ._label img {
+    height: 25px;
+  }
+
+  .leo_line_container {
+    top: 454px;
+    left: -167px;
+    height: 8%;
+  }
+
+  .leo_label {
+    left: 100px;
+    top: 72px;
+    height: 8%;
+  }
+
+  .meo_line_container {
+    top: 463px;
+    left: -197px;
+    height: 8%;
+  }
+
+  .meo_label {
+    left: 79px;
+    top: 47px;
+  }
+
+  .heo_line_container {
+    top: 257px;
+    left: 151px;
+    height: 63%;
+  }
+
+  .heo_label {
+    left: 316px;
+    top: 67px;
+  }
+
+  .heo_solid {
+    top: 36%;
+    left: 59%;
+  }
+
+  .gso_line_container {
+    top: 521px;
+    left: 91px;
+    height: 8%;
+  }
+
+  .gso_label {
+    left: 73px;
+    top: 14px;
+  }
+
+  .geo_line_container {
+    top: 438px;
+    left: 83px;
+    height: 2%;
+  }
+
+  .geo_label {
+    left: 45px;
+    top: 190px;
+  }
+
+  .geo_fill {
+    top: 51%;
+  }
+
+  .gto_line_container {
+    top: 436px;
+    left: 67px;
+    height: 1%;
+  }
+
+  .gto_label {
+    left: 125px;
+    top: 184px;
+  }
+
+}
+
 
 @media (max-width: 400px) {
   :root {
@@ -1724,13 +2050,5 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   .gto_label {
     left: 100px;
     top: 140px;
-  }
-}
-
-@media (max-height: 640px) {
-  /* Shrink popup container for shorter height devices */
-  .orbit_title_popup_container {
-    height: 45%;
-    top: 55%;
   }
 }

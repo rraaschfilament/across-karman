@@ -47,20 +47,27 @@ const PopUpText: React.FC = () => {
       <div className="orbit_title_popup">
         <div className="orbit_title_info_header">{headerText}</div>
         <div className="orbit_title_info_body" tabIndex={0}>
-          <strong>Distance: </strong>
-          {bodyDistanceText}
-          <br />
-          <strong>About: </strong>
-          {bodyAboutText}
-          <br />
-          <strong>Risks</strong>
-          <RiskIcons key={activeId + "_risk_icon_component"} id={activeId} />
+          <section className="orbit_title_info_section">
+            Distance: <span>{bodyDistanceText}</span>
+          </section>
+          <section className="orbit_title_info_section">
+            About: <span>{bodyAboutText}</span>
+          </section>
+          <section className="orbit_title_info_section">
+            Risks
+            <span>
+              <RiskIcons
+                key={activeId + "_risk_icon_component"}
+                id={activeId}
+              />
+            </span>
+          </section>
         </div>
         <div className="orbit_title_info_footer"></div>
       </div>
       {activeId !== "gto" && (
         <button
-        key={activeId + "orbit_popup_button"}
+          key={activeId + "orbit_popup_button"}
           id={activeId}
           className="orbit_popup_button"
           onClick={flyToOrbit}

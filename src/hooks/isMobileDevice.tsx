@@ -10,5 +10,5 @@ export default function useIsMobileDevice() {
     };
     window.addEventListener("resize", updateDimension);
   }, [screenWidth]);
-  return screenWidth <= 500;
+  return screenWidth <= 1132;
 }

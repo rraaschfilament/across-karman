@@ -39,9 +39,8 @@ export const App: React.FC = () => {
   const earthOrbitsScale = useSelector(
     (state: RootState) => state.app.earthOrbitsScale
   );
-  const isMobileDevice = useIsMobileDevice();
-  const showNavBar = isMobileDevice || (!isSplashScreen && !isMobileDevice);
 
+  const isMobileDevice = useIsMobileDevice();
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
     dispatch(setActiveId(""));
@@ -76,10 +75,9 @@ export const App: React.FC = () => {
           earth_orbits_container.style.transform =
             "scale(" + { earthOrbitsScale } + ")";
         }
-
         // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
         earth_orbits_container.style.transformOrigin = "";
-      } else if (windowWidth < 1920 && windowWidth > 500) {
+      } else if (windowWidth < 1920 && !isMobileDevice) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
         const scaleNum = 1 - percentLoss / 100;
@@ -142,26 +140,30 @@ export const App: React.FC = () => {
               className="reset_selection bottom"
               onClick={resetOrbitSelection}
             ></div>
-          </>
-        )}
-        {showNavBar && (
-          <div className="nav_container">
-            {!flyToId && (
-              <div className="orbit_title_container">
-                {orbitIds.map((id) => {
-                  return <OrbitTitleGroup key={id + "_orbit_title_group_component"} id={id} tabIndex={0} />;
-                })}
-
-                <div className="popup_line_container">
+            <div className="nav_container">
+              {!flyToId && (
+                <div className="orbit_title_container">
                   {orbitIds.map((id) => {
-                    return <PopUpLine key={id + "_popupline"} id={id} />;
+                    return (
+                      <OrbitTitleGroup
+                        key={id + "_orbit_title_group_component"}
+                        id={id}
+                        tabIndex={0}
+                      />
+                    );
                   })}
-                </div>
-              </div>
-            )}
 
-            {!flyToId && activeId && <PopUpText />}
-          </div>
+                  <div className="popup_line_container">
+                    {orbitIds.map((id) => {
+                      return <PopUpLine key={id + "_popupline"} id={id} />;
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {!flyToId && activeId && <PopUpText />}
+            </div>
+          </>
         )}
 
         <EarthOrbitsContainer />
