@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version:5
+  --version: 6;
 }
 
 .background_container {
@@ -948,12 +948,13 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 @media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
 
-  /* .hard_scale_value {
-    transform: scale(1) !important;
-  } */
+  .hard_scale_value {
+    transform: scale(0.75) !important;
+  }
+
 
   .earth_orbits_container {
-    top: -18%;
+    top: -4%;
   }
 
   /* .orbit_nav_button {
@@ -976,9 +977,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_popup {
-    height: 43%;
+    height: 60%;
     top: -18%;
   }
+
   /* .orbit_title_popup {
     height: 90%;
     top: 5%;
@@ -986,8 +988,9 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .orbit_popup_button {
     padding: 5px 30px;
-    top: 85%;
+    top: 35%;
   }
+
   /* .orbit_popup_button {
     padding: 5px 30px;
     top: 85%;
@@ -1004,56 +1007,63 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
 
   .leo_line_container {
+    top: 80%;
     height: 11.5vh;
-    left: 48%;
+    left: 45%;
     z-index: -1;
   }
 
   .leo_label {
     top: 20%;
-    left: 38%;
+    left: 34%;
   }
 
   .meo_label {
-    top: 12%;
+    top: 10%;
     left: 35%;
   }
 
   .meo_line_container {
-    left: 47%;
+    left: 50%;
+    top: 80%;
   }
 
   .heo_line_container {
     height: 35.5vh;
     left: 50%;
+    top: 35%;
   }
 
   .heo_label {
     top: 16%;
-    left: 68%;
+    left: 80%;
+
   }
 
   .gso_line_container {
     height: 11.5vh;
     z-index: -1;
+    top: 80%;
   }
 
   .gso_label {
-    left: 29%;
+    left: 20%;
     top: 9%;
   }
 
   .geo_line_container {
     height: 8vh;
+    top: 90%;
   }
 
   .geo_label {
-    left: 290px;
-    top: 250px;
+    left: 20%;
+    top: 44%;
   }
 
   .gto_line_container {
     left: 55%;
+    top: 90%
   }
 
 
