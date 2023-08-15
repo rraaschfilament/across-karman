@@ -15,7 +15,6 @@ import EarthOrbitsContainer from "./components/EarthOrbitsContainer";
 import PopUpLine from "./components/PopUpLine";
 import PopUpText from "./components/PopUpText";
 import orbitBackground from "./assets/orbit_background.webp";
-import useIsMobileDevice from "./hooks/isMobileDevice";
 import OrbitCloseupText from "./components/OrbitCloseupText";
 import SingleOrbitAnimationDetails from "./components/SingleOrbitAnimationDetails";
 import StaticImgCloseup from "./components/StaticImgCloseup";
@@ -40,7 +39,6 @@ export const App: React.FC = () => {
     (state: RootState) => state.app.earthOrbitsScale
   );
 
-  const isMobileDevice = useIsMobileDevice();
   const handleResize = () => {
     adjustElementScale(document.documentElement.clientWidth);
     dispatch(setActiveId(""));
@@ -77,7 +75,7 @@ export const App: React.FC = () => {
         }
         // Remove any transform origin that may have been set for a fly transition, will cause the element to be off center
         earth_orbits_container.style.transformOrigin = "";
-      } else if (windowWidth < 1920 && !isMobileDevice) {
+      } else if (windowWidth < 1920) {
         const loss = 1920 - windowWidth;
         const percentLoss = Math.round(loss / 19.2);
         const scaleNum = 1 - percentLoss / 100;
