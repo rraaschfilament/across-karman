@@ -10,6 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
+  --version:3
 }
 
 .background_container {
