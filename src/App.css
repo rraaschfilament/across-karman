@@ -10,6 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
+  --version: 1.3;
 }
 
 .background_container {
@@ -280,8 +281,8 @@ body,
 .geo_label {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: 20%;
+  top: 45%;
+  left: 25%;
 }
 
 .gto_label {
@@ -988,7 +989,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .leo_line_container {
     height: 11.5vh;
-    left: 48%;
+    left: 30%;
     z-index: -1;
   }
 
@@ -1031,12 +1032,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .geo_label {
-    left: 290px;
-    top: 250px;
+    left: 22%;
+    top: 43%;
   }
 
   .gto_line_container {
-    left: 55%;
+    left: 35%;
   }
 
 
@@ -1081,7 +1082,15 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .leo_line_container {
-    left: 43%;
+    left: 28%;
+  }
+
+  .meo_line_container {
+    left: 40%;
+  }
+
+  .gto_line_container {
+    left: 32%;
   }
 
   .leo_label {
@@ -1555,6 +1564,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .orbit_closeup_container {
     position: relative;
+    padding-top: 20px;
     width: 90%;
     height: 51%;
     top: 27%;
@@ -1581,9 +1591,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     /* outline: 2px dotted tomato; */
     max-width: 100vw;
     padding: 0 40px;
-    height: 66%;
+    height: 78%;
     margin-left: 0%;
     margin-top: 3%;
+    line-height: 1.2;
   }
 
   .orbit_closeup_header {
@@ -1604,13 +1615,17 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     margin-bottom: 8px;
   }
 
+  .orbit_closeup_body p{
+    margin-top: 0;
+  }
   .orbit_closeup_body {
     font-size: 15px;
     letter-spacing: 0px;
-    line-height: 2;
+    line-height: 1.8;
     padding-left: 3%;
     padding-right: 5%;
     padding-bottom: 5%;
+    padding-top:0;
   }
 
   .static_satellite_image_container {

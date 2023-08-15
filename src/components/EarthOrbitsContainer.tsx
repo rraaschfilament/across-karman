@@ -27,7 +27,11 @@ const EarthOrbitsContainer: React.FC = () => {
       } else {
         //special case for GTO
         orbitElements.push(
-          <SingleOrbitImage key="gto_solid_active" id={activeId} imageDesc="_solid_active" />
+          <SingleOrbitImage
+            key="gto_solid_active"
+            id={activeId}
+            imageDesc="_solid_active"
+          />
         );
       }
 
@@ -74,7 +78,7 @@ const EarthOrbitsContainer: React.FC = () => {
       if (hoveringId) {
         //place all orbit animations at a lighter opacity and not moving, unless it is the one that is hovered.  Note that this only occurs when no orbit is active/selected
         orbitIds.map((id) => {
-          if (hoveringId !== "gto") {
+          if (id !== "gto") {
             orbitElements.push(
               <SingleOrbitAnimation
                 key={id + "_orbit_moving"}
@@ -84,9 +88,23 @@ const EarthOrbitsContainer: React.FC = () => {
               />
             );
           } else {
-            return orbitElements.push(
-              <SingleOrbitImage key="gto_solid_lighter" id={"gto"} imageDesc="_solid_lighter" />
-            );
+            if (hoveringId !== "gto") {
+              orbitElements.push(
+                <SingleOrbitImage
+                  key="gto_solid_lighter"
+                  id={"gto"}
+                  imageDesc="_solid_lighter"
+                />
+              );
+            } else {
+              orbitElements.push(
+                <SingleOrbitImage
+                  key="gto_solid_active"
+                  id={"gto"}
+                  imageDesc="_solid_active"
+                />
+              );
+            }
           }
         });
       } else {
@@ -103,7 +121,11 @@ const EarthOrbitsContainer: React.FC = () => {
             );
           } else {
             orbitElements.push(
-              <SingleOrbitImage key="gto_solid_active" id={"gto"} imageDesc="_solid_active" />
+              <SingleOrbitImage
+                key="gto_solid_active"
+                id={"gto"}
+                imageDesc="_solid_active"
+              />
             );
           }
         });
