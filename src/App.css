@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version: 1;
+  --version: 1.2;
 }
 
 .background_container {
@@ -989,7 +989,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .leo_line_container {
     height: 11.5vh;
-    left: 48%;
+    left: 30%;
     z-index: -1;
   }
 
@@ -1032,12 +1032,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .geo_label {
-    left: 290px;
-    top: 250px;
+    left: 22%;
+    top: 43%;
   }
 
   .gto_line_container {
-    left: 55%;
+    left: 35%;
   }
 
 
@@ -1082,7 +1082,13 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .leo_line_container {
-    left: 43%;
+    left: 28%;
+  }
+  .meo_line_container {
+    left: 40%;
+  }
+  .gto_line_container {
+    left: 32%;
   }
 
   .leo_label {
