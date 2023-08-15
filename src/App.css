@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version: 1.2;
+  --version: 1.3;
 }
 
 .background_container {
@@ -281,8 +281,8 @@ body,
 .geo_label {
   position: absolute;
   z-index: 1;
-  top: 50%;
-  left: 20%;
+  top: 45%;
+  left: 25%;
 }
 
 .gto_label {
