@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version: 1.4;
+  --version: 1.5;
 }
 
 .background_container {
@@ -1615,9 +1615,10 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     margin-bottom: 8px;
   }
 
-  .orbit_closeup_body p{
+  .orbit_closeup_body p {
     margin-top: 0;
   }
+
   .orbit_closeup_body {
     font-size: 15px;
     letter-spacing: 0px;
@@ -1625,7 +1626,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     padding-left: 3%;
     padding-right: 5%;
     padding-bottom: 5%;
-    padding-top:0;
+    padding-top: 0;
   }
 
   .static_satellite_image_container {
@@ -1683,6 +1684,11 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     --mobile-view-width: 90vw;
     --mobile-view-splash-body-width: 60vw;
     --mobile-orbit-top-offset: 90px;
+  }
+
+  .orbit_closeup_text {
+    height: 80%;
+    line-height: 1;
   }
 
   .orbit_closeup_back_button_mobile {
