@@ -1121,15 +1121,15 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .earth_orbits_container {
     height: 70%;
-    top: 4%;
+    top: 8%;
   }
 
   .orbit_nav_button {
-    height: 4.8vh;
+    height: 5vh;
   }
 
   .orbit_title_popup {
-    height: 53%;
+    height: 60%;
   }
 
   .orbit_title_info_body {
@@ -1138,12 +1138,12 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_popup_button {
-    top: 44%;
+    top: 53%;
   }
 
 
   .leo_line_container {
-    left: 58%;
+    left: 53%;
     top: 70%;
   }
 
@@ -1154,7 +1154,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .heo_line_container {
     left: 40%;
-    top: 30%;
+    top: 50%;
   }
 
   .gso_line_container {
@@ -1168,7 +1168,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .gto_line_container {
-    left: 64%;
+    left: 55%;
     top: 98%;
   }
 
@@ -1186,7 +1186,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .heo_label {
     top: 16%;
-    left: 66%;
+    left: 72%;
   }
 
   .geo_label {
