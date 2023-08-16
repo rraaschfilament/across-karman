@@ -956,29 +956,17 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: 25%;
   }
 
-  .splash_screen_text {
-    top: 4%;
-  }
-
-  .splash_screen_body {
-    width: 45%
-  }
-
-  .splash_screen_title {
-    font-size: 60px;
-  }
-
   .hard_scale_value {
     transform: scale(1) !important;
   }
 
   .earth_orbits_container {
-    height: 60%;
+    height: 65%;
     top: 4%;
   }
 
   .orbit_nav_button {
-    height: 4vh;
+    height: 5vh;
   }
 
   .orbit_title_container {
@@ -990,7 +978,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_info_body {
-    flex: 0.2;
+    flex: 1.5;
     line-height: 1.5;
   }
 
@@ -1007,7 +995,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .orbit_popup_button {
     padding: 5px 30px;
-    top: 30%;
+    top: 53%;
   }
 
   .earth {
@@ -1020,7 +1008,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .leo_line_container {
     top: 80%;
-    left: 68%;
+    left: 53%;
   }
 
   .leo_label {
@@ -1029,7 +1017,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .meo_label {
-    top: 12%;
+    top: 10%;
     left: 40%;
   }
 
@@ -1059,22 +1047,22 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .geo_line_container {
-    top: 80%;
-    left: 80%
+    top: 88%;
+    left: 60%
   }
 
   .geo_label {
-    left: 60%;
-    top: 48%;
+    left: 66%;
+    top: 50%;
   }
 
   .gto_line_container {
-    top: 80%;
-    left: 72%
+    top: 91%;
+    left: 60%
   }
 
   .gto_label {
-    left: 60%;
+    left: 65%;
     top: 48%;
   }
 
@@ -1105,15 +1093,6 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 /* IPad Mini Landscape */
 /* Fine tunes a few things for these devices */
 @media only screen and (max-device-width : 1110px) and (orientation : landscape) {
-
-  .splash_screen_text {
-    top: 5%;
-    width: fit-content;
-  }
-
-  .splash_screen_title {
-    font-size: 60px;
-  }
 
   .hard_scale_value {
     transform: scale(1) !important;
