@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version: 1.6;
+  --version: 1.62;
 }
 
 .background_container {
@@ -995,7 +995,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .orbit_popup_button {
     padding: 5px 30px;
-    top: 53%;
+    top: 35%;
   }
 
   .earth {
@@ -1023,7 +1023,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .meo_line_container {
     top: 80%;
-    left: 75%;
+    left: 65%;
   }
 
   .heo_line_container {
@@ -1100,7 +1100,7 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 
   .earth_orbits_container {
     height: 70%;
-    top: 8%;
+    top: 4%;
   }
 
   .orbit_nav_button {
