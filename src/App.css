@@ -10,7 +10,7 @@ body,
   display: flex;
   overflow: hidden;
   --reset_selection_left: 180px;
-  --version: 1.5;
+  --version: 1.6;
 }
 
 .background_container {
@@ -947,12 +947,38 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 /* IPad Mini Landscape */
 @media only screen and (max-device-width : 1235px) and (orientation : landscape) {
 
+  .reset_selection.top {
+    height: 39%;
+  }
+
+  .reset_selection.bottom {
+    top: 39%;
+    height: 25%;
+  }
+
+  .splash_screen_text {
+    top: 4%;
+  }
+
+  .splash_screen_body {
+    width: 45%
+  }
+
+  .splash_screen_title {
+    font-size: 60px;
+  }
+
   .hard_scale_value {
     transform: scale(1) !important;
   }
 
+  .earth_orbits_container {
+    height: 60%;
+    top: 4%;
+  }
+
   .orbit_nav_button {
-    height: 6vh;
+    height: 4vh;
   }
 
   .orbit_title_container {
@@ -964,17 +990,24 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
   }
 
   .orbit_title_info_body {
-    flex: 2;
+    flex: 0.2;
+    line-height: 1.5;
+  }
+
+  .orbit_title_popup_container {
+    background-image: url("./assets/background.webp");
+    height: 50%;
+    top: 40%;
   }
 
   .orbit_title_popup {
-    height: 90%;
-    top: 5%;
+    height: 40%;
+    top: 0;
   }
 
   .orbit_popup_button {
     padding: 5px 30px;
-    top: 85%;
+    top: 30%;
   }
 
   .earth {
@@ -985,59 +1018,64 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
     height: 30vh;
   }
 
-
-
   .leo_line_container {
-    height: 11.5vh;
-    left: 30%;
-    z-index: -1;
+    top: 80%;
+    left: 68%;
   }
 
   .leo_label {
     top: 20%;
-    left: 38%;
+    left: 40%;
   }
 
   .meo_label {
     top: 12%;
-    left: 35%;
+    left: 40%;
   }
 
   .meo_line_container {
-    left: 47%;
+    top: 80%;
+    left: 75%;
   }
 
   .heo_line_container {
-    height: 35.5vh;
-    left: 50%;
+    top: 25%;
+    left: 30%;
   }
 
   .heo_label {
-    top: 16%;
-    left: 68%;
+    top: 22%;
+    left: 58%;
   }
 
   .gso_line_container {
-    height: 11.5vh;
-    z-index: -1;
+    top: 80%;
+    left: 80%;
   }
 
   .gso_label {
-    left: 29%;
+    left: 36%;
     top: 9%;
   }
 
   .geo_line_container {
-    height: 8vh;
+    top: 80%;
+    left: 80%
   }
 
   .geo_label {
-    left: 22%;
-    top: 43%;
+    left: 60%;
+    top: 48%;
   }
 
   .gto_line_container {
-    left: 35%;
+    top: 80%;
+    left: 72%
+  }
+
+  .gto_label {
+    left: 60%;
+    top: 48%;
   }
 
 
@@ -1068,55 +1106,105 @@ Also, some elements appear to overlap, or be awkwardly placed when viewing alone
 /* Fine tunes a few things for these devices */
 @media only screen and (max-device-width : 1110px) and (orientation : landscape) {
 
+  .splash_screen_text {
+    top: 5%;
+    width: fit-content;
+  }
+
+  .splash_screen_title {
+    font-size: 60px;
+  }
+
+  .hard_scale_value {
+    transform: scale(1) !important;
+  }
+
+  .earth_orbits_container {
+    height: 70%;
+    top: 4%;
+  }
+
   .orbit_nav_button {
-    height: 6.5vh;
+    height: 4.8vh;
   }
 
   .orbit_title_popup {
-    height: 85%;
-    top: 10%;
+    height: 53%;
   }
 
-  .gto_line_container {
-    left: 46%;
+  .orbit_title_info_body {
+    line-height: 1.5;
+    flex: 1
   }
+
+  .orbit_popup_button {
+    top: 44%;
+  }
+
 
   .leo_line_container {
-    left: 28%;
+    left: 58%;
+    top: 70%;
   }
 
   .meo_line_container {
+    left: 58%;
+    top: 70%;
+  }
+
+  .heo_line_container {
     left: 40%;
+    top: 30%;
+  }
+
+  .gso_line_container {
+    left: 60%;
+    top: 90%;
+  }
+
+  .geo_line_container {
+    left: 60%;
+    top: 96%;
   }
 
   .gto_line_container {
-    left: 32%;
+    left: 64%;
+    top: 98%;
   }
+
+
 
   .leo_label {
     top: 20%;
-    left: 35%;
+    left: 38%;
   }
 
   .meo_label {
     top: 12%;
-    left: 32%;
+    left: 37%;
   }
 
   .heo_label {
     top: 16%;
-    left: 73%;
-  }
-
-  .gso_label {
-    left: 28%;
-    top: 5%;
+    left: 66%;
   }
 
   .geo_label {
-    left: 25%;
+    left: 30%;
     top: 43%;
   }
+
+  .gso_label {
+    left: 34%;
+    top: 5%;
+  }
+
+  .gto_label {
+    left: 65%;
+    top: 43%;
+  }
+
+
 
   .leo_orbit_details,
   .meo_orbit_details,
