@@ -9,7 +9,7 @@
     "meo_button" : "VISIT MEO",
     "heo_header" : "HIGHLY ELLIPTICAL ORBIT (HEO)",
     "heo_body_distance" : "Varies",
-    "heo_body_about" : "In HEO, satellites orbit the earth traversing an elliptical path rather than a circular one. A key feature of satellites in HEO is that they move faster when they are close to Earth than when they are farther away. This is because when the satellite is in perigee (the point of orbit closest to Earth), the gravitational pull from Earth is higher than when the satellite is in apogee (the point farthest from Earth).",
+    "heo_body_about" : "In HEO, satellites orbit the Earth traversing an elliptical path rather than a circular one. A key feature of satellites in HEO is that they move faster when they are closer to Earth. This is because when the satellite is in perigee (the point of orbit closest to Earth), the gravitational pull from Earth is higher than when the satellite is in apogee (the point farthest from Earth).",
     "heo_button" : "VISIT HEO",
     "gso_header" : "GEOSYNCHRONOUS ORBIT (GSO)",
     "gso_body_distance" : "35,786 km",

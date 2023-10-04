@@ -2,11 +2,11 @@
     "leo": {
         "1": {
             "name": "INTERNATIONAL SPACE STATION (ISS)",
-            "description": "The International Space Station is the largest modular orbital laboratory and space base in LEO under the partnership of five space agencies: the United States' NASA, Russia's Roscosmos, Japan's JAXA, Europe's ESA, and Canada's CSA.<br/> ",
+            "description": "The International Space Station is the largest modular orbital laboratory and space base in LEO and under the partnership of five space agencies: the United States' NASA, Russia's Roscosmos, Japan's JAXA, Europe's ESA, and Canada's CSA.<br/> ",
             "purpose":
             "The ISS was created to advance international collaboration in learning about space. It is home to crews of astronauts and cosmonauts, as well as a variety of science and technology experiments in the world’s only microgravity laboratory.<br/> ",
             "why":
-            "The ISS is in LEO out of necessity. Each section of the ISS is incredibly heavy, so it would be impossible to position each module any higher. Additionally, the farther away from Earth the more dangerous conditions and travel are for crew members, including high costs each trip (a minimum of four hours), to the ISS is expensive."
+            "The International Space Station (ISS) is located in low Earth orbit because it provides an ideal environment for crew training, research, and hardware testing for exploration use. LEO's proximity to Earth enables frequent resupply missions and ensures that astronauts can quickly return to Earth in case of emergencies. Its placement in LEO also allows for efficient communication with Earth as well as controlled re-entry at the end of its operational life cycle."
         },
         "2": {
             "name": "IRIDIUM SATELLITE CONSTELLATION",
@@ -16,7 +16,7 @@
         },
         "3": {
             "name": "STARLINK",
-            "description": "Starlink is a satellite internet constellation operated by American aerospace company SpaceX, providing satellite Internet access coverage to over 54 countries.",
+            "description": "Starlink is a satellite internet constellation operated by American aerospace company SpaceX, providing satellite internet access coverage to over 54 countries.",
             "purpose": "With approximately 3,900 functioning Starlink satellites in space, Starlink aims to deliver high-speed, low-latency internet to users all over the world.",
             "why": "Starlink satellites operate on the lower end of LEO, approximately 342 miles (550 kilometers) above Earth, and therefore are able to offer service at significantly lower levels of latency."
         },
@@ -33,7 +33,7 @@
             "name" : "THE GLOBAL POSITIONING SYSTEM (GPS) ",
             "description": "GPS is the US government-owned and US Air Force-run satellite-based navigation system that currently consists of 31 satellites, with each satellite in circular MEO with an altitude of about 20,000 km.",
             "purpose": "Originally intended for military use and later made available for civilian use in the 1980’s, GPS provides users with positioning, navigation, and timing (PNT) services to determine one’s 3D position (latitude, longitude and altitude).",
-            "why": "In MEO, the GPS constellation is oriented such that at any given moment, every point on Earth has access to four GPS satellites. MEO is far enough that it has greater coverage than a LEO satellite can cover, which becomes essential when navigating more remote locations and minimizing “dead zones'.' Further, the greater distance from Earth than LEO makes the signal less likely to be blocked by smaller things such as mountains or forests, and through weather conditions."
+            "why": "In MEO, the GPS constellation is oriented such that at any given moment, every point on Earth has access to four GPS satellites. MEO’s greater coverage than LEO is essential when navigating more remote locations and minimizing “dead zones.” Further, the greater distance from Earth makes the signal less likely to be blocked by smaller things such as mountains or forests, and through weather conditions."
         },
         "2": {
             "name": "GALILEO",
@@ -46,7 +46,7 @@
         "1": {
             "name" : "MOLNIYA SATELLITES",
             "description": "Molniya satellites were former military and communication satellites operated by the Soviet Union, giving their name to what is now known as the Molniya orbit.",
-            "purpose": "Molniya satellites were developed to experiment with new orbital patterns, as GEO did not allow for coverage of the Polar region. For the majority of their periods, Molniya satellites are primarily observing the northern hemisphere of Earth. Since both the US and Russia are in the northern hemisphere, Molniya orbits were ideal for reconnaissance satellites in the Cold War Era. The Meridian satellite constellation is the successor to the Molniya satellites.",
+            "purpose": "Molniya satellites were developed to experiment with new orbital patterns, as GEO did not allow for coverage of the Polar region. For the majority of their orbit, Molniya satellites are primarily observing the northern hemisphere of Earth. Since both the US and Russia are in the northern hemisphere, Molniya orbits were ideal for reconnaissance satellites in the Cold War Era. The Meridian satellite constellation is the successor to the Molniya satellites.",
             "why": "The orbital pattern of Molniya satellites lent itself to a longer exposure over the northern hemisphere, at a much lower energy cost. It was specifically designed for coverage of higher latitudes."
         },
         "2": {
